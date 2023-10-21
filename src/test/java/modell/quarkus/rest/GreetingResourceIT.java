@@ -1,4 +1,4 @@
-package modell.quarkus;
+package modell.quarkus.rest;
 
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 

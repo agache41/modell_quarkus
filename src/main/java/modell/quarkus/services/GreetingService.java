@@ -1,4 +1,4 @@
-package modell.quarkus;
+package modell.quarkus.services;
 
 import jakarta.enterprise.context.ApplicationScoped;
 
