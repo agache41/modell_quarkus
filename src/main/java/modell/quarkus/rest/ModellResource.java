@@ -1,40 +1,42 @@
 package modell.quarkus.rest;
 
 import jakarta.inject.Inject;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.transaction.Transactional;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import modell.quarkus.dao.Dao;
 import modell.quarkus.entities.Modell;
-import modell.quarkus.services.GreetingService;
-import modell.quarkus.services.ModellService;
 
 @Path("/modell")
+@Transactional
 public class ModellResource {
-
     @Inject
-    GreetingService service;
-
-    @Inject
-    ModellService modellService;
+    Dao<Modell> modellDao;
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
-    public Modell get(Long id) {
-        return modellService.getById(id);
+    public Modell get(@PathParam("id") Long id) {
+        return modellDao.findById(id);
     }
 
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    @Path("/greeting/{name}")
-    public String greeting(String name) {
-        return service.greeting(name);
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Modell post(Modell source) {
+        return modellDao.persist(source);
     }
 
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String hello() {
-        return "hello";
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Modell put(Modell source) {
+        return modellDao.update(source);
+    }
+
+    @DELETE
+    @Path("/{id}")
+    public void delete(@PathParam("id") Long id) {
+        modellDao.remove(id);
     }
 }
