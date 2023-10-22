@@ -5,7 +5,7 @@ import modell.quarkus.entities.Modell;
 
 public class DaoService {
     @Inject
-    Dao<Modell> modellDao;
+    Dao<Modell, Long> modellDao;
 
 
 }

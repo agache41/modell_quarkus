@@ -11,15 +11,7 @@ import java.lang.reflect.InvocationTargetException;
  */
 public interface BaseEntityInterface<KEY_T> {
 
-    /**
-     * Default allocation size.
-     */
-    int ALLOCATION_SIZE = 1;
-
-    /**
-     * Allocation size for entities used in batch actions.
-     */
-    int BATCH_ALLOCATION_SIZE = 1000;
+    String ID = "id";
 
     /**
      * Returns the BaseEntity for this Entity.
@@ -82,11 +74,9 @@ public interface BaseEntityInterface<KEY_T> {
      * @param source to update from
      * @return current update object
      */
-    default <T extends BaseEntityInterface<?>> T update(T source) {
-        return source;
-        // todo:
-        //return ClassDescriptor.getDescriptor(source)
-        //                      .update((T) this, source);
+    default <T extends BaseEntityInterface<KEY_T>> T update(T source) {
+        return ClassDescriptor.getDescriptor(source)
+                              .update((T) this, source);
     }
 
     /**

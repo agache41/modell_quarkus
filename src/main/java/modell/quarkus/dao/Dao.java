@@ -20,12 +20,14 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-@Dependent
-public class Dao<T extends BaseEntityInterface<?>> {
+import static modell.quarkus.dao.BaseEntityInterface.ID;
 
-    public static final String ID = "id";
+@Dependent
+public class Dao<T extends BaseEntityInterface<K>, K> {
+
 
     protected final Class<T> type;
+    protected final Class<K> keyType;
     protected final String name;
 
     @PersistenceContext
@@ -43,7 +45,8 @@ public class Dao<T extends BaseEntityInterface<?>> {
      */
     @Inject
     public Dao(InjectionPoint ip) {
-        this(((Class<T>) (((ParameterizedType) ip.getType()).getActualTypeArguments()[0])));
+        this(((Class<T>) (((ParameterizedType) ip.getType()).getActualTypeArguments()[0])),
+                ((Class<K>) (((ParameterizedType) ip.getType()).getActualTypeArguments()[1])));
     }
 
     /**
@@ -51,9 +54,10 @@ public class Dao<T extends BaseEntityInterface<?>> {
      *
      * @param type
      */
-    protected Dao(Class<T> type) {
+    protected Dao(Class<T> type, Class<K> keyType) {
         this.type = type;
-        this.name = "Dao<" + this.type.getSimpleName() + ">";
+        this.keyType = keyType;
+        this.name = "Dao<" + this.type.getSimpleName() + "," + this.keyType.getSimpleName() + ">";
     }
 
     protected EntityManager em() {
@@ -130,7 +134,7 @@ public class Dao<T extends BaseEntityInterface<?>> {
      * @param filter
      * @return
      */
-    public List<T> findByIds(List<Long> filter) {
+    public List<T> findByIds(List<K> filter) {
         return findByColumnValue(ID, filter);
     }
 
@@ -307,7 +311,7 @@ public class Dao<T extends BaseEntityInterface<?>> {
      *
      * @param id
      */
-    public void remove(Long id) {
+    public void remove(K id) {
         em.remove(this.findById(id));
     }
 
@@ -317,7 +321,7 @@ public class Dao<T extends BaseEntityInterface<?>> {
      *
      * @param ids
      */
-    public void removeByIds(List<Long> ids) {
+    public void removeByIds(List<K> ids) {
         this.findByIds(ids)
             .forEach(this::remove);
     }

@@ -9,7 +9,7 @@ import modell.quarkus.entities.Modell;
 @ApplicationScoped
 public class ModellService {
     @Inject
-    Dao<Modell> modellDao;
+    Dao<Modell, Long> modellDao;
 
     @Transactional
     public Modell getById(Long id) {
