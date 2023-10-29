@@ -8,14 +8,14 @@ import jakarta.persistence.SequenceGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import modell.quarkus.dao.BaseEntityInterface;
-import modell.quarkus.dao.Write;
+import modell.quarkus.utility.dao.PrimaryKey;
+import modell.quarkus.utility.reflection.Write;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Modell implements BaseEntityInterface<Long> {
+public class Modell implements PrimaryKey<Long> {
 
     @Id
     @NotNull

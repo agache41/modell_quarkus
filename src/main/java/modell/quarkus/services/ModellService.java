@@ -3,23 +3,23 @@ package modell.quarkus.services;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
-import modell.quarkus.dao.Dao;
 import modell.quarkus.entities.Modell;
+import modell.quarkus.utility.dao.DataAccess;
 
 @ApplicationScoped
 public class ModellService {
     @Inject
-    Dao<Modell, Long> modellDao;
+    DataAccess<Modell, Long> modellDataAccess;
 
     @Transactional
     public Modell getById(Long id) {
-        return modellDao.findById(id);
+        return modellDataAccess.findById(id);
     }
 
     @Transactional
     public void createGift(String giftDescription) {
         Modell modell = new Modell();
         modell.setStringValue(giftDescription);
-        modellDao.persist(modell);
+        modellDataAccess.persist(modell);
     }
 }

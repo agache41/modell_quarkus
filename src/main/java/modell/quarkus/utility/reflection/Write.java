@@ -1,4 +1,4 @@
-package modell.quarkus.dao;
+package modell.quarkus.utility.reflection;
 
 import java.lang.annotation.*;
 
@@ -10,9 +10,17 @@ import java.lang.annotation.*;
  * The notNull() set to false means that the field will be in this case to null updated.
  */
 @Documented
-@Target(ElementType.FIELD)
+@Target({ElementType.TYPE, ElementType.FIELD})
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Write {
     boolean notNull() default true;
+
+    @Documented
+    @Target({ElementType.TYPE, ElementType.FIELD})
+    @Inherited
+    @Retention(RetentionPolicy.RUNTIME)
+    @interface excluded {
+
+    }
 }

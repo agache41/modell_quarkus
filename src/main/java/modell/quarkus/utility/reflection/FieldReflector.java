@@ -1,32 +1,43 @@
-package modell.quarkus.dao;
+package modell.quarkus.utility.reflection;
 
 import io.smallrye.common.constraint.NotNull;
+import jakarta.persistence.Id;
+import modell.quarkus.utility.dao.PrimaryKey;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.Map;
 
-public final class FieldDescriptor<T> {
+public final class FieldReflector<T> {
     private static final String GETTER_PREFIX = "get";
     private static final String GETTER_PRIM_BOOL_PREFIX = "is";
     private static final String SETTER_PREFIX = "set";
     private static final Object[] NULL = new Object[]{null};
     private final String name;
-    private final Method readMethod;
-    private final Method writeMethod;
-    private final boolean notNull;
+    private Method readMethod;
+    private Method writeMethod;
+    private boolean notNull;
+    private boolean updateable;
+    private boolean valid;
 
-    FieldDescriptor(Class<T> workingClass, Field field) {
+    FieldReflector(Class<T> workingClass, Field field) {
         this.name = field.getName();
         try {
-            this.writeMethod = FieldDescriptor.getSetter(workingClass, field);
-            this.readMethod = FieldDescriptor.getGetter(workingClass, field);
+            this.writeMethod = FieldReflector.getSetter(workingClass, field);
+            this.readMethod = FieldReflector.getGetter(workingClass, field);
             this.notNull = field.getAnnotation(Write.class)
-                                .notNull() || field.isAnnotationPresent(NotNull.class);
+                                .notNull()
+                    || field.isAnnotationPresent(NotNull.class);
+            this.updateable = (field.isAnnotationPresent(Write.class)
+                    || workingClass.isAnnotationPresent(Write.class))
+                    && !field.isAnnotationPresent(Id.class)
+                    && !field.isAnnotationPresent(Write.excluded.class);
+            this.valid = true;
         } catch (Exception e) {
-            throw new IllegalArgumentException(e);
+            //
         }
     }
 
@@ -87,8 +98,8 @@ public final class FieldDescriptor<T> {
                 return null;
             }
             // null case for entities
-            if (sourceValue instanceof BaseEntityInterface<?>) {
-                BaseEntityInterface<?> entity = (BaseEntityInterface) sourceValue;
+            if (sourceValue instanceof PrimaryKey<?>) {
+                PrimaryKey<?> entity = (PrimaryKey) sourceValue;
                 //if the provide entity is nullified
                 if (entity.getId() == null) {
                     if (this.notNull) {
@@ -121,7 +132,31 @@ public final class FieldDescriptor<T> {
         }
     }
 
+    public Object get(T source) {
+        try {
+            return this.readMethod.invoke(source);
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            throw new IllegalArgumentException(e);
+        }
+    }
+
+    public void set(T source, Object value) {
+        try {
+            this.writeMethod.invoke(source);
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            throw new IllegalArgumentException(e);
+        }
+    }
+
     public String getName() {
         return name;
+    }
+
+    public boolean isUpdateable() {
+        return updateable;
+    }
+
+    public boolean isValid() {
+        return valid;
     }
 }

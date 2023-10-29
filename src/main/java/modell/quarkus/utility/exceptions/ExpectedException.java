@@ -1,4 +1,4 @@
-package modell.quarkus.exceptions;
+package modell.quarkus.utility.exceptions;
 
 public class ExpectedException extends RuntimeException {
     public ExpectedException() {
