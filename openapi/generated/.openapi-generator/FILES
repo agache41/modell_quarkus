@@ -4,11 +4,13 @@ README.md
 api.module.ts
 api/api.ts
 api/modellResource.service.ts
+api/modellResource2.service.ts
 configuration.ts
 encoder.ts
 git_push.sh
 index.ts
 model/modell.ts
+model/modell2.ts
 model/models.ts
 param.ts
 variables.ts

@@ -2,13 +2,15 @@ package modell.quarkus.services;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import jakarta.transaction.Transactional;
 import modell.quarkus.entities.Modell;
-import modell.quarkus.utility.dao.DataAccess;
+import org.structured.api.quarkus.dao.DataAccess;
 
 @ApplicationScoped
 public class ModellService {
     @Inject
+    @Named("base")
     DataAccess<Modell, Long> modellDataAccess;
 
     @Transactional

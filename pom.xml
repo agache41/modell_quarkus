@@ -59,12 +59,6 @@
             <artifactId>quarkus-jdbc-h2</artifactId>
             <!--            <scope>test</scope>-->
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.13.0</version>
-        </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-junit5</artifactId>
@@ -77,17 +71,29 @@
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-validator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
             <artifactId>quarkus-smallrye-openapi</artifactId>
+        </dependency>
+        <!-- the baby -->
+        <dependency>
+            <groupId>io.structured.api</groupId>
+            <artifactId>quarkus-structured-api</artifactId>
+            <version>0.0.1</version>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${compiler-plugin.version}</version>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire-plugin.version}</version>
                 <configuration>
@@ -125,31 +131,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.openapitools</groupId>
-                <artifactId>openapi-generator-maven-plugin</artifactId>
-                <!-- RELEASE_VERSION -->
-                <version>7.0.1</version>
-                <!-- /RELEASE_VERSION -->
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <inputSpec>${project.basedir}/openapi/api/openapi.yaml</inputSpec>
-                            <generatorName>typescript-angular</generatorName>
-                            <configOptions>
-                                <sourceFolder>src/gen/java/main</sourceFolder>
-                            </configOptions>
-                            <output>${project.basedir}/openapi/generated</output>
-                            <verbose>true</verbose>
-                            <cleanupOutput>true</cleanupOutput>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
     <profiles>
@@ -166,6 +147,7 @@
             <build>
                 <plugins>
                     <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-failsafe-plugin</artifactId>
                         <version>${surefire-plugin.version}</version>
                         <executions>
@@ -183,6 +165,43 @@
                                         </java.util.logging.manager>
                                         <maven.home>${maven.home}</maven.home>
                                     </systemPropertyVariables>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>generate</id>
+            <activation>
+                <property>
+                    <name>generate</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.openapitools</groupId>
+                        <artifactId>openapi-generator-maven-plugin</artifactId>
+                        <!-- RELEASE_VERSION -->
+                        <version>7.0.1</version>
+                        <!-- /RELEASE_VERSION -->
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>generate</goal>
+                                </goals>
+                                <configuration>
+                                    <inputSpec>${project.basedir}/openapi/api/openapi.yaml</inputSpec>
+                                    <generatorName>typescript-angular</generatorName>
+                                    <configOptions>
+                                        <sourceFolder>src/gen/java/main</sourceFolder>
+                                    </configOptions>
+                                    <output>${project.basedir}/openapi/generated</output>
+                                    <verbose>true</verbose>
+                                    <cleanupOutput>true</cleanupOutput>
                                 </configuration>
                             </execution>
                         </executions>

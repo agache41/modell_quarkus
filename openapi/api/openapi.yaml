@@ -40,6 +40,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Modell'
+  /modell/all:
+    get:
+      tags:
+      - Modell Resource
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Modell'
   /modell/{id}:
     get:
       tags:
@@ -61,6 +74,81 @@ paths:
     delete:
       tags:
       - Modell Resource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "204":
+          description: No Content
+  /modell2:
+    put:
+      tags:
+      - Modell Resource 2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Modell'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Modell'
+    post:
+      tags:
+      - Modell Resource 2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Modell'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Modell'
+  /modell2/all:
+    get:
+      tags:
+      - Modell Resource 2
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Modell'
+  /modell2/{id}:
+    get:
+      tags:
+      - Modell Resource 2
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Modell'
+    delete:
+      tags:
+      - Modell Resource 2
       parameters:
       - name: id
         in: path

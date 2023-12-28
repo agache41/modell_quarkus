@@ -8,8 +8,8 @@ import jakarta.persistence.SequenceGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import modell.quarkus.utility.dao.PrimaryKey;
-import modell.quarkus.utility.reflection.Write;
+import org.structured.api.quarkus.dao.PrimaryKey;
+import org.structured.api.quarkus.reflection.Write;
 
 @Data
 @NoArgsConstructor
