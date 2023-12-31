@@ -1,4 +1,4 @@
-package modell.quarkus.rest;
+package modell.quarkus.service;
 
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 

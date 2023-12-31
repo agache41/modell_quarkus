@@ -1,4 +1,4 @@
-package modell.quarkus.rest;
+package modell.quarkus.dataaccess;
 
 import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Inject;
@@ -13,8 +13,4 @@ public class ModellDataAccess extends DataAccess<Modell, Long> {
         super(Modell.class, Long.class);
     }
 
-    @Override
-    public Modell findById(Long id) {
-        return super.findById(id);
-    }
 }
