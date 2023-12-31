@@ -114,7 +114,31 @@ public abstract class AbstractResourceTest<T extends PrimaryKey<K>, K> {
 
     @Test
     @Order(22)
-    public void testGetAllByIds() {
+    public void testGetByIdsAsList() {
+        List<K> ids = this.insertData
+                .stream()
+                .map(PrimaryKey::getId)
+                .collect(Collectors.toList());
+
+        List<T> res = given()
+                .contentType(ContentType.JSON)
+                .when()
+                .accept(ContentType.JSON)
+                .get(this.path + "/byIds/")
+                .then()
+                .statusCode(200)
+                .extract()
+                .body()
+                .jsonPath()
+                .getList(".", this.clazz);
+        Assertions.assertNotNull(res);
+        Assertions.assertEquals(this.insertData.size(), res.size());
+        Assertions.assertEquals(this.insertData, res);
+    }
+
+    @Test
+    @Order(23)
+    public void testPostByIdsAsList() {
         List<K> ids = this.insertData
                 .stream()
                 .map(PrimaryKey::getId)
@@ -125,7 +149,7 @@ public abstract class AbstractResourceTest<T extends PrimaryKey<K>, K> {
                 .body(ids)
                 .when()
                 .accept(ContentType.JSON)
-                .post(this.path + "/get/list/asList")
+                .post(this.path + "/byIds/asList")
                 .then()
                 .statusCode(200)
                 .extract()
@@ -261,4 +285,29 @@ public abstract class AbstractResourceTest<T extends PrimaryKey<K>, K> {
 
         Assertions.assertTrue(getAll().isEmpty());
     }
+
+//    @Test
+//    @Order(22)
+//    public void testGetFilter() {
+//        List<K> ids = this.insertData
+//                .stream()
+//                .map(PrimaryKey::getId)
+//                .collect(Collectors.toList());
+//
+//        List<T> res = given()
+//                .contentType(ContentType.JSON)
+//                .body(ids)
+//                .when()
+//                .accept(ContentType.JSON)
+//                .post(this.path + "/get/list/asList")
+//                .then()
+//                .statusCode(200)
+//                .extract()
+//                .body()
+//                .jsonPath()
+//                .getList(".", this.clazz);
+//        Assertions.assertNotNull(res);
+//        Assertions.assertEquals(this.insertData.size(), res.size());
+//        Assertions.assertEquals(this.insertData, res);
+//    }
 }
