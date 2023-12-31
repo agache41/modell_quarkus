@@ -103,7 +103,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Modell'
-  /modell/byIds/{ids}:
+  /modell/byIds/{ids}/asList:
     get:
       tags:
       - Modell Resource

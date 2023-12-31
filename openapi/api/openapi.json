@@ -155,7 +155,7 @@
         }
       }
     },
-    "/modell/byIds/{ids}" : {
+    "/modell/byIds/{ids}/asList" : {
       "get" : {
         "tags" : [ "Modell Resource" ],
         "operationId" : "modell.quarkus.resources.ModellResource_getByIdsAsList",

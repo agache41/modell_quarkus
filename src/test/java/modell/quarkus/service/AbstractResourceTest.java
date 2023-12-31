@@ -124,7 +124,7 @@ public abstract class AbstractResourceTest<T extends PrimaryKey<K>, K> {
                 .contentType(ContentType.JSON)
                 .when()
                 .accept(ContentType.JSON)
-                .get(this.path + "/byIds/")
+                .get(this.path + "/byIds/{ids}/asList", ids)
                 .then()
                 .statusCode(200)
                 .extract()
