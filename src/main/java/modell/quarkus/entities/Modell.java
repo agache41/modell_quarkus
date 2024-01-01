@@ -5,16 +5,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.structured.api.quarkus.dao.PrimaryKey;
 import org.structured.api.quarkus.reflection.Write;
 
-@Getter
-@Setter
+@Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-@EqualsAndHashCode
 @Entity
 public class Modell implements PrimaryKey<Long> {
 
@@ -25,5 +26,11 @@ public class Modell implements PrimaryKey<Long> {
     private Long id;
 
     @Write
-    private String stringValue;
+    private String name;
+
+    @Write(notNull = false)
+    private String street;
+
+    @Write(notNull = false)
+    private Integer no;
 }

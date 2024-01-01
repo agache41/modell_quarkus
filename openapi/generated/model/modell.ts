@@ -13,6 +13,8 @@
 
 export interface Modell { 
     id?: number;
-    stringValue?: string;
+    name?: string;
+    street?: string;
+    no?: number;
 }
 

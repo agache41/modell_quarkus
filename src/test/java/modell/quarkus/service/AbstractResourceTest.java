@@ -20,13 +20,15 @@ public abstract class AbstractResourceTest<T extends PrimaryKey<K>, K> {
     private final String path;
     private final List<T> insertData;
     private final List<T> updateData;
+    private final String stringField;
 
 
-    public AbstractResourceTest(Class<T> clazz, String path, List<T> insertData, List<T> updateData) {
+    public AbstractResourceTest(Class<T> clazz, String path, List<T> insertData, List<T> updateData, String stringField) {
         this.clazz = clazz;
         this.path = path;
         this.insertData = insertData;
         this.updateData = updateData;
+        this.stringField = stringField;
         Assertions.assertEquals(insertData.size(), updateData.size(), " please use two lists of equal size ");
     }
 
@@ -95,18 +97,8 @@ public abstract class AbstractResourceTest<T extends PrimaryKey<K>, K> {
 
     @Test
     @Order(21)
-    public void testGetAll() {
-        List<T> res = given()
-                .contentType(ContentType.JSON)
-                .when()
-                .accept(ContentType.JSON)
-                .get(this.path + "/all/asList")
-                .then()
-                .statusCode(200)
-                .extract()
-                .body()
-                .jsonPath()
-                .getList(".", this.clazz);
+    public void testGetAllAsList() {
+        List<T> res = getAll();
         Assertions.assertNotNull(res);
         Assertions.assertEquals(this.insertData.size(), res.size());
         Assertions.assertEquals(this.insertData, res);
@@ -206,25 +198,10 @@ public abstract class AbstractResourceTest<T extends PrimaryKey<K>, K> {
         Assertions.assertTrue(getAll().isEmpty());
     }
 
-    protected List<T> getAll() {
-        List<T> res = given()
-                .contentType(ContentType.JSON)
-                .when()
-                .accept(ContentType.JSON)
-                .get(this.path + "/all/asList")
-                .then()
-                .statusCode(200)
-                .extract()
-                .body()
-                .jsonPath()
-                .getList(".", this.clazz);
-        Assertions.assertNotNull(res);
-        return res;
-    }
 
     @Test
     @Order(50)
-    public void testPostAll() {
+    public void testPostListAsList() {
         List<T> res = given()
                 .contentType(ContentType.JSON)
                 .body(this.insertData)
@@ -248,7 +225,7 @@ public abstract class AbstractResourceTest<T extends PrimaryKey<K>, K> {
 
     @Test
     @Order(60)
-    public void testPutAll() {
+    public void testPutListAsList() {
         List<T> res = given()
                 .contentType(ContentType.JSON)
                 .body(this.updateData)
@@ -268,7 +245,7 @@ public abstract class AbstractResourceTest<T extends PrimaryKey<K>, K> {
 
     @Test
     @Order(70)
-    public void testDeleteAll() {
+    public void testDeleteByIds() {
         List<K> ids = getAll()
                 .stream()
                 .map(PrimaryKey::getId)
@@ -279,12 +256,34 @@ public abstract class AbstractResourceTest<T extends PrimaryKey<K>, K> {
                 .body(ids)
                 .when()
                 .accept(ContentType.JSON)
-                .delete(this.path + "/list")
+                .delete(this.path + "/byIds")
                 .then()
                 .statusCode(204);
 
         Assertions.assertTrue(getAll().isEmpty());
     }
+
+    @Test
+    @Order(80)
+    public void testDeleteByIdsInPath() {
+        this.testPostListAsList();
+        List<K> ids = getAll()
+                .stream()
+                .map(PrimaryKey::getId)
+                .collect(Collectors.toList());
+        Assertions.assertFalse(ids.isEmpty());
+        given()
+                .contentType(ContentType.JSON)
+                .body(ids)
+                .when()
+                .accept(ContentType.JSON)
+                .delete(this.path + "/byIds/{ids}", ids)
+                .then()
+                .statusCode(204);
+
+        Assertions.assertTrue(getAll().isEmpty());
+    }
+
 
 //    @Test
 //    @Order(22)
@@ -310,4 +309,23 @@ public abstract class AbstractResourceTest<T extends PrimaryKey<K>, K> {
 //        Assertions.assertEquals(this.insertData.size(), res.size());
 //        Assertions.assertEquals(this.insertData, res);
 //    }
+
+
+    protected List<T> getAll() {
+        List<T> res = given()
+                .contentType(ContentType.JSON)
+                .when()
+                .accept(ContentType.JSON)
+                .get(this.path + "/all/asList")
+                .then()
+                .statusCode(200)
+                .extract()
+                .body()
+                .jsonPath()
+                .getList(".", this.clazz);
+        Assertions.assertNotNull(res);
+        return res;
+    }
+
+
 }
