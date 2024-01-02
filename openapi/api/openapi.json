@@ -14,7 +14,7 @@
   "paths" : {
     "/modell" : {
       "put" : {
-        "tags" : [ "Modell Resource" ],
+        "tags" : [ "Modell Resource Service" ],
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -38,7 +38,7 @@
         }
       },
       "post" : {
-        "tags" : [ "Modell Resource" ],
+        "tags" : [ "Modell Resource Service" ],
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -64,7 +64,7 @@
     },
     "/modell/all/asList" : {
       "get" : {
-        "tags" : [ "Modell Resource" ],
+        "tags" : [ "Modell Resource Service" ],
         "responses" : {
           "200" : {
             "description" : "OK",
@@ -84,7 +84,7 @@
     },
     "/modell/autocomplete/{stringField}/like/{value}/asSortedSet" : {
       "get" : {
-        "tags" : [ "Modell Resource" ],
+        "tags" : [ "Modell Resource Service" ],
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -106,7 +106,6 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "uniqueItems" : true,
                   "type" : "array",
                   "items" : {
                     "type" : "string"
@@ -120,7 +119,7 @@
     },
     "/modell/byIds" : {
       "delete" : {
-        "tags" : [ "Modell Resource" ],
+        "tags" : [ "Modell Resource Service" ],
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -143,7 +142,7 @@
     },
     "/modell/byIds/asList" : {
       "post" : {
-        "tags" : [ "Modell Resource" ],
+        "tags" : [ "Modell Resource Service" ],
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -176,7 +175,7 @@
     },
     "/modell/byIds/{ids}" : {
       "delete" : {
-        "tags" : [ "Modell Resource" ],
+        "tags" : [ "Modell Resource Service" ],
         "parameters" : [ {
           "name" : "ids",
           "in" : "path",
@@ -198,7 +197,7 @@
     },
     "/modell/byIds/{ids}/asList" : {
       "get" : {
-        "tags" : [ "Modell Resource" ],
+        "tags" : [ "Modell Resource Service" ],
         "parameters" : [ {
           "name" : "ids",
           "in" : "path",
@@ -228,9 +227,70 @@
         }
       }
     },
+    "/modell/filter/content/equals/value/asList" : {
+      "post" : {
+        "tags" : [ "Modell Resource Service" ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Modell"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Modell"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/modell/filter/content/in/values/asList" : {
+      "post" : {
+        "tags" : [ "Modell Resource Service" ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "array",
+                "items" : {
+                  "$ref" : "#/components/schemas/Modell"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Modell"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/modell/filter/{stringField}/equals/{value}/asList" : {
       "get" : {
-        "tags" : [ "Modell Resource" ],
+        "tags" : [ "Modell Resource Service" ],
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -265,7 +325,7 @@
     },
     "/modell/filter/{stringField}/in/{values}/asList" : {
       "get" : {
-        "tags" : [ "Modell Resource" ],
+        "tags" : [ "Modell Resource Service" ],
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -303,7 +363,7 @@
     },
     "/modell/filter/{stringField}/like/{value}/asList" : {
       "get" : {
-        "tags" : [ "Modell Resource" ],
+        "tags" : [ "Modell Resource Service" ],
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -338,7 +398,7 @@
     },
     "/modell/list/asList" : {
       "put" : {
-        "tags" : [ "Modell Resource" ],
+        "tags" : [ "Modell Resource Service" ],
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -368,7 +428,7 @@
         }
       },
       "post" : {
-        "tags" : [ "Modell Resource" ],
+        "tags" : [ "Modell Resource Service" ],
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -400,7 +460,7 @@
     },
     "/modell/{id}" : {
       "get" : {
-        "tags" : [ "Modell Resource" ],
+        "tags" : [ "Modell Resource Service" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -424,7 +484,7 @@
         }
       },
       "delete" : {
-        "tags" : [ "Modell Resource" ],
+        "tags" : [ "Modell Resource Service" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",

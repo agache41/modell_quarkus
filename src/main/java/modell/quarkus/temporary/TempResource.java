@@ -2,8 +2,8 @@ package modell.quarkus.temporary;
 
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
-import org.structured.api.quarkus.dao.DataAccess;
-import org.structured.api.quarkus.dao.PrimaryKey;
+import org.structured.api.quarkus.dataAccess.DataAccess;
+import org.structured.api.quarkus.dataAccess.PrimaryKey;
 
 public abstract class TempResource<T extends PrimaryKey<K>, K> {
 

@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.structured.api.quarkus.dao.PrimaryKey;
+import org.structured.api.quarkus.dataAccess.PrimaryKey;
 import org.structured.api.quarkus.reflection.Write;
 
 @Data

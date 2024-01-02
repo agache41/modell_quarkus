@@ -12,7 +12,7 @@ paths:
   /modell:
     put:
       tags:
-      - Modell Resource
+      - Modell Resource Service
       requestBody:
         content:
           application/json:
@@ -27,7 +27,7 @@ paths:
                 $ref: '#/components/schemas/Modell'
     post:
       tags:
-      - Modell Resource
+      - Modell Resource Service
       requestBody:
         content:
           application/json:
@@ -43,7 +43,7 @@ paths:
   /modell/all/asList:
     get:
       tags:
-      - Modell Resource
+      - Modell Resource Service
       responses:
         "200":
           description: OK
@@ -56,7 +56,7 @@ paths:
   /modell/autocomplete/{stringField}/like/{value}/asSortedSet:
     get:
       tags:
-      - Modell Resource
+      - Modell Resource Service
       parameters:
       - name: stringField
         in: path
@@ -74,14 +74,13 @@ paths:
           content:
             application/json:
               schema:
-                uniqueItems: true
                 type: array
                 items:
                   type: string
   /modell/byIds:
     delete:
       tags:
-      - Modell Resource
+      - Modell Resource Service
       requestBody:
         content:
           application/json:
@@ -96,7 +95,7 @@ paths:
   /modell/byIds/asList:
     post:
       tags:
-      - Modell Resource
+      - Modell Resource Service
       requestBody:
         content:
           application/json:
@@ -117,7 +116,7 @@ paths:
   /modell/byIds/{ids}:
     delete:
       tags:
-      - Modell Resource
+      - Modell Resource Service
       parameters:
       - name: ids
         in: path
@@ -133,7 +132,7 @@ paths:
   /modell/byIds/{ids}/asList:
     get:
       tags:
-      - Modell Resource
+      - Modell Resource Service
       parameters:
       - name: ids
         in: path
@@ -152,10 +151,48 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Modell'
+  /modell/filter/content/equals/value/asList:
+    post:
+      tags:
+      - Modell Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Modell'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Modell'
+  /modell/filter/content/in/values/asList:
+    post:
+      tags:
+      - Modell Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Modell'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Modell'
   /modell/filter/{stringField}/equals/{value}/asList:
     get:
       tags:
-      - Modell Resource
+      - Modell Resource Service
       parameters:
       - name: stringField
         in: path
@@ -179,7 +216,7 @@ paths:
   /modell/filter/{stringField}/in/{values}/asList:
     get:
       tags:
-      - Modell Resource
+      - Modell Resource Service
       parameters:
       - name: stringField
         in: path
@@ -205,7 +242,7 @@ paths:
   /modell/filter/{stringField}/like/{value}/asList:
     get:
       tags:
-      - Modell Resource
+      - Modell Resource Service
       parameters:
       - name: stringField
         in: path
@@ -229,7 +266,7 @@ paths:
   /modell/list/asList:
     put:
       tags:
-      - Modell Resource
+      - Modell Resource Service
       requestBody:
         content:
           application/json:
@@ -248,7 +285,7 @@ paths:
                   $ref: '#/components/schemas/Modell'
     post:
       tags:
-      - Modell Resource
+      - Modell Resource Service
       requestBody:
         content:
           application/json:
@@ -268,7 +305,7 @@ paths:
   /modell/{id}:
     get:
       tags:
-      - Modell Resource
+      - Modell Resource Service
       parameters:
       - name: id
         in: path
@@ -285,7 +322,7 @@ paths:
                 $ref: '#/components/schemas/Modell'
     delete:
       tags:
-      - Modell Resource
+      - Modell Resource Service
       parameters:
       - name: id
         in: path

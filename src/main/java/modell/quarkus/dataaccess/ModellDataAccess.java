@@ -3,7 +3,7 @@ package modell.quarkus.dataaccess;
 import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Inject;
 import modell.quarkus.entities.Modell;
-import org.structured.api.quarkus.dao.DataAccess;
+import org.structured.api.quarkus.dataAccess.DataAccess;
 
 @Dependent
 public class ModellDataAccess extends DataAccess<Modell, Long> {

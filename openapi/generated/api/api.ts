@@ -1,3 +1,3 @@
-export * from './modellResource.service';
-import { ModellResourceService } from './modellResource.service';
-export const APIS = [ModellResourceService];
+export * from './modellResourceService.service';
+import { ModellResourceServiceService } from './modellResourceService.service';
+export const APIS = [ModellResourceServiceService];
