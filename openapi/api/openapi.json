@@ -505,6 +505,7 @@
   "components" : {
     "schemas" : {
       "Modell" : {
+        "required" : [ "id" ],
         "type" : "object",
         "properties" : {
           "id" : {
