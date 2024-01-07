@@ -11,7 +11,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.structured.api.quarkus.dataAccess.PrimaryKey;
-import org.structured.api.quarkus.reflection.Write;
+import org.structured.api.quarkus.reflection.Update;
 
 @Data
 @Builder
@@ -26,12 +26,12 @@ public class Modell implements PrimaryKey<Long> {
     @GeneratedValue(generator = "modellSeq")
     private Long id;
 
-    @Write
+    @Update
     private String name;
 
-    @Write(notNull = false)
+    @Update(notNull = false)
     private String street;
 
-    @Write(notNull = false)
+    @Update(notNull = false)
     private Integer no;
 }
