@@ -13,6 +13,7 @@ paths:
     put:
       tags:
       - Modell Resource Service
+      operationId: modell.quarkus.resources.ModellResourceService_put
       requestBody:
         content:
           application/json:
@@ -28,6 +29,7 @@ paths:
     post:
       tags:
       - Modell Resource Service
+      operationId: modell.quarkus.resources.ModellResourceService_post
       requestBody:
         content:
           application/json:
@@ -44,6 +46,7 @@ paths:
     get:
       tags:
       - Modell Resource Service
+      operationId: modell.quarkus.resources.ModellResourceService_getAllAsList
       responses:
         "200":
           description: OK
@@ -57,6 +60,7 @@ paths:
     get:
       tags:
       - Modell Resource Service
+      operationId: modell.quarkus.resources.ModellResourceService_getAutocompleteStringFieldLikeValueAsSortedSet
       parameters:
       - name: stringField
         in: path
@@ -81,6 +85,7 @@ paths:
     delete:
       tags:
       - Modell Resource Service
+      operationId: modell.quarkus.resources.ModellResourceService_deleteByIds
       requestBody:
         content:
           application/json:
@@ -96,6 +101,7 @@ paths:
     post:
       tags:
       - Modell Resource Service
+      operationId: modell.quarkus.resources.ModellResourceService_postByIdsAsList
       requestBody:
         content:
           application/json:
@@ -117,6 +123,7 @@ paths:
     delete:
       tags:
       - Modell Resource Service
+      operationId: modell.quarkus.resources.ModellResourceService_deleteByIdsInPath
       parameters:
       - name: ids
         in: path
@@ -133,6 +140,7 @@ paths:
     get:
       tags:
       - Modell Resource Service
+      operationId: modell.quarkus.resources.ModellResourceService_getByIdsAsList
       parameters:
       - name: ids
         in: path
@@ -155,6 +163,7 @@ paths:
     post:
       tags:
       - Modell Resource Service
+      operationId: modell.quarkus.resources.ModellResourceService_postFilterContentEqualsAsList
       requestBody:
         content:
           application/json:
@@ -173,6 +182,7 @@ paths:
     post:
       tags:
       - Modell Resource Service
+      operationId: modell.quarkus.resources.ModellResourceService_postFilterContentInAsList
       requestBody:
         content:
           application/json:
@@ -193,6 +203,7 @@ paths:
     get:
       tags:
       - Modell Resource Service
+      operationId: modell.quarkus.resources.ModellResourceService_getFilterStringFieldEqualsValueAsList
       parameters:
       - name: stringField
         in: path
@@ -217,6 +228,7 @@ paths:
     get:
       tags:
       - Modell Resource Service
+      operationId: modell.quarkus.resources.ModellResourceService_getFilterStringFieldInValuesAsList
       parameters:
       - name: stringField
         in: path
@@ -243,6 +255,7 @@ paths:
     get:
       tags:
       - Modell Resource Service
+      operationId: modell.quarkus.resources.ModellResourceService_getFilterStringFieldLikeValueAsList
       parameters:
       - name: stringField
         in: path
@@ -267,6 +280,7 @@ paths:
     put:
       tags:
       - Modell Resource Service
+      operationId: modell.quarkus.resources.ModellResourceService_putListAsList
       requestBody:
         content:
           application/json:
@@ -286,6 +300,7 @@ paths:
     post:
       tags:
       - Modell Resource Service
+      operationId: modell.quarkus.resources.ModellResourceService_postListAsList
       requestBody:
         content:
           application/json:
@@ -302,10 +317,25 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Modell'
+  /modell/over/100:
+    get:
+      tags:
+      - Modell Resource Service
+      operationId: modell.quarkus.resources.ModellResourceService_get
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Modell'
   /modell/{id}:
     get:
       tags:
       - Modell Resource Service
+      operationId: modell.quarkus.resources.ModellResourceService_get
       parameters:
       - name: id
         in: path
@@ -323,6 +353,7 @@ paths:
     delete:
       tags:
       - Modell Resource Service
+      operationId: modell.quarkus.resources.ModellResourceService_delete
       parameters:
       - name: id
         in: path
@@ -336,8 +367,6 @@ paths:
 components:
   schemas:
     Modell:
-      required:
-      - id
       type: object
       properties:
         id:
@@ -347,11 +376,14 @@ components:
           type: string
         street:
           type: string
-        "no":
+        number:
           format: int32
           type: integer
-  securitySchemes:
-    SecurityScheme:
-      type: http
-      description: Authentication
-      scheme: basic
+        age:
+          format: int64
+          type: integer
+        collectionValues:
+          type: array
+          items:
+            format: int32
+            type: integer

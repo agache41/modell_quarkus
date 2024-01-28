@@ -1,14 +1,36 @@
 package modell.quarkus.resources;
 
+import io.github.agache41.generic.rest.jpa.resourceService.AbstractResourceServiceImpl;
+import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
+import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
+import lombok.Getter;
+import modell.quarkus.dataaccess.ModellDataAccess;
 import modell.quarkus.entities.Modell;
-import org.structured.api.quarkus.resourceService.AbstractResourceServiceImpl;
+
+import java.util.List;
 
 
+@Getter
 @Path("/modell")
 @Transactional
 public class ModellResourceService extends AbstractResourceServiceImpl<Modell, Long> {
 
+    @Inject
+    ModellDataAccess dataAccess;
 
+    /**
+     * Finds and returns all the models over 100
+     *
+     * @return the models list.
+     */
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/over/100")
+    public List<Modell> get() {
+        return getDataAccess().getAllModellsOver100();
+    }
 }

@@ -1,73 +1,32 @@
 package modell.quarkus.service;
 
+import io.github.agache41.generic.rest.jpa.filler.Producer;
+import io.github.agache41.generic.rest.jpa.resourceService.AbstractResourceServiceImplTest;
 import io.quarkus.test.junit.QuarkusTest;
+import jakarta.transaction.Transactional;
 import modell.quarkus.entities.Modell;
-import org.structured.api.quarkus.resourceService.AbstractResourceServiceImplTest;
 
-import java.util.Arrays;
+import java.util.List;
 
 @QuarkusTest
+@Transactional
 public class ModellResourceServiceTest extends AbstractResourceServiceImplTest<Modell, Long> {
 
     static final String path = "/modell";
-    static final Modell modell1 = Modell.builder()
-                                        .name("aaaa")
-                                        .street("one")
-                                        .no(1)
-                                        .build();
-    static final Modell modell2 = Modell.builder()
-                                        .name("aaaab")
-                                        .street("two")
-                                        .no(2)
-                                        .build();
-    static final Modell modell3 = Modell.builder()
-                                        .name("aaaabc")
-                                        .street("three")
-                                        .no(3)
-                                        .build();
-    static final Modell modell4 = Modell.builder()
-                                        .name("aaaabcd")
-                                        .street("four")
-                                        .no(null)
-                                        .build();
-    static final Modell modell5 = Modell.builder()
-                                        .name("aaaabcde")
-                                        .street(null)
-                                        .no(5)
-                                        .build();
-    static final Modell modell1updated = Modell.builder()
-                                               .name("aaaa updated")
-                                               .street(null)
-                                               .no(11)
-                                               .build();
-    static final Modell modell2updated = Modell.builder()
-                                               .name("aaaab updated")
-                                               .street("two updated")
-                                               .no(12)
-                                               .build();
-    static final Modell modell3updated = Modell.builder()
-                                               .name("aaaabc updated")
-                                               .street("three updated")
-                                               .no(null)
-                                               .build();
-    static final Modell modell4updated = Modell.builder()
-                                               .name("aaaaabcd updated")
-                                               .street("four updated")
-                                               .no(14)
-                                               .build();
-    static final Modell modell5updated = Modell.builder()
-                                               .name("aaaaabcdd updated")
-                                               .street(null)
-                                               .no(15)
-                                               .build();
+    private static final String stringField = "name";
+    private static final Producer<Modell> producer = Producer.ofClass(Modell.class);
+    private static final List<Modell> insertData = producer.getList(2);
+    private static final List<Modell> updateData = producer.applyList(insertData);
 
-    static final String stringField = "name";
+    static {
+        producer.setCollectionSize(2);
+    }
 
     public ModellResourceServiceTest() {
         super(Modell.class, //
-                path, //
-                Arrays.asList(modell1, modell2, modell3, modell4, modell5), //
-                Arrays.asList(modell1updated, modell2updated, modell3updated, modell4updated, modell5updated),
-                stringField); //
+              path, //
+              insertData, //
+              updateData,
+              stringField); //
     }
 }

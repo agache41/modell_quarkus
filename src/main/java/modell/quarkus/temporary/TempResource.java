@@ -1,11 +1,12 @@
 package modell.quarkus.temporary;
 
+import io.github.agache41.generic.rest.jpa.dataAccess.DataAccess;
+import io.github.agache41.generic.rest.jpa.dataAccess.PrimaryKey;
+import io.github.agache41.generic.rest.jpa.update.Updateable;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
-import org.structured.api.quarkus.dataAccess.DataAccess;
-import org.structured.api.quarkus.dataAccess.PrimaryKey;
 
-public abstract class TempResource<T extends PrimaryKey<K>, K> {
+public abstract class TempResource<T extends PrimaryKey<K> & Updateable<T>, K> {
 
     @Inject
     @Named("base")
