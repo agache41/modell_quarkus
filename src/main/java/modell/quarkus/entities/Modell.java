@@ -22,8 +22,13 @@ import io.github.agache41.generic.rest.jpa.update.Update;
 import io.github.agache41.generic.rest.jpa.update.Updateable;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.util.List;
+import java.util.Map;
+
+import static jakarta.persistence.FetchType.EAGER;
 
 @Data
 @Builder
@@ -50,32 +55,37 @@ public class Modell implements PrimaryKey<Long>, Updateable<Modell> {
     private long age;
 
     @Update
-    @ElementCollection(fetch = FetchType.LAZY)
+    @Fetch(FetchMode.SELECT)
+    @ElementCollection(fetch = EAGER)
     @OrderColumn   // add this to prevent Hibernate from using PersistentBag and defaulting equals to Object
     @Column(name = "collectionValues")
     private List<Integer> collectionValues;
-/*
+
     @Update
-    @ElementCollection(fetch = FetchType.EAGER)
+    @Fetch(FetchMode.SELECT)
+    @ElementCollection(fetch = EAGER)
     @Column(name = "mapValues")
     private Map<Long, String> mapValues;
 
     @Update
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Fetch(FetchMode.JOIN)
+    @OneToOne(cascade = CascadeType.ALL, fetch = EAGER)
     @JoinColumn(name = "valueEntity_id", referencedColumnName = "id")
     private ValueEntity valueEntity;
 
     @Update
+    @Fetch(FetchMode.SELECT)
     // add this to prevent Hibernate from using PersistentBag and defaulting equals to Object
     @OrderColumn(name = "id")
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, fetch = EAGER, orphanRemoval = true)
     private List<CollectionEntity> collectionEntities;
 
     @Update
+    @Fetch(FetchMode.SELECT)
     @MapKey(name = "id")
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, fetch = EAGER, orphanRemoval = true)
     //add this to prevent failure at post when inserting new keys in the map, keys that will be overwritten.
     @EqualsAndHashCode.Exclude
-    private Map<Long, MapEntity> mapEntities;*/
+    private Map<Long, MapEntity> mapEntities;
 
 }

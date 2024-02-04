@@ -13,7 +13,6 @@ paths:
     put:
       tags:
       - Modell Resource Service
-      operationId: modell.quarkus.resources.ModellResourceService_put
       requestBody:
         content:
           application/json:
@@ -29,7 +28,6 @@ paths:
     post:
       tags:
       - Modell Resource Service
-      operationId: modell.quarkus.resources.ModellResourceService_post
       requestBody:
         content:
           application/json:
@@ -46,7 +44,6 @@ paths:
     get:
       tags:
       - Modell Resource Service
-      operationId: modell.quarkus.resources.ModellResourceService_getAllAsList
       responses:
         "200":
           description: OK
@@ -60,7 +57,6 @@ paths:
     get:
       tags:
       - Modell Resource Service
-      operationId: modell.quarkus.resources.ModellResourceService_getAutocompleteStringFieldLikeValueAsSortedSet
       parameters:
       - name: stringField
         in: path
@@ -81,11 +77,21 @@ paths:
                 type: array
                 items:
                   type: string
+    parameters:
+    - name: stringField
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: value
+      in: path
+      required: true
+      schema:
+        type: string
   /modell/byIds:
     delete:
       tags:
       - Modell Resource Service
-      operationId: modell.quarkus.resources.ModellResourceService_deleteByIds
       requestBody:
         content:
           application/json:
@@ -101,7 +107,6 @@ paths:
     post:
       tags:
       - Modell Resource Service
-      operationId: modell.quarkus.resources.ModellResourceService_postByIdsAsList
       requestBody:
         content:
           application/json:
@@ -123,7 +128,6 @@ paths:
     delete:
       tags:
       - Modell Resource Service
-      operationId: modell.quarkus.resources.ModellResourceService_deleteByIdsInPath
       parameters:
       - name: ids
         in: path
@@ -136,11 +140,19 @@ paths:
       responses:
         "204":
           description: No Content
+    parameters:
+    - name: ids
+      in: path
+      required: true
+      schema:
+        type: array
+        items:
+          format: int64
+          type: integer
   /modell/byIds/{ids}/asList:
     get:
       tags:
       - Modell Resource Service
-      operationId: modell.quarkus.resources.ModellResourceService_getByIdsAsList
       parameters:
       - name: ids
         in: path
@@ -159,11 +171,19 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Modell'
+    parameters:
+    - name: ids
+      in: path
+      required: true
+      schema:
+        type: array
+        items:
+          format: int64
+          type: integer
   /modell/filter/content/equals/value/asList:
     post:
       tags:
       - Modell Resource Service
-      operationId: modell.quarkus.resources.ModellResourceService_postFilterContentEqualsAsList
       requestBody:
         content:
           application/json:
@@ -182,7 +202,6 @@ paths:
     post:
       tags:
       - Modell Resource Service
-      operationId: modell.quarkus.resources.ModellResourceService_postFilterContentInAsList
       requestBody:
         content:
           application/json:
@@ -203,7 +222,6 @@ paths:
     get:
       tags:
       - Modell Resource Service
-      operationId: modell.quarkus.resources.ModellResourceService_getFilterStringFieldEqualsValueAsList
       parameters:
       - name: stringField
         in: path
@@ -224,11 +242,21 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Modell'
+    parameters:
+    - name: stringField
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: value
+      in: path
+      required: true
+      schema:
+        type: string
   /modell/filter/{stringField}/in/{values}/asList:
     get:
       tags:
       - Modell Resource Service
-      operationId: modell.quarkus.resources.ModellResourceService_getFilterStringFieldInValuesAsList
       parameters:
       - name: stringField
         in: path
@@ -251,11 +279,23 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Modell'
+    parameters:
+    - name: stringField
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: values
+      in: path
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
   /modell/filter/{stringField}/like/{value}/asList:
     get:
       tags:
       - Modell Resource Service
-      operationId: modell.quarkus.resources.ModellResourceService_getFilterStringFieldLikeValueAsList
       parameters:
       - name: stringField
         in: path
@@ -276,11 +316,21 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Modell'
+    parameters:
+    - name: stringField
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: value
+      in: path
+      required: true
+      schema:
+        type: string
   /modell/list/asList:
     put:
       tags:
       - Modell Resource Service
-      operationId: modell.quarkus.resources.ModellResourceService_putListAsList
       requestBody:
         content:
           application/json:
@@ -300,7 +350,6 @@ paths:
     post:
       tags:
       - Modell Resource Service
-      operationId: modell.quarkus.resources.ModellResourceService_postListAsList
       requestBody:
         content:
           application/json:
@@ -321,7 +370,6 @@ paths:
     get:
       tags:
       - Modell Resource Service
-      operationId: modell.quarkus.resources.ModellResourceService_get
       responses:
         "200":
           description: OK
@@ -335,7 +383,6 @@ paths:
     get:
       tags:
       - Modell Resource Service
-      operationId: modell.quarkus.resources.ModellResourceService_get
       parameters:
       - name: id
         in: path
@@ -353,7 +400,6 @@ paths:
     delete:
       tags:
       - Modell Resource Service
-      operationId: modell.quarkus.resources.ModellResourceService_delete
       parameters:
       - name: id
         in: path
@@ -364,8 +410,47 @@ paths:
       responses:
         "204":
           description: No Content
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        format: int64
+        type: integer
 components:
   schemas:
+    CollectionEntity:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        subName:
+          type: string
+        subStreet:
+          type: string
+        subNumber:
+          format: int32
+          type: integer
+        subAge:
+          format: int64
+          type: integer
+    MapEntity:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        subName:
+          type: string
+        subStreet:
+          type: string
+        subNumber:
+          format: int32
+          type: integer
+        subAge:
+          format: int64
+          type: integer
     Modell:
       type: object
       properties:
@@ -387,3 +472,33 @@ components:
           items:
             format: int32
             type: integer
+        mapValues:
+          type: object
+          additionalProperties:
+            type: string
+        valueEntity:
+          $ref: '#/components/schemas/ValueEntity'
+        collectionEntities:
+          type: array
+          items:
+            $ref: '#/components/schemas/CollectionEntity'
+        mapEntities:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/MapEntity'
+    ValueEntity:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        subName:
+          type: string
+        subStreet:
+          type: string
+        subNumber:
+          format: int32
+          type: integer
+        subAge:
+          format: int64
+          type: integer

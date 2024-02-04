@@ -30,7 +30,7 @@ public class ModellResourceService extends AbstractResourceServiceImpl<Modell, L
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/over/100")
-    public List<Modell> get() {
+    public List<Modell> getOver100AsList() {
         return getDataAccess().getAllModellsOver100();
     }
 }

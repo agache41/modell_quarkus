@@ -6,6 +6,8 @@ import io.quarkus.test.junit.QuarkusTest;
 import jakarta.transaction.Transactional;
 import modell.quarkus.entities.Modell;
 
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 @QuarkusTest
@@ -14,12 +16,19 @@ public class ModellResourceServiceTest extends AbstractResourceServiceImplTest<M
 
     static final String path = "/modell";
     private static final String stringField = "name";
-    private static final Producer<Modell> producer = Producer.ofClass(Modell.class);
-    private static final List<Modell> insertData = producer.getList(2);
-    private static final List<Modell> updateData = producer.applyList(insertData);
+    private static final int collectionSize = 16;
+    private static final Producer<Modell> producer;
+    private static final List<Modell> insertData;
+    private static final List<Modell> updateData;
 
     static {
-        producer.setCollectionSize(2);
+        Producer.setDefaultSize(collectionSize);
+        producer = Producer.ofClass(Modell.class)
+                           .withList(LinkedList::new)
+                           .withMap(LinkedHashMap::new)
+                           .withSize(5);
+        insertData = producer.produceList();
+        updateData = producer.changeList(insertData);
     }
 
     public ModellResourceServiceTest() {
