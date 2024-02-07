@@ -9,12 +9,21 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { CollectionEntity } from './collectionEntity';
+import { MapEntity } from './mapEntity';
+import { ValueEntity } from './valueEntity';
 
 
 export interface Modell { 
     id?: number;
     name?: string;
     street?: string;
-    no?: number;
+    number?: number;
+    age?: number;
+    collectionValues?: Array<number>;
+    mapValues?: { [key: string]: string; };
+    valueEntity?: ValueEntity;
+    collectionEntities?: Array<CollectionEntity>;
+    mapEntities?: { [key: string]: MapEntity; };
 }
 

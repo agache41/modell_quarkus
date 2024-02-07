@@ -86,15 +86,6 @@ export class Configuration {
         else {
             this.credentials = {};
         }
-
-        // init default SecurityScheme credential
-        if (!this.credentials['SecurityScheme']) {
-            this.credentials['SecurityScheme'] = () => {
-                return (this.username || this.password)
-                    ? btoa(this.username + ':' + this.password)
-                    : undefined;
-            };
-        }
     }
 
     /**

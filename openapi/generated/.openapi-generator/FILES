@@ -8,7 +8,10 @@ configuration.ts
 encoder.ts
 git_push.sh
 index.ts
+model/collectionEntity.ts
+model/mapEntity.ts
 model/modell.ts
 model/models.ts
+model/valueEntity.ts
 param.ts
 variables.ts
