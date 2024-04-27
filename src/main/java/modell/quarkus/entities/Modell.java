@@ -28,64 +28,48 @@ import org.hibernate.annotations.FetchMode;
 import java.util.List;
 import java.util.Map;
 
-import static jakarta.persistence.FetchType.EAGER;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+@Update
 @Entity
-public class Modell implements PrimaryKey<Long>, Updateable<Modell> {
+public class Modell extends BaseEntity implements PrimaryKey<Long>, Updateable<Modell> {
 
-    @Id
-    @EqualsAndHashCode.Exclude
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private static final long serialVersionUID = 4981653210124872352L;
 
-    @Update
-    private String name;
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "subModell_id")
+    private SubModell subModell;
 
-    @Update(notNull = false)
-    private String street;
-
-    @Update(notNull = false)
-    private Integer number;
-
-    @EqualsAndHashCode.Exclude
-    private long age;
-
-    @Update
     @Fetch(FetchMode.SELECT)
-    @ElementCollection(fetch = EAGER)
-    @OrderColumn   // add this to prevent Hibernate from using PersistentBag and defaulting equals to Object
+    @ElementCollection(fetch = FetchType.EAGER)
+    @OrderColumn
     @Column(name = "collectionValues")
     private List<Integer> collectionValues;
 
-    @Update
     @Fetch(FetchMode.SELECT)
-    @ElementCollection(fetch = EAGER)
+    @ElementCollection(fetch = FetchType.EAGER)
     @Column(name = "mapValues")
     private Map<Long, String> mapValues;
 
-    @Update
     @Fetch(FetchMode.JOIN)
-    @OneToOne(cascade = CascadeType.ALL, fetch = EAGER)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "valueEntity_id", referencedColumnName = "id")
     private ValueEntity valueEntity;
 
-    @Update
     @Fetch(FetchMode.SELECT)
-    // add this to prevent Hibernate from using PersistentBag and defaulting equals to Object
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    // add this to prevent Hibernate from using PersistentBag
     @OrderColumn(name = "id")
-    @OneToMany(cascade = CascadeType.ALL, fetch = EAGER, orphanRemoval = true)
     private List<CollectionEntity> collectionEntities;
 
-    @Update
     @Fetch(FetchMode.SELECT)
     @MapKey(name = "id")
-    @OneToMany(cascade = CascadeType.ALL, fetch = EAGER, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     //add this to prevent failure at post when inserting new keys in the map, keys that will be overwritten.
     @EqualsAndHashCode.Exclude
     private Map<Long, MapEntity> mapEntities;
-
 }

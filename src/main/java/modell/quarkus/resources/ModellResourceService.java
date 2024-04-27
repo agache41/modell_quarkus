@@ -1,5 +1,6 @@
 package modell.quarkus.resources;
 
+
 import io.github.agache41.generic.rest.jpa.resourceService.AbstractResourceServiceImpl;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;

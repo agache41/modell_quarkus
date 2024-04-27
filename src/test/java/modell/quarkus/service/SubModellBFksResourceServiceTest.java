@@ -1,27 +1,29 @@
 package modell.quarkus.service;
 
 import io.github.agache41.generic.rest.jpa.filler.Producer;
+import io.github.agache41.generic.rest.jpa.modell.entities.SubModellBFks;
 import io.github.agache41.generic.rest.jpa.resourceService.AbstractResourceServiceImplTest;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.transaction.Transactional;
-import modell.quarkus.entities.Modell;
 
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 
+
 @QuarkusTest
 @Transactional
-public class ModellResourceServiceTest extends AbstractResourceServiceImplTest<Modell, Long> {
+public class SubModellBFksResourceServiceTest extends AbstractResourceServiceImplTest<SubModellBFks, Long> {
 
-    static final String path = "/modell";
-    private static final String stringField = "stringVal";
-    private static final Producer<Modell> producer;
-    private static final List<Modell> insertData;
-    private static final List<Modell> updateData;
+    static final String path = "/subModellAFks";
+    private static final String stringField = "subName";
+    private static final int collectionSize = 16;
+    private static final Producer<SubModellBFks> producer;
+    private static final List<SubModellBFks> insertData;
+    private static final List<SubModellBFks> updateData;
 
     static {
-        producer = Producer.ofClass(Modell.class)
+        producer = Producer.ofClass(SubModellBFks.class)
                            .withList(LinkedList::new)
                            .withMap(LinkedHashMap::new)
                            .withSize(Config.collectionSize);
@@ -29,8 +31,8 @@ public class ModellResourceServiceTest extends AbstractResourceServiceImplTest<M
         updateData = producer.changeList(insertData);
     }
 
-    public ModellResourceServiceTest() {
-        super(Modell.class, //
+    public SubModellBFksResourceServiceTest() {
+        super(SubModellBFks.class, //
               path, //
               insertData, //
               updateData,

@@ -9,13 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { CollectionEntity } from './collectionEntity';
-import { MapEntity } from './mapEntity';
-import { ValueEntity } from './valueEntity';
-import { SubModell } from './subModell';
 
 
-export interface Modell { 
+export interface SubModell { 
     id?: any | null;
     stringVal?: string;
     stringValNotNull?: string;
@@ -32,11 +28,5 @@ export interface Modell {
     keyB?: string;
     keyC?: string;
     bool?: boolean;
-    subModell?: SubModell;
-    collectionValues?: Array<number>;
-    mapValues?: { [key: string]: string; };
-    valueEntity?: ValueEntity;
-    collectionEntities?: Array<CollectionEntity>;
-    mapEntities?: { [key: string]: MapEntity; };
 }
 

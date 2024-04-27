@@ -3,7 +3,10 @@
 README.md
 api.module.ts
 api/api.ts
+api/modellFksResourceService.service.ts
 api/modellResourceService.service.ts
+api/subModellAFksResourceService.service.ts
+api/subModellBFksResourceService.service.ts
 configuration.ts
 encoder.ts
 git_push.sh
@@ -11,7 +14,11 @@ index.ts
 model/collectionEntity.ts
 model/mapEntity.ts
 model/modell.ts
+model/modellFks.ts
 model/models.ts
+model/subModell.ts
+model/subModellAFks.ts
+model/subModellBFks.ts
 model/valueEntity.ts
 param.ts
 variables.ts

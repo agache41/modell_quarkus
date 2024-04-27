@@ -1,5 +1,6 @@
 package modell.quarkus.dataaccess;
 
+
 import io.github.agache41.generic.rest.jpa.dataAccess.DataAccess;
 import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Inject;

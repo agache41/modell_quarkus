@@ -417,6 +417,1191 @@ paths:
       schema:
         format: int64
         type: integer
+  /modellFks:
+    put:
+      tags:
+      - Modell Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModellFks'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModellFks'
+    post:
+      tags:
+      - Modell Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModellFks'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModellFks'
+  /modellFks/all/asList:
+    get:
+      tags:
+      - Modell Fks Resource Service
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModellFks'
+  /modellFks/autocomplete/{stringField}/like/{value}/asSortedSet:
+    get:
+      tags:
+      - Modell Fks Resource Service
+      parameters:
+      - name: stringField
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: value
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+    parameters:
+    - name: stringField
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: value
+      in: path
+      required: true
+      schema:
+        type: string
+  /modellFks/byIds:
+    delete:
+      tags:
+      - Modell Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                format: int64
+                type: integer
+      responses:
+        "204":
+          description: No Content
+  /modellFks/byIds/asList:
+    post:
+      tags:
+      - Modell Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                format: int64
+                type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModellFks'
+  /modellFks/byIds/{ids}:
+    delete:
+      tags:
+      - Modell Fks Resource Service
+      parameters:
+      - name: ids
+        in: path
+        required: true
+        schema:
+          type: array
+          items:
+            format: int64
+            type: integer
+      responses:
+        "204":
+          description: No Content
+    parameters:
+    - name: ids
+      in: path
+      required: true
+      schema:
+        type: array
+        items:
+          format: int64
+          type: integer
+  /modellFks/byIds/{ids}/asList:
+    get:
+      tags:
+      - Modell Fks Resource Service
+      parameters:
+      - name: ids
+        in: path
+        required: true
+        schema:
+          type: array
+          items:
+            format: int64
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModellFks'
+    parameters:
+    - name: ids
+      in: path
+      required: true
+      schema:
+        type: array
+        items:
+          format: int64
+          type: integer
+  /modellFks/filter/content/equals/value/asList:
+    post:
+      tags:
+      - Modell Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModellFks'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModellFks'
+  /modellFks/filter/content/in/values/asList:
+    post:
+      tags:
+      - Modell Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ModellFks'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModellFks'
+  /modellFks/filter/{stringField}/equals/{value}/asList:
+    get:
+      tags:
+      - Modell Fks Resource Service
+      parameters:
+      - name: stringField
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: value
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModellFks'
+    parameters:
+    - name: stringField
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: value
+      in: path
+      required: true
+      schema:
+        type: string
+  /modellFks/filter/{stringField}/in/{values}/asList:
+    get:
+      tags:
+      - Modell Fks Resource Service
+      parameters:
+      - name: stringField
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: values
+        in: path
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModellFks'
+    parameters:
+    - name: stringField
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: values
+      in: path
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+  /modellFks/filter/{stringField}/like/{value}/asList:
+    get:
+      tags:
+      - Modell Fks Resource Service
+      parameters:
+      - name: stringField
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: value
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModellFks'
+    parameters:
+    - name: stringField
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: value
+      in: path
+      required: true
+      schema:
+        type: string
+  /modellFks/list/asList:
+    put:
+      tags:
+      - Modell Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ModellFks'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModellFks'
+    post:
+      tags:
+      - Modell Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ModellFks'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModellFks'
+  /modellFks/{id}:
+    get:
+      tags:
+      - Modell Fks Resource Service
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModellFks'
+    delete:
+      tags:
+      - Modell Fks Resource Service
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "204":
+          description: No Content
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        format: int64
+        type: integer
+  /subModellAFks:
+    put:
+      tags:
+      - Sub Modell A Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubModellAFks'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubModellAFks'
+    post:
+      tags:
+      - Sub Modell A Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubModellAFks'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubModellAFks'
+  /subModellAFks/all/asList:
+    get:
+      tags:
+      - Sub Modell A Fks Resource Service
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubModellAFks'
+  /subModellAFks/autocomplete/{stringField}/like/{value}/asSortedSet:
+    get:
+      tags:
+      - Sub Modell A Fks Resource Service
+      parameters:
+      - name: stringField
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: value
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+    parameters:
+    - name: stringField
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: value
+      in: path
+      required: true
+      schema:
+        type: string
+  /subModellAFks/byIds:
+    delete:
+      tags:
+      - Sub Modell A Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                format: int64
+                type: integer
+      responses:
+        "204":
+          description: No Content
+  /subModellAFks/byIds/asList:
+    post:
+      tags:
+      - Sub Modell A Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                format: int64
+                type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubModellAFks'
+  /subModellAFks/byIds/{ids}:
+    delete:
+      tags:
+      - Sub Modell A Fks Resource Service
+      parameters:
+      - name: ids
+        in: path
+        required: true
+        schema:
+          type: array
+          items:
+            format: int64
+            type: integer
+      responses:
+        "204":
+          description: No Content
+    parameters:
+    - name: ids
+      in: path
+      required: true
+      schema:
+        type: array
+        items:
+          format: int64
+          type: integer
+  /subModellAFks/byIds/{ids}/asList:
+    get:
+      tags:
+      - Sub Modell A Fks Resource Service
+      parameters:
+      - name: ids
+        in: path
+        required: true
+        schema:
+          type: array
+          items:
+            format: int64
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubModellAFks'
+    parameters:
+    - name: ids
+      in: path
+      required: true
+      schema:
+        type: array
+        items:
+          format: int64
+          type: integer
+  /subModellAFks/filter/content/equals/value/asList:
+    post:
+      tags:
+      - Sub Modell A Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubModellAFks'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubModellAFks'
+  /subModellAFks/filter/content/in/values/asList:
+    post:
+      tags:
+      - Sub Modell A Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/SubModellAFks'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubModellAFks'
+  /subModellAFks/filter/{stringField}/equals/{value}/asList:
+    get:
+      tags:
+      - Sub Modell A Fks Resource Service
+      parameters:
+      - name: stringField
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: value
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubModellAFks'
+    parameters:
+    - name: stringField
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: value
+      in: path
+      required: true
+      schema:
+        type: string
+  /subModellAFks/filter/{stringField}/in/{values}/asList:
+    get:
+      tags:
+      - Sub Modell A Fks Resource Service
+      parameters:
+      - name: stringField
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: values
+        in: path
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubModellAFks'
+    parameters:
+    - name: stringField
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: values
+      in: path
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+  /subModellAFks/filter/{stringField}/like/{value}/asList:
+    get:
+      tags:
+      - Sub Modell A Fks Resource Service
+      parameters:
+      - name: stringField
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: value
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubModellAFks'
+    parameters:
+    - name: stringField
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: value
+      in: path
+      required: true
+      schema:
+        type: string
+  /subModellAFks/list/asList:
+    put:
+      tags:
+      - Sub Modell A Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/SubModellAFks'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubModellAFks'
+    post:
+      tags:
+      - Sub Modell A Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/SubModellAFks'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubModellAFks'
+  /subModellAFks/{id}:
+    get:
+      tags:
+      - Sub Modell A Fks Resource Service
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubModellAFks'
+    delete:
+      tags:
+      - Sub Modell A Fks Resource Service
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "204":
+          description: No Content
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        format: int64
+        type: integer
+  /subModellBFks:
+    put:
+      tags:
+      - Sub Modell B Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubModellAFks'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubModellAFks'
+    post:
+      tags:
+      - Sub Modell B Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubModellAFks'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubModellAFks'
+  /subModellBFks/all/asList:
+    get:
+      tags:
+      - Sub Modell B Fks Resource Service
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubModellAFks'
+  /subModellBFks/autocomplete/{stringField}/like/{value}/asSortedSet:
+    get:
+      tags:
+      - Sub Modell B Fks Resource Service
+      parameters:
+      - name: stringField
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: value
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+    parameters:
+    - name: stringField
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: value
+      in: path
+      required: true
+      schema:
+        type: string
+  /subModellBFks/byIds:
+    delete:
+      tags:
+      - Sub Modell B Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                format: int64
+                type: integer
+      responses:
+        "204":
+          description: No Content
+  /subModellBFks/byIds/asList:
+    post:
+      tags:
+      - Sub Modell B Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                format: int64
+                type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubModellAFks'
+  /subModellBFks/byIds/{ids}:
+    delete:
+      tags:
+      - Sub Modell B Fks Resource Service
+      parameters:
+      - name: ids
+        in: path
+        required: true
+        schema:
+          type: array
+          items:
+            format: int64
+            type: integer
+      responses:
+        "204":
+          description: No Content
+    parameters:
+    - name: ids
+      in: path
+      required: true
+      schema:
+        type: array
+        items:
+          format: int64
+          type: integer
+  /subModellBFks/byIds/{ids}/asList:
+    get:
+      tags:
+      - Sub Modell B Fks Resource Service
+      parameters:
+      - name: ids
+        in: path
+        required: true
+        schema:
+          type: array
+          items:
+            format: int64
+            type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubModellAFks'
+    parameters:
+    - name: ids
+      in: path
+      required: true
+      schema:
+        type: array
+        items:
+          format: int64
+          type: integer
+  /subModellBFks/filter/content/equals/value/asList:
+    post:
+      tags:
+      - Sub Modell B Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubModellAFks'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubModellAFks'
+  /subModellBFks/filter/content/in/values/asList:
+    post:
+      tags:
+      - Sub Modell B Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/SubModellAFks'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubModellAFks'
+  /subModellBFks/filter/{stringField}/equals/{value}/asList:
+    get:
+      tags:
+      - Sub Modell B Fks Resource Service
+      parameters:
+      - name: stringField
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: value
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubModellAFks'
+    parameters:
+    - name: stringField
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: value
+      in: path
+      required: true
+      schema:
+        type: string
+  /subModellBFks/filter/{stringField}/in/{values}/asList:
+    get:
+      tags:
+      - Sub Modell B Fks Resource Service
+      parameters:
+      - name: stringField
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: values
+        in: path
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubModellAFks'
+    parameters:
+    - name: stringField
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: values
+      in: path
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+  /subModellBFks/filter/{stringField}/like/{value}/asList:
+    get:
+      tags:
+      - Sub Modell B Fks Resource Service
+      parameters:
+      - name: stringField
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: value
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubModellAFks'
+    parameters:
+    - name: stringField
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: value
+      in: path
+      required: true
+      schema:
+        type: string
+  /subModellBFks/list/asList:
+    put:
+      tags:
+      - Sub Modell B Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/SubModellAFks'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubModellAFks'
+    post:
+      tags:
+      - Sub Modell B Fks Resource Service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/SubModellAFks'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubModellAFks'
+  /subModellBFks/{id}:
+    get:
+      tags:
+      - Sub Modell B Fks Resource Service
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubModellAFks'
+    delete:
+      tags:
+      - Sub Modell B Fks Resource Service
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "204":
+          description: No Content
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        format: int64
+        type: integer
 components:
   schemas:
     CollectionEntity:
@@ -454,19 +1639,43 @@ components:
     Modell:
       type: object
       properties:
-        id:
-          format: int64
-          type: integer
-        name:
+        id: {}
+        stringVal:
           type: string
-        street:
+        stringValNotNull:
           type: string
-        number:
+        booleanVal:
+          type: boolean
+        isBoolean:
+          type: boolean
+        booVal:
+          type: boolean
+        isBool:
+          type: boolean
+        integerVal:
           format: int32
           type: integer
-        age:
+        intVal:
+          format: int32
+          type: integer
+        longVal:
           format: int64
           type: integer
+        longpVal:
+          format: int64
+          type: integer
+        bigIntegerVal:
+          type: integer
+        keyA:
+          type: string
+        keyB:
+          type: string
+        keyC:
+          type: string
+        bool:
+          type: boolean
+        subModell:
+          $ref: '#/components/schemas/SubModell'
         collectionValues:
           type: array
           items:
@@ -486,6 +1695,124 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/MapEntity'
+    ModellFks:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        keyA:
+          type: string
+        keyB:
+          type: string
+        keyC:
+          type: string
+        name:
+          type: string
+        street:
+          type: string
+        number:
+          format: int32
+          type: integer
+        age:
+          format: int64
+          type: integer
+        subModellAFks:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubModellAFks'
+        subModellBFks:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubModellBFks'
+    SubModell:
+      type: object
+      properties:
+        id: {}
+        stringVal:
+          type: string
+        stringValNotNull:
+          type: string
+        booleanVal:
+          type: boolean
+        isBoolean:
+          type: boolean
+        booVal:
+          type: boolean
+        isBool:
+          type: boolean
+        integerVal:
+          format: int32
+          type: integer
+        intVal:
+          format: int32
+          type: integer
+        longVal:
+          format: int64
+          type: integer
+        longpVal:
+          format: int64
+          type: integer
+        bigIntegerVal:
+          type: integer
+        keyA:
+          type: string
+        keyB:
+          type: string
+        keyC:
+          type: string
+        bool:
+          type: boolean
+    SubModellAFks:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        index:
+          format: int32
+          type: integer
+        keyA:
+          type: string
+        keyB:
+          type: string
+        keyC:
+          type: string
+        subName:
+          type: string
+        subStreet:
+          type: string
+        subNumber:
+          format: int32
+          type: integer
+        age:
+          format: int64
+          type: integer
+    SubModellBFks:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        index:
+          format: int32
+          type: integer
+        keyA:
+          type: string
+        keyB:
+          type: string
+        keyC:
+          type: string
+        subName:
+          type: string
+        subStreet:
+          type: string
+        subNumber:
+          format: int32
+          type: integer
+        age:
+          format: int64
+          type: integer
     ValueEntity:
       type: object
       properties:
