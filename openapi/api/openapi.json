@@ -15,6 +15,7 @@
     "/modell" : {
       "put" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_put",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -39,6 +40,7 @@
       },
       "post" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_post",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -60,11 +62,42 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/modell/all/asList" : {
       "get" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_getAllAsList",
+        "parameters" : [ {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
         "responses" : {
           "200" : {
             "description" : "OK",
@@ -80,11 +113,27 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/modell/autocomplete/{stringField}/like/{value}/asSortedSet" : {
       "get" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_getAutocompleteStringFieldLikeValueAsSortedSet",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -98,6 +147,20 @@
           "required" : true,
           "schema" : {
             "type" : "string"
+          }
+        }, {
+          "name" : "cut",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
           }
         } ],
         "responses" : {
@@ -130,11 +193,118 @@
         "schema" : {
           "type" : "string"
         }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
+    },
+    "/modell/autocompleteIds/{stringField}/like/{value}/asList" : {
+      "get" : {
+        "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_getAutocompleteIdsStringFieldLikeValueAsList",
+        "parameters" : [ {
+          "name" : "stringField",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "value",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "cut",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "id" : {
+                        "format" : "int64",
+                        "type" : "integer"
+                      },
+                      "token" : {
+                        "type" : "string"
+                      },
+                      "count" : {
+                        "format" : "int64",
+                        "type" : "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters" : [ {
+        "name" : "stringField",
+        "in" : "path",
+        "required" : true,
+        "schema" : {
+          "type" : "string"
+        }
+      }, {
+        "name" : "value",
+        "in" : "path",
+        "required" : true,
+        "schema" : {
+          "type" : "string"
+        }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
       } ]
     },
     "/modell/byIds" : {
       "delete" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_deleteByIds",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -153,11 +323,27 @@
             "description" : "No Content"
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/modell/byIds/asList" : {
       "post" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_postByIdsAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -186,11 +372,27 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/modell/byIds/{ids}" : {
       "delete" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_deleteByIdsInPath",
         "parameters" : [ {
           "name" : "ids",
           "in" : "path",
@@ -219,12 +421,27 @@
             "format" : "int64",
             "type" : "integer"
           }
+        }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
         }
       } ]
     },
     "/modell/byIds/{ids}/asList" : {
       "get" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_getByIdsAsList",
         "parameters" : [ {
           "name" : "ids",
           "in" : "path",
@@ -264,11 +481,41 @@
             "type" : "integer"
           }
         }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
       } ]
     },
     "/modell/filter/content/equals/value/asList" : {
       "post" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_postFilterContentEqualsAsList",
+        "parameters" : [ {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -293,11 +540,42 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/modell/filter/content/in/values/asList" : {
       "post" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_postFilterContentInAsList",
+        "parameters" : [ {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -325,11 +603,27 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/modell/filter/{stringField}/equals/{value}/asList" : {
       "get" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_getFilterStringFieldEqualsValueAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -343,6 +637,20 @@
           "required" : true,
           "schema" : {
             "type" : "string"
+          }
+        }, {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
           }
         } ],
         "responses" : {
@@ -375,11 +683,26 @@
         "schema" : {
           "type" : "string"
         }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
       } ]
     },
     "/modell/filter/{stringField}/in/{values}/asList" : {
       "get" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_getFilterStringFieldInValuesAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -396,6 +719,20 @@
             "items" : {
               "type" : "string"
             }
+          }
+        }, {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
           }
         } ],
         "responses" : {
@@ -431,11 +768,26 @@
             "type" : "string"
           }
         }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
       } ]
     },
     "/modell/filter/{stringField}/like/{value}/asList" : {
       "get" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_getFilterStringFieldLikeValueAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -449,6 +801,20 @@
           "required" : true,
           "schema" : {
             "type" : "string"
+          }
+        }, {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
           }
         } ],
         "responses" : {
@@ -481,11 +847,26 @@
         "schema" : {
           "type" : "string"
         }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
       } ]
     },
     "/modell/list/asList" : {
       "put" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_putListAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -516,6 +897,7 @@
       },
       "post" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_postListAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -543,11 +925,27 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/modell/over/100" : {
       "get" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_getOver100AsList",
         "responses" : {
           "200" : {
             "description" : "OK",
@@ -563,11 +961,27 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/modell/{id}" : {
       "get" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_get",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -592,6 +1006,7 @@
       },
       "delete" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_delete",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -613,6 +1028,20 @@
         "required" : true,
         "schema" : {
           "format" : "int64",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
           "type" : "integer"
         }
       } ]
@@ -620,6 +1049,7 @@
     "/modellFks" : {
       "put" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_put",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -644,6 +1074,7 @@
       },
       "post" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_post",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -665,11 +1096,42 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/modellFks/all/asList" : {
       "get" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_getAllAsList",
+        "parameters" : [ {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
         "responses" : {
           "200" : {
             "description" : "OK",
@@ -685,11 +1147,27 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/modellFks/autocomplete/{stringField}/like/{value}/asSortedSet" : {
       "get" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_getAutocompleteStringFieldLikeValueAsSortedSet",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -703,6 +1181,20 @@
           "required" : true,
           "schema" : {
             "type" : "string"
+          }
+        }, {
+          "name" : "cut",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
           }
         } ],
         "responses" : {
@@ -735,11 +1227,118 @@
         "schema" : {
           "type" : "string"
         }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
+    },
+    "/modellFks/autocompleteIds/{stringField}/like/{value}/asList" : {
+      "get" : {
+        "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_getAutocompleteIdsStringFieldLikeValueAsList",
+        "parameters" : [ {
+          "name" : "stringField",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "value",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "cut",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "id" : {
+                        "format" : "int64",
+                        "type" : "integer"
+                      },
+                      "token" : {
+                        "type" : "string"
+                      },
+                      "count" : {
+                        "format" : "int64",
+                        "type" : "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters" : [ {
+        "name" : "stringField",
+        "in" : "path",
+        "required" : true,
+        "schema" : {
+          "type" : "string"
+        }
+      }, {
+        "name" : "value",
+        "in" : "path",
+        "required" : true,
+        "schema" : {
+          "type" : "string"
+        }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
       } ]
     },
     "/modellFks/byIds" : {
       "delete" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_deleteByIds",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -758,11 +1357,27 @@
             "description" : "No Content"
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/modellFks/byIds/asList" : {
       "post" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_postByIdsAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -791,11 +1406,27 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/modellFks/byIds/{ids}" : {
       "delete" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_deleteByIdsInPath",
         "parameters" : [ {
           "name" : "ids",
           "in" : "path",
@@ -824,12 +1455,27 @@
             "format" : "int64",
             "type" : "integer"
           }
+        }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
         }
       } ]
     },
     "/modellFks/byIds/{ids}/asList" : {
       "get" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_getByIdsAsList",
         "parameters" : [ {
           "name" : "ids",
           "in" : "path",
@@ -869,11 +1515,41 @@
             "type" : "integer"
           }
         }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
       } ]
     },
     "/modellFks/filter/content/equals/value/asList" : {
       "post" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_postFilterContentEqualsAsList",
+        "parameters" : [ {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -898,11 +1574,42 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/modellFks/filter/content/in/values/asList" : {
       "post" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_postFilterContentInAsList",
+        "parameters" : [ {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -930,11 +1637,27 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/modellFks/filter/{stringField}/equals/{value}/asList" : {
       "get" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_getFilterStringFieldEqualsValueAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -948,6 +1671,20 @@
           "required" : true,
           "schema" : {
             "type" : "string"
+          }
+        }, {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
           }
         } ],
         "responses" : {
@@ -980,11 +1717,26 @@
         "schema" : {
           "type" : "string"
         }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
       } ]
     },
     "/modellFks/filter/{stringField}/in/{values}/asList" : {
       "get" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_getFilterStringFieldInValuesAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -1001,6 +1753,20 @@
             "items" : {
               "type" : "string"
             }
+          }
+        }, {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
           }
         } ],
         "responses" : {
@@ -1036,11 +1802,26 @@
             "type" : "string"
           }
         }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
       } ]
     },
     "/modellFks/filter/{stringField}/like/{value}/asList" : {
       "get" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_getFilterStringFieldLikeValueAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -1054,6 +1835,20 @@
           "required" : true,
           "schema" : {
             "type" : "string"
+          }
+        }, {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
           }
         } ],
         "responses" : {
@@ -1086,11 +1881,26 @@
         "schema" : {
           "type" : "string"
         }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
       } ]
     },
     "/modellFks/list/asList" : {
       "put" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_putListAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1121,6 +1931,7 @@
       },
       "post" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_postListAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1148,11 +1959,27 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/modellFks/{id}" : {
       "get" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_get",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -1177,6 +2004,7 @@
       },
       "delete" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_delete",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -1198,6 +2026,20 @@
         "required" : true,
         "schema" : {
           "format" : "int64",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
           "type" : "integer"
         }
       } ]
@@ -1205,6 +2047,7 @@
     "/subModellAFks" : {
       "put" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_put",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1229,6 +2072,7 @@
       },
       "post" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_post",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1250,11 +2094,42 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/subModellAFks/all/asList" : {
       "get" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_getAllAsList",
+        "parameters" : [ {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
         "responses" : {
           "200" : {
             "description" : "OK",
@@ -1270,11 +2145,27 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/subModellAFks/autocomplete/{stringField}/like/{value}/asSortedSet" : {
       "get" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_getAutocompleteStringFieldLikeValueAsSortedSet",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -1288,6 +2179,20 @@
           "required" : true,
           "schema" : {
             "type" : "string"
+          }
+        }, {
+          "name" : "cut",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
           }
         } ],
         "responses" : {
@@ -1320,11 +2225,118 @@
         "schema" : {
           "type" : "string"
         }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
+    },
+    "/subModellAFks/autocompleteIds/{stringField}/like/{value}/asList" : {
+      "get" : {
+        "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_getAutocompleteIdsStringFieldLikeValueAsList",
+        "parameters" : [ {
+          "name" : "stringField",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "value",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "cut",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "id" : {
+                        "format" : "int64",
+                        "type" : "integer"
+                      },
+                      "token" : {
+                        "type" : "string"
+                      },
+                      "count" : {
+                        "format" : "int64",
+                        "type" : "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters" : [ {
+        "name" : "stringField",
+        "in" : "path",
+        "required" : true,
+        "schema" : {
+          "type" : "string"
+        }
+      }, {
+        "name" : "value",
+        "in" : "path",
+        "required" : true,
+        "schema" : {
+          "type" : "string"
+        }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
       } ]
     },
     "/subModellAFks/byIds" : {
       "delete" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_deleteByIds",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1343,11 +2355,27 @@
             "description" : "No Content"
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/subModellAFks/byIds/asList" : {
       "post" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_postByIdsAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1376,11 +2404,27 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/subModellAFks/byIds/{ids}" : {
       "delete" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_deleteByIdsInPath",
         "parameters" : [ {
           "name" : "ids",
           "in" : "path",
@@ -1409,12 +2453,27 @@
             "format" : "int64",
             "type" : "integer"
           }
+        }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
         }
       } ]
     },
     "/subModellAFks/byIds/{ids}/asList" : {
       "get" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_getByIdsAsList",
         "parameters" : [ {
           "name" : "ids",
           "in" : "path",
@@ -1454,11 +2513,41 @@
             "type" : "integer"
           }
         }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
       } ]
     },
     "/subModellAFks/filter/content/equals/value/asList" : {
       "post" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_postFilterContentEqualsAsList",
+        "parameters" : [ {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1483,11 +2572,42 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/subModellAFks/filter/content/in/values/asList" : {
       "post" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_postFilterContentInAsList",
+        "parameters" : [ {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1515,11 +2635,27 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/subModellAFks/filter/{stringField}/equals/{value}/asList" : {
       "get" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_getFilterStringFieldEqualsValueAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -1533,6 +2669,20 @@
           "required" : true,
           "schema" : {
             "type" : "string"
+          }
+        }, {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
           }
         } ],
         "responses" : {
@@ -1565,11 +2715,26 @@
         "schema" : {
           "type" : "string"
         }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
       } ]
     },
     "/subModellAFks/filter/{stringField}/in/{values}/asList" : {
       "get" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_getFilterStringFieldInValuesAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -1586,6 +2751,20 @@
             "items" : {
               "type" : "string"
             }
+          }
+        }, {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
           }
         } ],
         "responses" : {
@@ -1621,11 +2800,26 @@
             "type" : "string"
           }
         }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
       } ]
     },
     "/subModellAFks/filter/{stringField}/like/{value}/asList" : {
       "get" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_getFilterStringFieldLikeValueAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -1639,6 +2833,20 @@
           "required" : true,
           "schema" : {
             "type" : "string"
+          }
+        }, {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
           }
         } ],
         "responses" : {
@@ -1671,11 +2879,26 @@
         "schema" : {
           "type" : "string"
         }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
       } ]
     },
     "/subModellAFks/list/asList" : {
       "put" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_putListAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1706,6 +2929,7 @@
       },
       "post" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_postListAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1733,11 +2957,27 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/subModellAFks/{id}" : {
       "get" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_get",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -1762,6 +3002,7 @@
       },
       "delete" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_delete",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -1785,11 +3026,26 @@
           "format" : "int64",
           "type" : "integer"
         }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
       } ]
     },
     "/subModellBFks" : {
       "put" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_put",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1814,6 +3070,7 @@
       },
       "post" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_post",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1835,11 +3092,42 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/subModellBFks/all/asList" : {
       "get" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_getAllAsList",
+        "parameters" : [ {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
         "responses" : {
           "200" : {
             "description" : "OK",
@@ -1855,11 +3143,27 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/subModellBFks/autocomplete/{stringField}/like/{value}/asSortedSet" : {
       "get" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_getAutocompleteStringFieldLikeValueAsSortedSet",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -1873,6 +3177,20 @@
           "required" : true,
           "schema" : {
             "type" : "string"
+          }
+        }, {
+          "name" : "cut",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
           }
         } ],
         "responses" : {
@@ -1905,11 +3223,118 @@
         "schema" : {
           "type" : "string"
         }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
+    },
+    "/subModellBFks/autocompleteIds/{stringField}/like/{value}/asList" : {
+      "get" : {
+        "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_getAutocompleteIdsStringFieldLikeValueAsList",
+        "parameters" : [ {
+          "name" : "stringField",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "value",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "cut",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "id" : {
+                        "format" : "int64",
+                        "type" : "integer"
+                      },
+                      "token" : {
+                        "type" : "string"
+                      },
+                      "count" : {
+                        "format" : "int64",
+                        "type" : "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters" : [ {
+        "name" : "stringField",
+        "in" : "path",
+        "required" : true,
+        "schema" : {
+          "type" : "string"
+        }
+      }, {
+        "name" : "value",
+        "in" : "path",
+        "required" : true,
+        "schema" : {
+          "type" : "string"
+        }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
       } ]
     },
     "/subModellBFks/byIds" : {
       "delete" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_deleteByIds",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1928,11 +3353,27 @@
             "description" : "No Content"
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/subModellBFks/byIds/asList" : {
       "post" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_postByIdsAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1961,11 +3402,27 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/subModellBFks/byIds/{ids}" : {
       "delete" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_deleteByIdsInPath",
         "parameters" : [ {
           "name" : "ids",
           "in" : "path",
@@ -1994,12 +3451,27 @@
             "format" : "int64",
             "type" : "integer"
           }
+        }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
         }
       } ]
     },
     "/subModellBFks/byIds/{ids}/asList" : {
       "get" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_getByIdsAsList",
         "parameters" : [ {
           "name" : "ids",
           "in" : "path",
@@ -2039,11 +3511,41 @@
             "type" : "integer"
           }
         }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
       } ]
     },
     "/subModellBFks/filter/content/equals/value/asList" : {
       "post" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_postFilterContentEqualsAsList",
+        "parameters" : [ {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -2068,11 +3570,42 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/subModellBFks/filter/content/in/values/asList" : {
       "post" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_postFilterContentInAsList",
+        "parameters" : [ {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -2100,11 +3633,27 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/subModellBFks/filter/{stringField}/equals/{value}/asList" : {
       "get" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_getFilterStringFieldEqualsValueAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -2118,6 +3667,20 @@
           "required" : true,
           "schema" : {
             "type" : "string"
+          }
+        }, {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
           }
         } ],
         "responses" : {
@@ -2150,11 +3713,26 @@
         "schema" : {
           "type" : "string"
         }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
       } ]
     },
     "/subModellBFks/filter/{stringField}/in/{values}/asList" : {
       "get" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_getFilterStringFieldInValuesAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -2171,6 +3749,20 @@
             "items" : {
               "type" : "string"
             }
+          }
+        }, {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
           }
         } ],
         "responses" : {
@@ -2206,11 +3798,26 @@
             "type" : "string"
           }
         }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
       } ]
     },
     "/subModellBFks/filter/{stringField}/like/{value}/asList" : {
       "get" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_getFilterStringFieldLikeValueAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -2224,6 +3831,20 @@
           "required" : true,
           "schema" : {
             "type" : "string"
+          }
+        }, {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
           }
         } ],
         "responses" : {
@@ -2256,11 +3877,26 @@
         "schema" : {
           "type" : "string"
         }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
       } ]
     },
     "/subModellBFks/list/asList" : {
       "put" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_putListAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -2291,6 +3927,7 @@
       },
       "post" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_postListAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -2318,11 +3955,27 @@
             }
           }
         }
-      }
+      },
+      "parameters" : [ {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
     },
     "/subModellBFks/{id}" : {
       "get" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_get",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -2347,6 +4000,7 @@
       },
       "delete" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_delete",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -2368,6 +4022,20 @@
         "required" : true,
         "schema" : {
           "format" : "int64",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "firstResult",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      }, {
+        "name" : "maxResults",
+        "in" : "query",
+        "schema" : {
+          "format" : "int32",
           "type" : "integer"
         }
       } ]
