@@ -1,10 +1,10 @@
 package modell.quarkus.service;
 
 import io.github.agache41.generic.rest.jpa.filler.Producer;
-import io.github.agache41.generic.rest.jpa.modell.entities.SubModellBFks;
 import io.github.agache41.generic.rest.jpa.resourceService.AbstractResourceServiceImplTest;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.transaction.Transactional;
+import modell.quarkus.entities.SubModellBFks;
 
 import java.util.LinkedHashMap;
 import java.util.LinkedList;

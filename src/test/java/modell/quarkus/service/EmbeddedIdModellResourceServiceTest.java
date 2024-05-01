@@ -1,0 +1,83 @@
+package modell.quarkus.service;
+
+import io.github.agache41.generic.rest.jpa.filler.Producer;
+import io.github.agache41.generic.rest.jpa.resourceService.AbstractResourceServiceImplTest;
+import io.quarkus.test.junit.QuarkusTest;
+import jakarta.transaction.Transactional;
+import modell.quarkus.entities.EmbeddedIdModell;
+import modell.quarkus.entities.EmbeddedKeys;
+
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+
+@QuarkusTest
+@Transactional
+public class EmbeddedIdModellResourceServiceTest extends AbstractResourceServiceImplTest<EmbeddedIdModell, EmbeddedKeys> {
+
+    static final String path = "/embeddedIdModell";
+    private static final String stringField = "stringVal";
+    private static final Producer<EmbeddedIdModell> producer;
+    private static final List<EmbeddedIdModell> insertData;
+    private static final List<EmbeddedIdModell> updateData;
+
+    static {
+        producer = Producer.ofClass(EmbeddedIdModell.class)
+                           .withList(LinkedList::new)
+                           .withMap(LinkedHashMap::new)
+                           .withSize(Config.collectionSize);
+        insertData = producer.produceList();
+        updateData = producer.changeList(insertData);
+        setPK(insertData);
+        setPK(updateData);
+    }
+
+    public EmbeddedIdModellResourceServiceTest() {
+        super(EmbeddedIdModell.class, //
+              path, //
+              insertData, //
+              updateData,
+              stringField); //
+    }
+
+    private static void setPK(final List<EmbeddedIdModell> data) {
+        data.forEach(embeddedIdModell -> {
+            embeddedIdModell.getEmbeddedIdSubModells1()
+                            .stream()
+                            .forEach(embeddedIdSubModell1 -> {
+                                embeddedIdSubModell1.setKey1(embeddedIdModell.getId()
+                                                                             .getKey1());
+                                embeddedIdSubModell1.setKey2(embeddedIdModell.getId()
+                                                                             .getKey2());
+                                embeddedIdSubModell1.setKey3(embeddedIdModell.getId()
+                                                                             .getKey3());
+                            });
+            embeddedIdModell.getEmbeddedIdSubModells2()
+                            .stream()
+                            .forEach(embeddedIdSubModell2 -> {
+                                embeddedIdSubModell2.getId()
+                                                    .setKey1(embeddedIdModell.getId()
+                                                                             .getKey1());
+                                embeddedIdSubModell2.getId()
+                                                    .setKey2(embeddedIdModell.getId()
+                                                                             .getKey2());
+                                embeddedIdSubModell2.getId()
+                                                    .setKey3(embeddedIdModell.getId()
+                                                                             .getKey3());
+                            });
+            embeddedIdModell.getEmbeddedIdSubModell3()
+                            .getId()
+                            .setKey1(embeddedIdModell.getId()
+                                                     .getKey1());
+            embeddedIdModell.getEmbeddedIdSubModell3()
+                            .getId()
+                            .setKey2(embeddedIdModell.getId()
+                                                     .getKey2());
+            embeddedIdModell.getEmbeddedIdSubModell3()
+                            .getId()
+                            .setKey3(embeddedIdModell.getId()
+                                                     .getKey3());
+
+        });
+    }
+}

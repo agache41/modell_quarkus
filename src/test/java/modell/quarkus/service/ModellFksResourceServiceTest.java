@@ -56,5 +56,4 @@ public class ModellFksResourceServiceTest extends AbstractResourceServiceImplTes
                                                                                                                                                                        .getMaxResults());
         assertEquals(0, subModellFksList.size());
     }
-
 }

@@ -16,7 +16,6 @@ import { SubModell } from './subModell';
 
 
 export interface Modell { 
-    id?: any | null;
     stringVal?: string;
     stringValNotNull?: string;
     booleanVal?: boolean;
@@ -32,6 +31,7 @@ export interface Modell {
     keyB?: string;
     keyC?: string;
     bool?: boolean;
+    id?: number;
     subModell?: SubModell;
     collectionValues?: Array<number>;
     mapValues?: { [key: string]: string; };

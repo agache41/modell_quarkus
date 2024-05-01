@@ -11,9 +11,10 @@
  */
 
 
-export interface ModellAutocompleteIdsStringFieldLikeValueAsListGet200ResponseInner { 
-    id?: number;
-    value?: string;
-    count?: number;
+export interface EmbeddedKeys2 { 
+    key1?: string;
+    key2?: string;
+    key3?: string;
+    key4?: string;
 }
 

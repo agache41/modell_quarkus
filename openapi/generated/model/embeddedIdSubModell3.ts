@@ -9,9 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { EmbeddedKeys } from './embeddedKeys';
 
 
-export interface SubModell { 
+export interface EmbeddedIdSubModell3 { 
     stringVal?: string;
     stringValNotNull?: string;
     booleanVal?: boolean;
@@ -27,6 +28,6 @@ export interface SubModell {
     keyB?: string;
     keyC?: string;
     bool?: boolean;
-    id?: number;
+    id?: EmbeddedKeys;
 }
 

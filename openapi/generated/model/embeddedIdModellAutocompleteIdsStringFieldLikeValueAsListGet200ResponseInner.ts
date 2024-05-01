@@ -9,10 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { EmbeddedKeys } from './embeddedKeys';
 
 
-export interface ModellAutocompleteIdsStringFieldLikeValueAsListGet200ResponseInner { 
-    id?: number;
+export interface EmbeddedIdModellAutocompleteIdsStringFieldLikeValueAsListGet200ResponseInner { 
+    id?: EmbeddedKeys;
     value?: string;
     count?: number;
 }

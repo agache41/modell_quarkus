@@ -11,7 +11,7 @@
  */
 
 
-export interface SubModell { 
+export interface EmbeddedIdSubModell1 { 
     stringVal?: string;
     stringValNotNull?: string;
     booleanVal?: boolean;
@@ -28,5 +28,8 @@ export interface SubModell {
     keyC?: string;
     bool?: boolean;
     id?: number;
+    key1?: string;
+    key2?: string;
+    key3?: string;
 }
 
