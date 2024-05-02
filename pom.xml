@@ -19,7 +19,7 @@
         <version.swagger-codegen-maven-plugin>3.0.0-rc1</version.swagger-codegen-maven-plugin>
         <quarkus.analytics.disabled>true</quarkus.analytics.disabled>
         <!-- version of the tested library -->
-        <generic-rest-jpa.version>0.2.4</generic-rest-jpa.version>
+        <generic-rest-jpa.version>0.2.5</generic-rest-jpa.version>
     </properties>
 
     <dependencyManagement>
