@@ -1,5 +1,7 @@
 export * from './embeddedIdModellResourceService.service';
 import { EmbeddedIdModellResourceServiceService } from './embeddedIdModellResourceService.service';
+export * from './modell2ResourceService.service';
+import { Modell2ResourceServiceService } from './modell2ResourceService.service';
 export * from './modellFksResourceService.service';
 import { ModellFksResourceServiceService } from './modellFksResourceService.service';
 export * from './modellResourceService.service';
@@ -8,4 +10,4 @@ export * from './subModellAFksResourceService.service';
 import { SubModellAFksResourceServiceService } from './subModellAFksResourceService.service';
 export * from './subModellBFksResourceService.service';
 import { SubModellBFksResourceServiceService } from './subModellBFksResourceService.service';
-export const APIS = [EmbeddedIdModellResourceServiceService, ModellFksResourceServiceService, ModellResourceServiceService, SubModellAFksResourceServiceService, SubModellBFksResourceServiceService];
+export const APIS = [EmbeddedIdModellResourceServiceService, Modell2ResourceServiceService, ModellFksResourceServiceService, ModellResourceServiceService, SubModellAFksResourceServiceService, SubModellBFksResourceServiceService];

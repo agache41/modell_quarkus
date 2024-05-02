@@ -15,6 +15,7 @@
     "/embeddedIdModell" : {
       "put" : {
         "tags" : [ "Embedded Id Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.EmbeddedIdModellResourceService_put",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -39,6 +40,7 @@
       },
       "post" : {
         "tags" : [ "Embedded Id Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.EmbeddedIdModellResourceService_post",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -65,6 +67,7 @@
     "/embeddedIdModell/all/asList" : {
       "get" : {
         "tags" : [ "Embedded Id Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.EmbeddedIdModellResourceService_getAllAsList",
         "parameters" : [ {
           "name" : "firstResult",
           "in" : "query",
@@ -100,6 +103,7 @@
     "/embeddedIdModell/autocomplete/{stringField}/like/{value}/asSortedSet" : {
       "get" : {
         "tags" : [ "Embedded Id Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.EmbeddedIdModellResourceService_getAutocompleteStringFieldLikeValueAsSortedSet",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -149,6 +153,7 @@
     "/embeddedIdModell/autocompleteIds/{stringField}/like/{value}/asList" : {
       "get" : {
         "tags" : [ "Embedded Id Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.EmbeddedIdModellResourceService_getAutocompleteIdsStringFieldLikeValueAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -210,6 +215,7 @@
     "/embeddedIdModell/byId" : {
       "post" : {
         "tags" : [ "Embedded Id Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.EmbeddedIdModellResourceService_postById",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -236,6 +242,7 @@
     "/embeddedIdModell/byIds" : {
       "delete" : {
         "tags" : [ "Embedded Id Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.EmbeddedIdModellResourceService_deleteByIds",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -258,6 +265,7 @@
     "/embeddedIdModell/byIds/asList" : {
       "post" : {
         "tags" : [ "Embedded Id Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.EmbeddedIdModellResourceService_postByIdsAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -290,6 +298,7 @@
     "/embeddedIdModell/byIds/{ids}" : {
       "delete" : {
         "tags" : [ "Embedded Id Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.EmbeddedIdModellResourceService_deleteByIdsInPath",
         "parameters" : [ {
           "name" : "ids",
           "in" : "path",
@@ -322,6 +331,7 @@
     "/embeddedIdModell/byIds/{ids}/asList" : {
       "get" : {
         "tags" : [ "Embedded Id Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.EmbeddedIdModellResourceService_getByIdsAsList",
         "parameters" : [ {
           "name" : "ids",
           "in" : "path",
@@ -364,6 +374,7 @@
     "/embeddedIdModell/filter/content/equals/value/asList" : {
       "post" : {
         "tags" : [ "Embedded Id Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.EmbeddedIdModellResourceService_postFilterContentEqualsAsList",
         "parameters" : [ {
           "name" : "firstResult",
           "in" : "query",
@@ -408,6 +419,7 @@
     "/embeddedIdModell/filter/content/in/values/asList" : {
       "post" : {
         "tags" : [ "Embedded Id Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.EmbeddedIdModellResourceService_postFilterContentInAsList",
         "parameters" : [ {
           "name" : "firstResult",
           "in" : "query",
@@ -455,6 +467,7 @@
     "/embeddedIdModell/filter/{stringField}/equals/{value}/asList" : {
       "get" : {
         "tags" : [ "Embedded Id Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.EmbeddedIdModellResourceService_getFilterStringFieldEqualsValueAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -504,6 +517,7 @@
     "/embeddedIdModell/filter/{stringField}/in/{values}/asList" : {
       "get" : {
         "tags" : [ "Embedded Id Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.EmbeddedIdModellResourceService_getFilterStringFieldInValuesAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -556,6 +570,7 @@
     "/embeddedIdModell/filter/{stringField}/like/{value}/asList" : {
       "get" : {
         "tags" : [ "Embedded Id Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.EmbeddedIdModellResourceService_getFilterStringFieldLikeValueAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -605,6 +620,7 @@
     "/embeddedIdModell/list/asList" : {
       "put" : {
         "tags" : [ "Embedded Id Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.EmbeddedIdModellResourceService_putListAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -635,6 +651,7 @@
       },
       "post" : {
         "tags" : [ "Embedded Id Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.EmbeddedIdModellResourceService_postListAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -667,6 +684,7 @@
     "/embeddedIdModell/{id}" : {
       "get" : {
         "tags" : [ "Embedded Id Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.EmbeddedIdModellResourceService_get",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -690,6 +708,7 @@
       },
       "delete" : {
         "tags" : [ "Embedded Id Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.EmbeddedIdModellResourceService_delete",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -716,6 +735,7 @@
     "/modell" : {
       "put" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_put",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -740,6 +760,7 @@
       },
       "post" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_post",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -766,6 +787,7 @@
     "/modell/all/asList" : {
       "get" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_getAllAsList",
         "parameters" : [ {
           "name" : "firstResult",
           "in" : "query",
@@ -801,6 +823,7 @@
     "/modell/autocomplete/{stringField}/like/{value}/asSortedSet" : {
       "get" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_getAutocompleteStringFieldLikeValueAsSortedSet",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -850,6 +873,7 @@
     "/modell/autocompleteIds/{stringField}/like/{value}/asList" : {
       "get" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_getAutocompleteIdsStringFieldLikeValueAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -912,6 +936,7 @@
     "/modell/byId" : {
       "post" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_postById",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -939,6 +964,7 @@
     "/modell/byIds" : {
       "delete" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_deleteByIds",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -962,6 +988,7 @@
     "/modell/byIds/asList" : {
       "post" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_postByIdsAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -995,6 +1022,7 @@
     "/modell/byIds/{ids}" : {
       "delete" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_deleteByIdsInPath",
         "parameters" : [ {
           "name" : "ids",
           "in" : "path",
@@ -1029,6 +1057,7 @@
     "/modell/byIds/{ids}/asList" : {
       "get" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_getByIdsAsList",
         "parameters" : [ {
           "name" : "ids",
           "in" : "path",
@@ -1073,6 +1102,7 @@
     "/modell/filter/content/equals/value/asList" : {
       "post" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_postFilterContentEqualsAsList",
         "parameters" : [ {
           "name" : "firstResult",
           "in" : "query",
@@ -1117,6 +1147,7 @@
     "/modell/filter/content/in/values/asList" : {
       "post" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_postFilterContentInAsList",
         "parameters" : [ {
           "name" : "firstResult",
           "in" : "query",
@@ -1164,6 +1195,7 @@
     "/modell/filter/{stringField}/equals/{value}/asList" : {
       "get" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_getFilterStringFieldEqualsValueAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -1213,6 +1245,7 @@
     "/modell/filter/{stringField}/in/{values}/asList" : {
       "get" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_getFilterStringFieldInValuesAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -1265,6 +1298,7 @@
     "/modell/filter/{stringField}/like/{value}/asList" : {
       "get" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_getFilterStringFieldLikeValueAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -1314,6 +1348,7 @@
     "/modell/list/asList" : {
       "put" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_putListAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1344,6 +1379,7 @@
       },
       "post" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_postListAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1376,6 +1412,7 @@
     "/modell/over/100" : {
       "get" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_getOver100AsList",
         "responses" : {
           "200" : {
             "description" : "OK",
@@ -1396,6 +1433,7 @@
     "/modell/{id}" : {
       "get" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_get",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -1420,6 +1458,7 @@
       },
       "delete" : {
         "tags" : [ "Modell Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellResourceService_delete",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -1445,9 +1484,730 @@
         }
       } ]
     },
+    "/modell2" : {
+      "put" : {
+        "tags" : [ "Modell 2 Resource Service" ],
+        "operationId" : "modell.quarkus.resources.Modell2ResourceService_put",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Modell2"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Modell2"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Modell 2 Resource Service" ],
+        "operationId" : "modell.quarkus.resources.Modell2ResourceService_post",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Modell2"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Modell2"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/modell2/all/asList" : {
+      "get" : {
+        "tags" : [ "Modell 2 Resource Service" ],
+        "operationId" : "modell.quarkus.resources.Modell2ResourceService_getAllAsList",
+        "parameters" : [ {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Modell2"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/modell2/autocomplete/{stringField}/like/{value}/asSortedSet" : {
+      "get" : {
+        "tags" : [ "Modell 2 Resource Service" ],
+        "operationId" : "modell.quarkus.resources.Modell2ResourceService_getAutocompleteStringFieldLikeValueAsSortedSet",
+        "parameters" : [ {
+          "name" : "stringField",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "value",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "cut",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/modell2/autocompleteIds/{stringField}/like/{value}/asList" : {
+      "get" : {
+        "tags" : [ "Modell 2 Resource Service" ],
+        "operationId" : "modell.quarkus.resources.Modell2ResourceService_getAutocompleteIdsStringFieldLikeValueAsList",
+        "parameters" : [ {
+          "name" : "stringField",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "value",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "cut",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "id" : {
+                        "type" : "string"
+                      },
+                      "value" : {
+                        "type" : "string"
+                      },
+                      "count" : {
+                        "format" : "int64",
+                        "type" : "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/modell2/byId" : {
+      "post" : {
+        "tags" : [ "Modell 2 Resource Service" ],
+        "operationId" : "modell.quarkus.resources.Modell2ResourceService_postById",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "string"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Modell2"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/modell2/byIds" : {
+      "delete" : {
+        "tags" : [ "Modell 2 Resource Service" ],
+        "operationId" : "modell.quarkus.resources.Modell2ResourceService_deleteByIds",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "string"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        }
+      }
+    },
+    "/modell2/byIds/asList" : {
+      "post" : {
+        "tags" : [ "Modell 2 Resource Service" ],
+        "operationId" : "modell.quarkus.resources.Modell2ResourceService_postByIdsAsList",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "string"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Modell2"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/modell2/byIds/{ids}" : {
+      "delete" : {
+        "tags" : [ "Modell 2 Resource Service" ],
+        "operationId" : "modell.quarkus.resources.Modell2ResourceService_deleteByIdsInPath",
+        "parameters" : [ {
+          "name" : "ids",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        }
+      },
+      "parameters" : [ {
+        "name" : "ids",
+        "in" : "path",
+        "required" : true,
+        "schema" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      } ]
+    },
+    "/modell2/byIds/{ids}/asList" : {
+      "get" : {
+        "tags" : [ "Modell 2 Resource Service" ],
+        "operationId" : "modell.quarkus.resources.Modell2ResourceService_getByIdsAsList",
+        "parameters" : [ {
+          "name" : "ids",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Modell2"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters" : [ {
+        "name" : "ids",
+        "in" : "path",
+        "required" : true,
+        "schema" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      } ]
+    },
+    "/modell2/filter/content/equals/value/asList" : {
+      "post" : {
+        "tags" : [ "Modell 2 Resource Service" ],
+        "operationId" : "modell.quarkus.resources.Modell2ResourceService_postFilterContentEqualsAsList",
+        "parameters" : [ {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Modell2"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Modell2"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/modell2/filter/content/in/values/asList" : {
+      "post" : {
+        "tags" : [ "Modell 2 Resource Service" ],
+        "operationId" : "modell.quarkus.resources.Modell2ResourceService_postFilterContentInAsList",
+        "parameters" : [ {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "array",
+                "items" : {
+                  "$ref" : "#/components/schemas/Modell2"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Modell2"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/modell2/filter/{stringField}/equals/{value}/asList" : {
+      "get" : {
+        "tags" : [ "Modell 2 Resource Service" ],
+        "operationId" : "modell.quarkus.resources.Modell2ResourceService_getFilterStringFieldEqualsValueAsList",
+        "parameters" : [ {
+          "name" : "stringField",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "value",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Modell2"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/modell2/filter/{stringField}/in/{values}/asList" : {
+      "get" : {
+        "tags" : [ "Modell 2 Resource Service" ],
+        "operationId" : "modell.quarkus.resources.Modell2ResourceService_getFilterStringFieldInValuesAsList",
+        "parameters" : [ {
+          "name" : "stringField",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "values",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }, {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Modell2"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/modell2/filter/{stringField}/like/{value}/asList" : {
+      "get" : {
+        "tags" : [ "Modell 2 Resource Service" ],
+        "operationId" : "modell.quarkus.resources.Modell2ResourceService_getFilterStringFieldLikeValueAsList",
+        "parameters" : [ {
+          "name" : "stringField",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "value",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "firstResult",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }, {
+          "name" : "maxResults",
+          "in" : "query",
+          "schema" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Modell2"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/modell2/list/asList" : {
+      "put" : {
+        "tags" : [ "Modell 2 Resource Service" ],
+        "operationId" : "modell.quarkus.resources.Modell2ResourceService_putListAsList",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "array",
+                "items" : {
+                  "$ref" : "#/components/schemas/Modell2"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Modell2"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Modell 2 Resource Service" ],
+        "operationId" : "modell.quarkus.resources.Modell2ResourceService_postListAsList",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "array",
+                "items" : {
+                  "$ref" : "#/components/schemas/Modell2"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Modell2"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/modell2/{id}" : {
+      "get" : {
+        "tags" : [ "Modell 2 Resource Service" ],
+        "operationId" : "modell.quarkus.resources.Modell2ResourceService_get",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Modell2"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Modell 2 Resource Service" ],
+        "operationId" : "modell.quarkus.resources.Modell2ResourceService_delete",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "No Content"
+          }
+        }
+      },
+      "parameters" : [ {
+        "name" : "id",
+        "in" : "path",
+        "required" : true,
+        "schema" : {
+          "type" : "string"
+        }
+      } ]
+    },
     "/modellFks" : {
       "put" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_put",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1472,6 +2232,7 @@
       },
       "post" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_post",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1498,6 +2259,7 @@
     "/modellFks/all/asList" : {
       "get" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_getAllAsList",
         "parameters" : [ {
           "name" : "firstResult",
           "in" : "query",
@@ -1533,6 +2295,7 @@
     "/modellFks/autocomplete/{stringField}/like/{value}/asSortedSet" : {
       "get" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_getAutocompleteStringFieldLikeValueAsSortedSet",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -1582,6 +2345,7 @@
     "/modellFks/autocompleteIds/{stringField}/like/{value}/asList" : {
       "get" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_getAutocompleteIdsStringFieldLikeValueAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -1644,6 +2408,7 @@
     "/modellFks/byId" : {
       "post" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_postById",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1671,6 +2436,7 @@
     "/modellFks/byIds" : {
       "delete" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_deleteByIds",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1694,6 +2460,7 @@
     "/modellFks/byIds/asList" : {
       "post" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_postByIdsAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1727,6 +2494,7 @@
     "/modellFks/byIds/{ids}" : {
       "delete" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_deleteByIdsInPath",
         "parameters" : [ {
           "name" : "ids",
           "in" : "path",
@@ -1761,6 +2529,7 @@
     "/modellFks/byIds/{ids}/asList" : {
       "get" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_getByIdsAsList",
         "parameters" : [ {
           "name" : "ids",
           "in" : "path",
@@ -1805,6 +2574,7 @@
     "/modellFks/filter/content/equals/value/asList" : {
       "post" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_postFilterContentEqualsAsList",
         "parameters" : [ {
           "name" : "firstResult",
           "in" : "query",
@@ -1849,6 +2619,7 @@
     "/modellFks/filter/content/in/values/asList" : {
       "post" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_postFilterContentInAsList",
         "parameters" : [ {
           "name" : "firstResult",
           "in" : "query",
@@ -1896,6 +2667,7 @@
     "/modellFks/filter/{stringField}/equals/{value}/asList" : {
       "get" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_getFilterStringFieldEqualsValueAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -1945,6 +2717,7 @@
     "/modellFks/filter/{stringField}/in/{values}/asList" : {
       "get" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_getFilterStringFieldInValuesAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -1997,6 +2770,7 @@
     "/modellFks/filter/{stringField}/like/{value}/asList" : {
       "get" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_getFilterStringFieldLikeValueAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -2046,6 +2820,7 @@
     "/modellFks/list/asList" : {
       "put" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_putListAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -2076,6 +2851,7 @@
       },
       "post" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_postListAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -2108,6 +2884,7 @@
     "/modellFks/{id}" : {
       "get" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_get",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -2132,6 +2909,7 @@
       },
       "delete" : {
         "tags" : [ "Modell Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.ModellFksResourceService_delete",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -2160,6 +2938,7 @@
     "/subModellAFks" : {
       "put" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_put",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -2184,6 +2963,7 @@
       },
       "post" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_post",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -2210,6 +2990,7 @@
     "/subModellAFks/all/asList" : {
       "get" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_getAllAsList",
         "parameters" : [ {
           "name" : "firstResult",
           "in" : "query",
@@ -2245,6 +3026,7 @@
     "/subModellAFks/autocomplete/{stringField}/like/{value}/asSortedSet" : {
       "get" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_getAutocompleteStringFieldLikeValueAsSortedSet",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -2294,6 +3076,7 @@
     "/subModellAFks/autocompleteIds/{stringField}/like/{value}/asList" : {
       "get" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_getAutocompleteIdsStringFieldLikeValueAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -2356,6 +3139,7 @@
     "/subModellAFks/byId" : {
       "post" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_postById",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -2383,6 +3167,7 @@
     "/subModellAFks/byIds" : {
       "delete" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_deleteByIds",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -2406,6 +3191,7 @@
     "/subModellAFks/byIds/asList" : {
       "post" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_postByIdsAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -2439,6 +3225,7 @@
     "/subModellAFks/byIds/{ids}" : {
       "delete" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_deleteByIdsInPath",
         "parameters" : [ {
           "name" : "ids",
           "in" : "path",
@@ -2473,6 +3260,7 @@
     "/subModellAFks/byIds/{ids}/asList" : {
       "get" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_getByIdsAsList",
         "parameters" : [ {
           "name" : "ids",
           "in" : "path",
@@ -2517,6 +3305,7 @@
     "/subModellAFks/filter/content/equals/value/asList" : {
       "post" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_postFilterContentEqualsAsList",
         "parameters" : [ {
           "name" : "firstResult",
           "in" : "query",
@@ -2561,6 +3350,7 @@
     "/subModellAFks/filter/content/in/values/asList" : {
       "post" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_postFilterContentInAsList",
         "parameters" : [ {
           "name" : "firstResult",
           "in" : "query",
@@ -2608,6 +3398,7 @@
     "/subModellAFks/filter/{stringField}/equals/{value}/asList" : {
       "get" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_getFilterStringFieldEqualsValueAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -2657,6 +3448,7 @@
     "/subModellAFks/filter/{stringField}/in/{values}/asList" : {
       "get" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_getFilterStringFieldInValuesAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -2709,6 +3501,7 @@
     "/subModellAFks/filter/{stringField}/like/{value}/asList" : {
       "get" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_getFilterStringFieldLikeValueAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -2758,6 +3551,7 @@
     "/subModellAFks/list/asList" : {
       "put" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_putListAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -2788,6 +3582,7 @@
       },
       "post" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_postListAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -2820,6 +3615,7 @@
     "/subModellAFks/{id}" : {
       "get" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_get",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -2844,6 +3640,7 @@
       },
       "delete" : {
         "tags" : [ "Sub Modell A Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellAFksResourceService_delete",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -2872,6 +3669,7 @@
     "/subModellBFks" : {
       "put" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_put",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -2896,6 +3694,7 @@
       },
       "post" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_post",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -2922,6 +3721,7 @@
     "/subModellBFks/all/asList" : {
       "get" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_getAllAsList",
         "parameters" : [ {
           "name" : "firstResult",
           "in" : "query",
@@ -2957,6 +3757,7 @@
     "/subModellBFks/autocomplete/{stringField}/like/{value}/asSortedSet" : {
       "get" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_getAutocompleteStringFieldLikeValueAsSortedSet",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -3006,6 +3807,7 @@
     "/subModellBFks/autocompleteIds/{stringField}/like/{value}/asList" : {
       "get" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_getAutocompleteIdsStringFieldLikeValueAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -3068,6 +3870,7 @@
     "/subModellBFks/byId" : {
       "post" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_postById",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -3095,6 +3898,7 @@
     "/subModellBFks/byIds" : {
       "delete" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_deleteByIds",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -3118,6 +3922,7 @@
     "/subModellBFks/byIds/asList" : {
       "post" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_postByIdsAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -3151,6 +3956,7 @@
     "/subModellBFks/byIds/{ids}" : {
       "delete" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_deleteByIdsInPath",
         "parameters" : [ {
           "name" : "ids",
           "in" : "path",
@@ -3185,6 +3991,7 @@
     "/subModellBFks/byIds/{ids}/asList" : {
       "get" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_getByIdsAsList",
         "parameters" : [ {
           "name" : "ids",
           "in" : "path",
@@ -3229,6 +4036,7 @@
     "/subModellBFks/filter/content/equals/value/asList" : {
       "post" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_postFilterContentEqualsAsList",
         "parameters" : [ {
           "name" : "firstResult",
           "in" : "query",
@@ -3273,6 +4081,7 @@
     "/subModellBFks/filter/content/in/values/asList" : {
       "post" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_postFilterContentInAsList",
         "parameters" : [ {
           "name" : "firstResult",
           "in" : "query",
@@ -3320,6 +4129,7 @@
     "/subModellBFks/filter/{stringField}/equals/{value}/asList" : {
       "get" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_getFilterStringFieldEqualsValueAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -3369,6 +4179,7 @@
     "/subModellBFks/filter/{stringField}/in/{values}/asList" : {
       "get" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_getFilterStringFieldInValuesAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -3421,6 +4232,7 @@
     "/subModellBFks/filter/{stringField}/like/{value}/asList" : {
       "get" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_getFilterStringFieldLikeValueAsList",
         "parameters" : [ {
           "name" : "stringField",
           "in" : "path",
@@ -3470,6 +4282,7 @@
     "/subModellBFks/list/asList" : {
       "put" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_putListAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -3500,6 +4313,7 @@
       },
       "post" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_postListAsList",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -3532,6 +4346,7 @@
     "/subModellBFks/{id}" : {
       "get" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_get",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -3556,6 +4371,7 @@
       },
       "delete" : {
         "tags" : [ "Sub Modell B Fks Resource Service" ],
+        "operationId" : "modell.quarkus.resources.SubModellBFksResourceService_delete",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -4000,6 +4816,28 @@
             "additionalProperties" : {
               "$ref" : "#/components/schemas/MapEntity"
             }
+          }
+        }
+      },
+      "Modell2" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "street" : {
+            "type" : "string"
+          },
+          "number" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "age" : {
+            "format" : "int64",
+            "type" : "integer"
           }
         }
       },

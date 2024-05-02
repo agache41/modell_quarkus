@@ -4,6 +4,7 @@ README.md
 api.module.ts
 api/api.ts
 api/embeddedIdModellResourceService.service.ts
+api/modell2ResourceService.service.ts
 api/modellFksResourceService.service.ts
 api/modellResourceService.service.ts
 api/subModellAFksResourceService.service.ts
@@ -22,6 +23,8 @@ model/embeddedKeys.ts
 model/embeddedKeys2.ts
 model/mapEntity.ts
 model/modell.ts
+model/modell2.ts
+model/modell2AutocompleteIdsStringFieldLikeValueAsListGet200ResponseInner.ts
 model/modellAutocompleteIdsStringFieldLikeValueAsListGet200ResponseInner.ts
 model/modellFks.ts
 model/models.ts

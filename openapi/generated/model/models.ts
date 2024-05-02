@@ -8,6 +8,8 @@ export * from './embeddedKeys';
 export * from './embeddedKeys2';
 export * from './mapEntity';
 export * from './modell';
+export * from './modell2';
+export * from './modell2AutocompleteIdsStringFieldLikeValueAsListGet200ResponseInner';
 export * from './modellAutocompleteIdsStringFieldLikeValueAsListGet200ResponseInner';
 export * from './modellFks';
 export * from './subModell';
