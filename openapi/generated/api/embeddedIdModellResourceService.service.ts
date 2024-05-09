@@ -21,9 +21,9 @@ import { Observable }                                        from 'rxjs';
 // @ts-ignore
 import { EmbeddedIdModell } from '../model/embeddedIdModell';
 // @ts-ignore
-import { EmbeddedIdModellAutocompleteIdsStringFieldLikeValueAsListGet200ResponseInner } from '../model/embeddedIdModellAutocompleteIdsStringFieldLikeValueAsListGet200ResponseInner';
-// @ts-ignore
 import { EmbeddedKeys } from '../model/embeddedKeys';
+// @ts-ignore
+import { ModellQuarkusResourcesEmbeddedIdModellResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList200ResponseInner } from '../model/modellQuarkusResourcesEmbeddedIdModellResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList200ResponseInner';
 
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -96,15 +96,247 @@ export class EmbeddedIdModellResourceServiceService {
     }
 
     /**
+     * @param id 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceDelete(id: EmbeddedKeys, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceDelete(id: EmbeddedKeys, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceDelete(id: EmbeddedKeys, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceDelete(id: EmbeddedKeys, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling modellQuarkusResourcesEmbeddedIdModellResourceServiceDelete.');
+        }
+
+        let localVarHeaders = this.defaultHeaders;
+
+        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+
+
+        let responseType_: 'text' | 'json' | 'blob' = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            } else {
+                responseType_ = 'blob';
+            }
+        }
+
+        let localVarPath = `/embeddedIdModell/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "EmbeddedKeys", dataFormat: undefined})}`;
+        return this.httpClient.request<any>('delete', `${this.configuration.basePath}${localVarPath}`,
+            {
+                context: localVarHttpContext,
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: localVarHeaders,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * @param embeddedKeys 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceDeleteByIds(embeddedKeys?: Array<EmbeddedKeys>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceDeleteByIds(embeddedKeys?: Array<EmbeddedKeys>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceDeleteByIds(embeddedKeys?: Array<EmbeddedKeys>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceDeleteByIds(embeddedKeys?: Array<EmbeddedKeys>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+
+        let localVarHeaders = this.defaultHeaders;
+
+        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
+        }
+
+        let responseType_: 'text' | 'json' | 'blob' = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            } else {
+                responseType_ = 'blob';
+            }
+        }
+
+        let localVarPath = `/embeddedIdModell/byIds`;
+        return this.httpClient.request<any>('delete', `${this.configuration.basePath}${localVarPath}`,
+            {
+                context: localVarHttpContext,
+                body: embeddedKeys,
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: localVarHeaders,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * @param ids 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceDeleteByIdsInPath(ids: Array<EmbeddedKeys>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceDeleteByIdsInPath(ids: Array<EmbeddedKeys>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceDeleteByIdsInPath(ids: Array<EmbeddedKeys>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceDeleteByIdsInPath(ids: Array<EmbeddedKeys>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+        if (ids === null || ids === undefined) {
+            throw new Error('Required parameter ids was null or undefined when calling modellQuarkusResourcesEmbeddedIdModellResourceServiceDeleteByIdsInPath.');
+        }
+
+        let localVarHeaders = this.defaultHeaders;
+
+        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+
+
+        let responseType_: 'text' | 'json' | 'blob' = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            } else {
+                responseType_ = 'blob';
+            }
+        }
+
+        let localVarPath = `/embeddedIdModell/byIds/${this.configuration.encodeParam({name: "ids", value: ids, in: "path", style: "simple", explode: false, dataType: "Array<EmbeddedKeys>", dataFormat: undefined})}`;
+        return this.httpClient.request<any>('delete', `${this.configuration.basePath}${localVarPath}`,
+            {
+                context: localVarHttpContext,
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: localVarHeaders,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * @param id 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGet(id: EmbeddedKeys, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmbeddedIdModell>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGet(id: EmbeddedKeys, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmbeddedIdModell>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGet(id: EmbeddedKeys, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmbeddedIdModell>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGet(id: EmbeddedKeys, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling modellQuarkusResourcesEmbeddedIdModellResourceServiceGet.');
+        }
+
+        let localVarHeaders = this.defaultHeaders;
+
+        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+
+
+        let responseType_: 'text' | 'json' | 'blob' = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            } else {
+                responseType_ = 'blob';
+            }
+        }
+
+        let localVarPath = `/embeddedIdModell/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "EmbeddedKeys", dataFormat: undefined})}`;
+        return this.httpClient.request<EmbeddedIdModell>('get', `${this.configuration.basePath}${localVarPath}`,
+            {
+                context: localVarHttpContext,
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: localVarHeaders,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
      * @param firstResult 
      * @param maxResults 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public embeddedIdModellAllAsListGet(firstResult?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
-    public embeddedIdModellAllAsListGet(firstResult?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
-    public embeddedIdModellAllAsListGet(firstResult?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
-    public embeddedIdModellAllAsListGet(firstResult?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetAllAsList(firstResult?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetAllAsList(firstResult?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetAllAsList(firstResult?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetAllAsList(firstResult?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (firstResult !== undefined && firstResult !== null) {
@@ -169,15 +401,15 @@ export class EmbeddedIdModellResourceServiceService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public embeddedIdModellAutocompleteIdsStringFieldLikeValueAsListGet(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModellAutocompleteIdsStringFieldLikeValueAsListGet200ResponseInner>>;
-    public embeddedIdModellAutocompleteIdsStringFieldLikeValueAsListGet(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModellAutocompleteIdsStringFieldLikeValueAsListGet200ResponseInner>>>;
-    public embeddedIdModellAutocompleteIdsStringFieldLikeValueAsListGet(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModellAutocompleteIdsStringFieldLikeValueAsListGet200ResponseInner>>>;
-    public embeddedIdModellAutocompleteIdsStringFieldLikeValueAsListGet(stringField: string, value: string, cut?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<ModellQuarkusResourcesEmbeddedIdModellResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList200ResponseInner>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<ModellQuarkusResourcesEmbeddedIdModellResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList200ResponseInner>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<ModellQuarkusResourcesEmbeddedIdModellResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList200ResponseInner>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList(stringField: string, value: string, cut?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (stringField === null || stringField === undefined) {
-            throw new Error('Required parameter stringField was null or undefined when calling embeddedIdModellAutocompleteIdsStringFieldLikeValueAsListGet.');
+            throw new Error('Required parameter stringField was null or undefined when calling modellQuarkusResourcesEmbeddedIdModellResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList.');
         }
         if (value === null || value === undefined) {
-            throw new Error('Required parameter value was null or undefined when calling embeddedIdModellAutocompleteIdsStringFieldLikeValueAsListGet.');
+            throw new Error('Required parameter value was null or undefined when calling modellQuarkusResourcesEmbeddedIdModellResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList.');
         }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
@@ -222,7 +454,7 @@ export class EmbeddedIdModellResourceServiceService {
         }
 
         let localVarPath = `/embeddedIdModell/autocompleteIds/${this.configuration.encodeParam({name: "stringField", value: stringField, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/like/${this.configuration.encodeParam({name: "value", value: value, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/asList`;
-        return this.httpClient.request<Array<EmbeddedIdModellAutocompleteIdsStringFieldLikeValueAsListGet200ResponseInner>>('get', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request<Array<ModellQuarkusResourcesEmbeddedIdModellResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList200ResponseInner>>('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 params: localVarQueryParameters,
@@ -243,15 +475,15 @@ export class EmbeddedIdModellResourceServiceService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public embeddedIdModellAutocompleteStringFieldLikeValueAsSortedSetGet(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<string>>;
-    public embeddedIdModellAutocompleteStringFieldLikeValueAsSortedSetGet(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<string>>>;
-    public embeddedIdModellAutocompleteStringFieldLikeValueAsSortedSetGet(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<string>>>;
-    public embeddedIdModellAutocompleteStringFieldLikeValueAsSortedSetGet(stringField: string, value: string, cut?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetAutocompleteStringFieldLikeValueAsSortedSet(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<string>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetAutocompleteStringFieldLikeValueAsSortedSet(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<string>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetAutocompleteStringFieldLikeValueAsSortedSet(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<string>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetAutocompleteStringFieldLikeValueAsSortedSet(stringField: string, value: string, cut?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (stringField === null || stringField === undefined) {
-            throw new Error('Required parameter stringField was null or undefined when calling embeddedIdModellAutocompleteStringFieldLikeValueAsSortedSetGet.');
+            throw new Error('Required parameter stringField was null or undefined when calling modellQuarkusResourcesEmbeddedIdModellResourceServiceGetAutocompleteStringFieldLikeValueAsSortedSet.');
         }
         if (value === null || value === undefined) {
-            throw new Error('Required parameter value was null or undefined when calling embeddedIdModellAutocompleteStringFieldLikeValueAsSortedSetGet.');
+            throw new Error('Required parameter value was null or undefined when calling modellQuarkusResourcesEmbeddedIdModellResourceServiceGetAutocompleteStringFieldLikeValueAsSortedSet.');
         }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
@@ -310,14 +542,357 @@ export class EmbeddedIdModellResourceServiceService {
     }
 
     /**
+     * @param ids 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetByIdsAsList(ids: Array<EmbeddedKeys>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetByIdsAsList(ids: Array<EmbeddedKeys>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetByIdsAsList(ids: Array<EmbeddedKeys>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetByIdsAsList(ids: Array<EmbeddedKeys>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (ids === null || ids === undefined) {
+            throw new Error('Required parameter ids was null or undefined when calling modellQuarkusResourcesEmbeddedIdModellResourceServiceGetByIdsAsList.');
+        }
+
+        let localVarHeaders = this.defaultHeaders;
+
+        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+
+
+        let responseType_: 'text' | 'json' | 'blob' = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            } else {
+                responseType_ = 'blob';
+            }
+        }
+
+        let localVarPath = `/embeddedIdModell/byIds/${this.configuration.encodeParam({name: "ids", value: ids, in: "path", style: "simple", explode: false, dataType: "Array<EmbeddedKeys>", dataFormat: undefined})}/asList`;
+        return this.httpClient.request<Array<EmbeddedIdModell>>('get', `${this.configuration.basePath}${localVarPath}`,
+            {
+                context: localVarHttpContext,
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: localVarHeaders,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * @param stringField 
+     * @param value 
+     * @param firstResult 
+     * @param maxResults 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetFilterStringFieldEqualsValueAsList(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetFilterStringFieldEqualsValueAsList(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetFilterStringFieldEqualsValueAsList(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetFilterStringFieldEqualsValueAsList(stringField: string, value: string, firstResult?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (stringField === null || stringField === undefined) {
+            throw new Error('Required parameter stringField was null or undefined when calling modellQuarkusResourcesEmbeddedIdModellResourceServiceGetFilterStringFieldEqualsValueAsList.');
+        }
+        if (value === null || value === undefined) {
+            throw new Error('Required parameter value was null or undefined when calling modellQuarkusResourcesEmbeddedIdModellResourceServiceGetFilterStringFieldEqualsValueAsList.');
+        }
+
+        let localVarQueryParameters = new HttpParams({encoder: this.encoder});
+        if (firstResult !== undefined && firstResult !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>firstResult, 'firstResult');
+        }
+        if (maxResults !== undefined && maxResults !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>maxResults, 'maxResults');
+        }
+
+        let localVarHeaders = this.defaultHeaders;
+
+        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+
+
+        let responseType_: 'text' | 'json' | 'blob' = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            } else {
+                responseType_ = 'blob';
+            }
+        }
+
+        let localVarPath = `/embeddedIdModell/filter/${this.configuration.encodeParam({name: "stringField", value: stringField, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/equals/${this.configuration.encodeParam({name: "value", value: value, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/asList`;
+        return this.httpClient.request<Array<EmbeddedIdModell>>('get', `${this.configuration.basePath}${localVarPath}`,
+            {
+                context: localVarHttpContext,
+                params: localVarQueryParameters,
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: localVarHeaders,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * @param stringField 
+     * @param values 
+     * @param firstResult 
+     * @param maxResults 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetFilterStringFieldInValuesAsList(stringField: string, values: Array<string>, firstResult?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetFilterStringFieldInValuesAsList(stringField: string, values: Array<string>, firstResult?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetFilterStringFieldInValuesAsList(stringField: string, values: Array<string>, firstResult?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetFilterStringFieldInValuesAsList(stringField: string, values: Array<string>, firstResult?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (stringField === null || stringField === undefined) {
+            throw new Error('Required parameter stringField was null or undefined when calling modellQuarkusResourcesEmbeddedIdModellResourceServiceGetFilterStringFieldInValuesAsList.');
+        }
+        if (values === null || values === undefined) {
+            throw new Error('Required parameter values was null or undefined when calling modellQuarkusResourcesEmbeddedIdModellResourceServiceGetFilterStringFieldInValuesAsList.');
+        }
+
+        let localVarQueryParameters = new HttpParams({encoder: this.encoder});
+        if (firstResult !== undefined && firstResult !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>firstResult, 'firstResult');
+        }
+        if (maxResults !== undefined && maxResults !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>maxResults, 'maxResults');
+        }
+
+        let localVarHeaders = this.defaultHeaders;
+
+        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+
+
+        let responseType_: 'text' | 'json' | 'blob' = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            } else {
+                responseType_ = 'blob';
+            }
+        }
+
+        let localVarPath = `/embeddedIdModell/filter/${this.configuration.encodeParam({name: "stringField", value: stringField, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/in/${this.configuration.encodeParam({name: "values", value: values, in: "path", style: "simple", explode: false, dataType: "Array<string>", dataFormat: undefined})}/asList`;
+        return this.httpClient.request<Array<EmbeddedIdModell>>('get', `${this.configuration.basePath}${localVarPath}`,
+            {
+                context: localVarHttpContext,
+                params: localVarQueryParameters,
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: localVarHeaders,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * @param stringField 
+     * @param value 
+     * @param firstResult 
+     * @param maxResults 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetFilterStringFieldLikeValueAsList(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetFilterStringFieldLikeValueAsList(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetFilterStringFieldLikeValueAsList(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServiceGetFilterStringFieldLikeValueAsList(stringField: string, value: string, firstResult?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (stringField === null || stringField === undefined) {
+            throw new Error('Required parameter stringField was null or undefined when calling modellQuarkusResourcesEmbeddedIdModellResourceServiceGetFilterStringFieldLikeValueAsList.');
+        }
+        if (value === null || value === undefined) {
+            throw new Error('Required parameter value was null or undefined when calling modellQuarkusResourcesEmbeddedIdModellResourceServiceGetFilterStringFieldLikeValueAsList.');
+        }
+
+        let localVarQueryParameters = new HttpParams({encoder: this.encoder});
+        if (firstResult !== undefined && firstResult !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>firstResult, 'firstResult');
+        }
+        if (maxResults !== undefined && maxResults !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>maxResults, 'maxResults');
+        }
+
+        let localVarHeaders = this.defaultHeaders;
+
+        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+
+
+        let responseType_: 'text' | 'json' | 'blob' = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            } else {
+                responseType_ = 'blob';
+            }
+        }
+
+        let localVarPath = `/embeddedIdModell/filter/${this.configuration.encodeParam({name: "stringField", value: stringField, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/like/${this.configuration.encodeParam({name: "value", value: value, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/asList`;
+        return this.httpClient.request<Array<EmbeddedIdModell>>('get', `${this.configuration.basePath}${localVarPath}`,
+            {
+                context: localVarHttpContext,
+                params: localVarQueryParameters,
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: localVarHeaders,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * @param embeddedIdModell 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePost(embeddedIdModell?: EmbeddedIdModell, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmbeddedIdModell>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePost(embeddedIdModell?: EmbeddedIdModell, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmbeddedIdModell>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePost(embeddedIdModell?: EmbeddedIdModell, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmbeddedIdModell>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePost(embeddedIdModell?: EmbeddedIdModell, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+
+        let localVarHeaders = this.defaultHeaders;
+
+        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
+        }
+
+        let responseType_: 'text' | 'json' | 'blob' = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            } else {
+                responseType_ = 'blob';
+            }
+        }
+
+        let localVarPath = `/embeddedIdModell`;
+        return this.httpClient.request<EmbeddedIdModell>('post', `${this.configuration.basePath}${localVarPath}`,
+            {
+                context: localVarHttpContext,
+                body: embeddedIdModell,
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: localVarHeaders,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
      * @param embeddedKeys 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public embeddedIdModellByIdPost(embeddedKeys?: EmbeddedKeys, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmbeddedIdModell>;
-    public embeddedIdModellByIdPost(embeddedKeys?: EmbeddedKeys, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmbeddedIdModell>>;
-    public embeddedIdModellByIdPost(embeddedKeys?: EmbeddedKeys, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmbeddedIdModell>>;
-    public embeddedIdModellByIdPost(embeddedKeys?: EmbeddedKeys, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostById(embeddedKeys?: EmbeddedKeys, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmbeddedIdModell>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostById(embeddedKeys?: EmbeddedKeys, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmbeddedIdModell>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostById(embeddedKeys?: EmbeddedKeys, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmbeddedIdModell>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostById(embeddedKeys?: EmbeddedKeys, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -378,10 +953,10 @@ export class EmbeddedIdModellResourceServiceService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public embeddedIdModellByIdsAsListPost(embeddedKeys?: Array<EmbeddedKeys>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
-    public embeddedIdModellByIdsAsListPost(embeddedKeys?: Array<EmbeddedKeys>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
-    public embeddedIdModellByIdsAsListPost(embeddedKeys?: Array<EmbeddedKeys>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
-    public embeddedIdModellByIdsAsListPost(embeddedKeys?: Array<EmbeddedKeys>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostByIdsAsList(embeddedKeys?: Array<EmbeddedKeys>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostByIdsAsList(embeddedKeys?: Array<EmbeddedKeys>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostByIdsAsList(embeddedKeys?: Array<EmbeddedKeys>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostByIdsAsList(embeddedKeys?: Array<EmbeddedKeys>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -438,192 +1013,16 @@ export class EmbeddedIdModellResourceServiceService {
     }
 
     /**
-     * @param embeddedKeys 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public embeddedIdModellByIdsDelete(embeddedKeys?: Array<EmbeddedKeys>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public embeddedIdModellByIdsDelete(embeddedKeys?: Array<EmbeddedKeys>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public embeddedIdModellByIdsDelete(embeddedKeys?: Array<EmbeddedKeys>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public embeddedIdModellByIdsDelete(embeddedKeys?: Array<EmbeddedKeys>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
-
-        let localVarHeaders = this.defaultHeaders;
-
-        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            'application/json'
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
-        }
-
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
-        let localVarPath = `/embeddedIdModell/byIds`;
-        return this.httpClient.request<any>('delete', `${this.configuration.basePath}${localVarPath}`,
-            {
-                context: localVarHttpContext,
-                body: embeddedKeys,
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: localVarHeaders,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * @param ids 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public embeddedIdModellByIdsIdsAsListGet(ids: Array<EmbeddedKeys>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
-    public embeddedIdModellByIdsIdsAsListGet(ids: Array<EmbeddedKeys>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
-    public embeddedIdModellByIdsIdsAsListGet(ids: Array<EmbeddedKeys>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
-    public embeddedIdModellByIdsIdsAsListGet(ids: Array<EmbeddedKeys>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (ids === null || ids === undefined) {
-            throw new Error('Required parameter ids was null or undefined when calling embeddedIdModellByIdsIdsAsListGet.');
-        }
-
-        let localVarHeaders = this.defaultHeaders;
-
-        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-
-
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
-        let localVarPath = `/embeddedIdModell/byIds/${this.configuration.encodeParam({name: "ids", value: ids, in: "path", style: "simple", explode: false, dataType: "Array<EmbeddedKeys>", dataFormat: undefined})}/asList`;
-        return this.httpClient.request<Array<EmbeddedIdModell>>('get', `${this.configuration.basePath}${localVarPath}`,
-            {
-                context: localVarHttpContext,
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: localVarHeaders,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * @param ids 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public embeddedIdModellByIdsIdsDelete(ids: Array<EmbeddedKeys>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public embeddedIdModellByIdsIdsDelete(ids: Array<EmbeddedKeys>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public embeddedIdModellByIdsIdsDelete(ids: Array<EmbeddedKeys>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public embeddedIdModellByIdsIdsDelete(ids: Array<EmbeddedKeys>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
-        if (ids === null || ids === undefined) {
-            throw new Error('Required parameter ids was null or undefined when calling embeddedIdModellByIdsIdsDelete.');
-        }
-
-        let localVarHeaders = this.defaultHeaders;
-
-        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-
-
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
-        let localVarPath = `/embeddedIdModell/byIds/${this.configuration.encodeParam({name: "ids", value: ids, in: "path", style: "simple", explode: false, dataType: "Array<EmbeddedKeys>", dataFormat: undefined})}`;
-        return this.httpClient.request<any>('delete', `${this.configuration.basePath}${localVarPath}`,
-            {
-                context: localVarHttpContext,
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: localVarHeaders,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
      * @param firstResult 
      * @param maxResults 
      * @param embeddedIdModell 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public embeddedIdModellFilterContentEqualsValueAsListPost(firstResult?: number, maxResults?: number, embeddedIdModell?: EmbeddedIdModell, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
-    public embeddedIdModellFilterContentEqualsValueAsListPost(firstResult?: number, maxResults?: number, embeddedIdModell?: EmbeddedIdModell, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
-    public embeddedIdModellFilterContentEqualsValueAsListPost(firstResult?: number, maxResults?: number, embeddedIdModell?: EmbeddedIdModell, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
-    public embeddedIdModellFilterContentEqualsValueAsListPost(firstResult?: number, maxResults?: number, embeddedIdModell?: EmbeddedIdModell, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, embeddedIdModell?: EmbeddedIdModell, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, embeddedIdModell?: EmbeddedIdModell, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, embeddedIdModell?: EmbeddedIdModell, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, embeddedIdModell?: EmbeddedIdModell, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (firstResult !== undefined && firstResult !== null) {
@@ -697,10 +1096,10 @@ export class EmbeddedIdModellResourceServiceService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public embeddedIdModellFilterContentInValuesAsListPost(firstResult?: number, maxResults?: number, embeddedIdModell?: Array<EmbeddedIdModell>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
-    public embeddedIdModellFilterContentInValuesAsListPost(firstResult?: number, maxResults?: number, embeddedIdModell?: Array<EmbeddedIdModell>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
-    public embeddedIdModellFilterContentInValuesAsListPost(firstResult?: number, maxResults?: number, embeddedIdModell?: Array<EmbeddedIdModell>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
-    public embeddedIdModellFilterContentInValuesAsListPost(firstResult?: number, maxResults?: number, embeddedIdModell?: Array<EmbeddedIdModell>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, embeddedIdModell?: Array<EmbeddedIdModell>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, embeddedIdModell?: Array<EmbeddedIdModell>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, embeddedIdModell?: Array<EmbeddedIdModell>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, embeddedIdModell?: Array<EmbeddedIdModell>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (firstResult !== undefined && firstResult !== null) {
@@ -768,349 +1167,14 @@ export class EmbeddedIdModellResourceServiceService {
     }
 
     /**
-     * @param stringField 
-     * @param value 
-     * @param firstResult 
-     * @param maxResults 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public embeddedIdModellFilterStringFieldEqualsValueAsListGet(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
-    public embeddedIdModellFilterStringFieldEqualsValueAsListGet(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
-    public embeddedIdModellFilterStringFieldEqualsValueAsListGet(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
-    public embeddedIdModellFilterStringFieldEqualsValueAsListGet(stringField: string, value: string, firstResult?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (stringField === null || stringField === undefined) {
-            throw new Error('Required parameter stringField was null or undefined when calling embeddedIdModellFilterStringFieldEqualsValueAsListGet.');
-        }
-        if (value === null || value === undefined) {
-            throw new Error('Required parameter value was null or undefined when calling embeddedIdModellFilterStringFieldEqualsValueAsListGet.');
-        }
-
-        let localVarQueryParameters = new HttpParams({encoder: this.encoder});
-        if (firstResult !== undefined && firstResult !== null) {
-          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>firstResult, 'firstResult');
-        }
-        if (maxResults !== undefined && maxResults !== null) {
-          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>maxResults, 'maxResults');
-        }
-
-        let localVarHeaders = this.defaultHeaders;
-
-        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-
-
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
-        let localVarPath = `/embeddedIdModell/filter/${this.configuration.encodeParam({name: "stringField", value: stringField, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/equals/${this.configuration.encodeParam({name: "value", value: value, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/asList`;
-        return this.httpClient.request<Array<EmbeddedIdModell>>('get', `${this.configuration.basePath}${localVarPath}`,
-            {
-                context: localVarHttpContext,
-                params: localVarQueryParameters,
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: localVarHeaders,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * @param stringField 
-     * @param values 
-     * @param firstResult 
-     * @param maxResults 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public embeddedIdModellFilterStringFieldInValuesAsListGet(stringField: string, values: Array<string>, firstResult?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
-    public embeddedIdModellFilterStringFieldInValuesAsListGet(stringField: string, values: Array<string>, firstResult?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
-    public embeddedIdModellFilterStringFieldInValuesAsListGet(stringField: string, values: Array<string>, firstResult?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
-    public embeddedIdModellFilterStringFieldInValuesAsListGet(stringField: string, values: Array<string>, firstResult?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (stringField === null || stringField === undefined) {
-            throw new Error('Required parameter stringField was null or undefined when calling embeddedIdModellFilterStringFieldInValuesAsListGet.');
-        }
-        if (values === null || values === undefined) {
-            throw new Error('Required parameter values was null or undefined when calling embeddedIdModellFilterStringFieldInValuesAsListGet.');
-        }
-
-        let localVarQueryParameters = new HttpParams({encoder: this.encoder});
-        if (firstResult !== undefined && firstResult !== null) {
-          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>firstResult, 'firstResult');
-        }
-        if (maxResults !== undefined && maxResults !== null) {
-          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>maxResults, 'maxResults');
-        }
-
-        let localVarHeaders = this.defaultHeaders;
-
-        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-
-
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
-        let localVarPath = `/embeddedIdModell/filter/${this.configuration.encodeParam({name: "stringField", value: stringField, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/in/${this.configuration.encodeParam({name: "values", value: values, in: "path", style: "simple", explode: false, dataType: "Array<string>", dataFormat: undefined})}/asList`;
-        return this.httpClient.request<Array<EmbeddedIdModell>>('get', `${this.configuration.basePath}${localVarPath}`,
-            {
-                context: localVarHttpContext,
-                params: localVarQueryParameters,
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: localVarHeaders,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * @param stringField 
-     * @param value 
-     * @param firstResult 
-     * @param maxResults 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public embeddedIdModellFilterStringFieldLikeValueAsListGet(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
-    public embeddedIdModellFilterStringFieldLikeValueAsListGet(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
-    public embeddedIdModellFilterStringFieldLikeValueAsListGet(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
-    public embeddedIdModellFilterStringFieldLikeValueAsListGet(stringField: string, value: string, firstResult?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (stringField === null || stringField === undefined) {
-            throw new Error('Required parameter stringField was null or undefined when calling embeddedIdModellFilterStringFieldLikeValueAsListGet.');
-        }
-        if (value === null || value === undefined) {
-            throw new Error('Required parameter value was null or undefined when calling embeddedIdModellFilterStringFieldLikeValueAsListGet.');
-        }
-
-        let localVarQueryParameters = new HttpParams({encoder: this.encoder});
-        if (firstResult !== undefined && firstResult !== null) {
-          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>firstResult, 'firstResult');
-        }
-        if (maxResults !== undefined && maxResults !== null) {
-          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>maxResults, 'maxResults');
-        }
-
-        let localVarHeaders = this.defaultHeaders;
-
-        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-
-
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
-        let localVarPath = `/embeddedIdModell/filter/${this.configuration.encodeParam({name: "stringField", value: stringField, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/like/${this.configuration.encodeParam({name: "value", value: value, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/asList`;
-        return this.httpClient.request<Array<EmbeddedIdModell>>('get', `${this.configuration.basePath}${localVarPath}`,
-            {
-                context: localVarHttpContext,
-                params: localVarQueryParameters,
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: localVarHeaders,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * @param id 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public embeddedIdModellIdDelete(id: EmbeddedKeys, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public embeddedIdModellIdDelete(id: EmbeddedKeys, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public embeddedIdModellIdDelete(id: EmbeddedKeys, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public embeddedIdModellIdDelete(id: EmbeddedKeys, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling embeddedIdModellIdDelete.');
-        }
-
-        let localVarHeaders = this.defaultHeaders;
-
-        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-
-
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
-        let localVarPath = `/embeddedIdModell/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "EmbeddedKeys", dataFormat: undefined})}`;
-        return this.httpClient.request<any>('delete', `${this.configuration.basePath}${localVarPath}`,
-            {
-                context: localVarHttpContext,
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: localVarHeaders,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * @param id 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public embeddedIdModellIdGet(id: EmbeddedKeys, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmbeddedIdModell>;
-    public embeddedIdModellIdGet(id: EmbeddedKeys, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmbeddedIdModell>>;
-    public embeddedIdModellIdGet(id: EmbeddedKeys, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmbeddedIdModell>>;
-    public embeddedIdModellIdGet(id: EmbeddedKeys, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling embeddedIdModellIdGet.');
-        }
-
-        let localVarHeaders = this.defaultHeaders;
-
-        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-
-
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
-        let localVarPath = `/embeddedIdModell/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "EmbeddedKeys", dataFormat: undefined})}`;
-        return this.httpClient.request<EmbeddedIdModell>('get', `${this.configuration.basePath}${localVarPath}`,
-            {
-                context: localVarHttpContext,
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: localVarHeaders,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
      * @param embeddedIdModell 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public embeddedIdModellListAsListPost(embeddedIdModell?: Array<EmbeddedIdModell>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
-    public embeddedIdModellListAsListPost(embeddedIdModell?: Array<EmbeddedIdModell>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
-    public embeddedIdModellListAsListPost(embeddedIdModell?: Array<EmbeddedIdModell>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
-    public embeddedIdModellListAsListPost(embeddedIdModell?: Array<EmbeddedIdModell>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostListAsList(embeddedIdModell?: Array<EmbeddedIdModell>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostListAsList(embeddedIdModell?: Array<EmbeddedIdModell>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostListAsList(embeddedIdModell?: Array<EmbeddedIdModell>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostListAsList(embeddedIdModell?: Array<EmbeddedIdModell>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -1171,138 +1235,10 @@ export class EmbeddedIdModellResourceServiceService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public embeddedIdModellListAsListPut(embeddedIdModell?: Array<EmbeddedIdModell>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
-    public embeddedIdModellListAsListPut(embeddedIdModell?: Array<EmbeddedIdModell>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
-    public embeddedIdModellListAsListPut(embeddedIdModell?: Array<EmbeddedIdModell>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
-    public embeddedIdModellListAsListPut(embeddedIdModell?: Array<EmbeddedIdModell>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-
-        let localVarHeaders = this.defaultHeaders;
-
-        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            'application/json'
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
-        }
-
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
-        let localVarPath = `/embeddedIdModell/list/asList`;
-        return this.httpClient.request<Array<EmbeddedIdModell>>('put', `${this.configuration.basePath}${localVarPath}`,
-            {
-                context: localVarHttpContext,
-                body: embeddedIdModell,
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: localVarHeaders,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * @param embeddedIdModell 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public embeddedIdModellPost(embeddedIdModell?: EmbeddedIdModell, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmbeddedIdModell>;
-    public embeddedIdModellPost(embeddedIdModell?: EmbeddedIdModell, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmbeddedIdModell>>;
-    public embeddedIdModellPost(embeddedIdModell?: EmbeddedIdModell, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmbeddedIdModell>>;
-    public embeddedIdModellPost(embeddedIdModell?: EmbeddedIdModell, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-
-        let localVarHeaders = this.defaultHeaders;
-
-        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            'application/json'
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
-        }
-
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
-        let localVarPath = `/embeddedIdModell`;
-        return this.httpClient.request<EmbeddedIdModell>('post', `${this.configuration.basePath}${localVarPath}`,
-            {
-                context: localVarHttpContext,
-                body: embeddedIdModell,
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: localVarHeaders,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * @param embeddedIdModell 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public embeddedIdModellPut(embeddedIdModell?: EmbeddedIdModell, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmbeddedIdModell>;
-    public embeddedIdModellPut(embeddedIdModell?: EmbeddedIdModell, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmbeddedIdModell>>;
-    public embeddedIdModellPut(embeddedIdModell?: EmbeddedIdModell, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmbeddedIdModell>>;
-    public embeddedIdModellPut(embeddedIdModell?: EmbeddedIdModell, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePut(embeddedIdModell?: EmbeddedIdModell, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<EmbeddedIdModell>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePut(embeddedIdModell?: EmbeddedIdModell, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<EmbeddedIdModell>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePut(embeddedIdModell?: EmbeddedIdModell, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<EmbeddedIdModell>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePut(embeddedIdModell?: EmbeddedIdModell, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -1346,6 +1282,70 @@ export class EmbeddedIdModellResourceServiceService {
 
         let localVarPath = `/embeddedIdModell`;
         return this.httpClient.request<EmbeddedIdModell>('put', `${this.configuration.basePath}${localVarPath}`,
+            {
+                context: localVarHttpContext,
+                body: embeddedIdModell,
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: localVarHeaders,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * @param embeddedIdModell 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePutListAsList(embeddedIdModell?: Array<EmbeddedIdModell>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePutListAsList(embeddedIdModell?: Array<EmbeddedIdModell>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePutListAsList(embeddedIdModell?: Array<EmbeddedIdModell>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePutListAsList(embeddedIdModell?: Array<EmbeddedIdModell>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+
+        let localVarHeaders = this.defaultHeaders;
+
+        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
+        }
+
+        let responseType_: 'text' | 'json' | 'blob' = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            } else {
+                responseType_ = 'blob';
+            }
+        }
+
+        let localVarPath = `/embeddedIdModell/list/asList`;
+        return this.httpClient.request<Array<EmbeddedIdModell>>('put', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 body: embeddedIdModell,

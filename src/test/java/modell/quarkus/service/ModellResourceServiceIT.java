@@ -7,5 +7,6 @@ import org.junit.jupiter.api.Disabled;
 @QuarkusIntegrationTest
 public class ModellResourceServiceIT extends ModellResourceServiceTest {
 
+
     // Execute the same tests but in native mode.
 }

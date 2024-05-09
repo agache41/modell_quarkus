@@ -193,6 +193,9 @@
                   "items" : {
                     "type" : "object",
                     "properties" : {
+                      "key" : {
+                        "type" : "string"
+                      },
                       "id" : {
                         "$ref" : "#/components/schemas/EmbeddedKeys"
                       },
@@ -200,7 +203,7 @@
                         "type" : "string"
                       },
                       "count" : {
-                        "format" : "int64",
+                        "format" : "int32",
                         "type" : "integer"
                       }
                     }
@@ -913,6 +916,9 @@
                   "items" : {
                     "type" : "object",
                     "properties" : {
+                      "key" : {
+                        "type" : "string"
+                      },
                       "id" : {
                         "format" : "int64",
                         "type" : "integer"
@@ -921,7 +927,7 @@
                         "type" : "string"
                       },
                       "count" : {
-                        "format" : "int64",
+                        "format" : "int32",
                         "type" : "integer"
                       }
                     }
@@ -1665,6 +1671,9 @@
                   "items" : {
                     "type" : "object",
                     "properties" : {
+                      "key" : {
+                        "type" : "string"
+                      },
                       "id" : {
                         "type" : "string"
                       },
@@ -1672,7 +1681,7 @@
                         "type" : "string"
                       },
                       "count" : {
-                        "format" : "int64",
+                        "format" : "int32",
                         "type" : "integer"
                       }
                     }
@@ -2385,6 +2394,9 @@
                   "items" : {
                     "type" : "object",
                     "properties" : {
+                      "key" : {
+                        "type" : "string"
+                      },
                       "id" : {
                         "format" : "int64",
                         "type" : "integer"
@@ -2393,7 +2405,7 @@
                         "type" : "string"
                       },
                       "count" : {
-                        "format" : "int64",
+                        "format" : "int32",
                         "type" : "integer"
                       }
                     }
@@ -3116,6 +3128,9 @@
                   "items" : {
                     "type" : "object",
                     "properties" : {
+                      "key" : {
+                        "type" : "string"
+                      },
                       "id" : {
                         "format" : "int64",
                         "type" : "integer"
@@ -3124,7 +3139,7 @@
                         "type" : "string"
                       },
                       "count" : {
-                        "format" : "int64",
+                        "format" : "int32",
                         "type" : "integer"
                       }
                     }
@@ -3847,6 +3862,9 @@
                   "items" : {
                     "type" : "object",
                     "properties" : {
+                      "key" : {
+                        "type" : "string"
+                      },
                       "id" : {
                         "format" : "int64",
                         "type" : "integer"
@@ -3855,7 +3873,7 @@
                         "type" : "string"
                       },
                       "count" : {
-                        "format" : "int64",
+                        "format" : "int32",
                         "type" : "integer"
                       }
                     }
@@ -4400,6 +4418,29 @@
   },
   "components" : {
     "schemas" : {
+      "Collection2Entity" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "format" : "int64",
+            "type" : "integer"
+          },
+          "subName" : {
+            "type" : "string"
+          },
+          "subStreet" : {
+            "type" : "string"
+          },
+          "subNumber" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "subAge" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        }
+      },
       "CollectionEntity" : {
         "type" : "object",
         "properties" : {
@@ -4470,6 +4511,15 @@
             "type" : "string"
           },
           "keyC" : {
+            "type" : "string"
+          },
+          "notUpdatable" : {
+            "type" : "string"
+          },
+          "vStringVal" : {
+            "type" : "string"
+          },
+          "virtualStringVal" : {
             "type" : "string"
           },
           "bool" : {
@@ -4544,6 +4594,15 @@
           "keyC" : {
             "type" : "string"
           },
+          "notUpdatable" : {
+            "type" : "string"
+          },
+          "vStringVal" : {
+            "type" : "string"
+          },
+          "virtualStringVal" : {
+            "type" : "string"
+          },
           "bool" : {
             "type" : "boolean"
           },
@@ -4611,6 +4670,15 @@
           "keyC" : {
             "type" : "string"
           },
+          "notUpdatable" : {
+            "type" : "string"
+          },
+          "vStringVal" : {
+            "type" : "string"
+          },
+          "virtualStringVal" : {
+            "type" : "string"
+          },
           "bool" : {
             "type" : "boolean"
           },
@@ -4668,6 +4736,15 @@
           "keyC" : {
             "type" : "string"
           },
+          "notUpdatable" : {
+            "type" : "string"
+          },
+          "vStringVal" : {
+            "type" : "string"
+          },
+          "virtualStringVal" : {
+            "type" : "string"
+          },
           "bool" : {
             "type" : "boolean"
           },
@@ -4704,6 +4781,29 @@
           },
           "key4" : {
             "type" : "string"
+          }
+        }
+      },
+      "Map2Entity" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "format" : "int64",
+            "type" : "integer"
+          },
+          "subName" : {
+            "type" : "string"
+          },
+          "subStreet" : {
+            "type" : "string"
+          },
+          "subNumber" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "subAge" : {
+            "format" : "int64",
+            "type" : "integer"
           }
         }
       },
@@ -4779,6 +4879,15 @@
           "keyC" : {
             "type" : "string"
           },
+          "notUpdatable" : {
+            "type" : "string"
+          },
+          "vStringVal" : {
+            "type" : "string"
+          },
+          "virtualStringVal" : {
+            "type" : "string"
+          },
           "bool" : {
             "type" : "boolean"
           },
@@ -4816,6 +4925,60 @@
             "additionalProperties" : {
               "$ref" : "#/components/schemas/MapEntity"
             }
+          },
+          "vCollectionValues" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "vMapValues" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          },
+          "vCollectionEntities" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Collection2Entity"
+            }
+          },
+          "vMapEntities" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "$ref" : "#/components/schemas/Map2Entity"
+            }
+          },
+          "vValue2Entity" : {
+            "$ref" : "#/components/schemas/Value2Entity"
+          },
+          "virtualCollectionValues" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "virtualMapValues" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          },
+          "virtualCollectionEntities" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Collection2Entity"
+            }
+          },
+          "virtualMapEntities" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "$ref" : "#/components/schemas/Map2Entity"
+            }
+          },
+          "value2EntityTO" : {
+            "$ref" : "#/components/schemas/Value2EntityTO"
           }
         }
       },
@@ -4934,6 +5097,15 @@
           "keyC" : {
             "type" : "string"
           },
+          "notUpdatable" : {
+            "type" : "string"
+          },
+          "vStringVal" : {
+            "type" : "string"
+          },
+          "virtualStringVal" : {
+            "type" : "string"
+          },
           "bool" : {
             "type" : "boolean"
           },
@@ -5010,6 +5182,48 @@
             "type" : "integer"
           },
           "age" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        }
+      },
+      "Value2Entity" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "format" : "int64",
+            "type" : "integer"
+          },
+          "subName" : {
+            "type" : "string"
+          },
+          "subStreet" : {
+            "type" : "string"
+          },
+          "subNumber" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "subAge" : {
+            "format" : "int64",
+            "type" : "integer"
+          }
+        }
+      },
+      "Value2EntityTO" : {
+        "type" : "object",
+        "properties" : {
+          "subName" : {
+            "type" : "string"
+          },
+          "subStreet" : {
+            "type" : "string"
+          },
+          "subNumber" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "subAge" : {
             "format" : "int64",
             "type" : "integer"
           }

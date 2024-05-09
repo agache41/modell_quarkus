@@ -19,7 +19,7 @@ import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
 // @ts-ignore
-import { ModellAutocompleteIdsStringFieldLikeValueAsListGet200ResponseInner } from '../model/modellAutocompleteIdsStringFieldLikeValueAsListGet200ResponseInner';
+import { ModellQuarkusResourcesModellResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList200ResponseInner } from '../model/modellQuarkusResourcesModellResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList200ResponseInner';
 // @ts-ignore
 import { SubModellAFks } from '../model/subModellAFks';
 
@@ -94,15 +94,247 @@ export class SubModellAFksResourceServiceService {
     }
 
     /**
+     * @param id 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public modellQuarkusResourcesSubModellAFksResourceServiceDelete(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceDelete(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceDelete(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceDelete(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling modellQuarkusResourcesSubModellAFksResourceServiceDelete.');
+        }
+
+        let localVarHeaders = this.defaultHeaders;
+
+        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+
+
+        let responseType_: 'text' | 'json' | 'blob' = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            } else {
+                responseType_ = 'blob';
+            }
+        }
+
+        let localVarPath = `/subModellAFks/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        return this.httpClient.request<any>('delete', `${this.configuration.basePath}${localVarPath}`,
+            {
+                context: localVarHttpContext,
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: localVarHeaders,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * @param requestBody 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public modellQuarkusResourcesSubModellAFksResourceServiceDeleteByIds(requestBody?: Array<number>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceDeleteByIds(requestBody?: Array<number>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceDeleteByIds(requestBody?: Array<number>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceDeleteByIds(requestBody?: Array<number>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+
+        let localVarHeaders = this.defaultHeaders;
+
+        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
+        }
+
+        let responseType_: 'text' | 'json' | 'blob' = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            } else {
+                responseType_ = 'blob';
+            }
+        }
+
+        let localVarPath = `/subModellAFks/byIds`;
+        return this.httpClient.request<any>('delete', `${this.configuration.basePath}${localVarPath}`,
+            {
+                context: localVarHttpContext,
+                body: requestBody,
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: localVarHeaders,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * @param ids 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public modellQuarkusResourcesSubModellAFksResourceServiceDeleteByIdsInPath(ids: Array<number>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceDeleteByIdsInPath(ids: Array<number>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceDeleteByIdsInPath(ids: Array<number>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceDeleteByIdsInPath(ids: Array<number>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
+        if (ids === null || ids === undefined) {
+            throw new Error('Required parameter ids was null or undefined when calling modellQuarkusResourcesSubModellAFksResourceServiceDeleteByIdsInPath.');
+        }
+
+        let localVarHeaders = this.defaultHeaders;
+
+        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+
+
+        let responseType_: 'text' | 'json' | 'blob' = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            } else {
+                responseType_ = 'blob';
+            }
+        }
+
+        let localVarPath = `/subModellAFks/byIds/${this.configuration.encodeParam({name: "ids", value: ids, in: "path", style: "simple", explode: false, dataType: "Array<number>", dataFormat: "int64"})}`;
+        return this.httpClient.request<any>('delete', `${this.configuration.basePath}${localVarPath}`,
+            {
+                context: localVarHttpContext,
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: localVarHeaders,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * @param id 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public modellQuarkusResourcesSubModellAFksResourceServiceGet(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<SubModellAFks>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGet(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<SubModellAFks>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGet(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<SubModellAFks>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGet(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling modellQuarkusResourcesSubModellAFksResourceServiceGet.');
+        }
+
+        let localVarHeaders = this.defaultHeaders;
+
+        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+
+
+        let responseType_: 'text' | 'json' | 'blob' = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            } else {
+                responseType_ = 'blob';
+            }
+        }
+
+        let localVarPath = `/subModellAFks/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
+        return this.httpClient.request<SubModellAFks>('get', `${this.configuration.basePath}${localVarPath}`,
+            {
+                context: localVarHttpContext,
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: localVarHeaders,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
      * @param firstResult 
      * @param maxResults 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public subModellAFksAllAsListGet(firstResult?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
-    public subModellAFksAllAsListGet(firstResult?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
-    public subModellAFksAllAsListGet(firstResult?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
-    public subModellAFksAllAsListGet(firstResult?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetAllAsList(firstResult?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetAllAsList(firstResult?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetAllAsList(firstResult?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetAllAsList(firstResult?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (firstResult !== undefined && firstResult !== null) {
@@ -167,15 +399,15 @@ export class SubModellAFksResourceServiceService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public subModellAFksAutocompleteIdsStringFieldLikeValueAsListGet(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<ModellAutocompleteIdsStringFieldLikeValueAsListGet200ResponseInner>>;
-    public subModellAFksAutocompleteIdsStringFieldLikeValueAsListGet(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<ModellAutocompleteIdsStringFieldLikeValueAsListGet200ResponseInner>>>;
-    public subModellAFksAutocompleteIdsStringFieldLikeValueAsListGet(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<ModellAutocompleteIdsStringFieldLikeValueAsListGet200ResponseInner>>>;
-    public subModellAFksAutocompleteIdsStringFieldLikeValueAsListGet(stringField: string, value: string, cut?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<ModellQuarkusResourcesModellResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList200ResponseInner>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<ModellQuarkusResourcesModellResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList200ResponseInner>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<ModellQuarkusResourcesModellResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList200ResponseInner>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList(stringField: string, value: string, cut?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (stringField === null || stringField === undefined) {
-            throw new Error('Required parameter stringField was null or undefined when calling subModellAFksAutocompleteIdsStringFieldLikeValueAsListGet.');
+            throw new Error('Required parameter stringField was null or undefined when calling modellQuarkusResourcesSubModellAFksResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList.');
         }
         if (value === null || value === undefined) {
-            throw new Error('Required parameter value was null or undefined when calling subModellAFksAutocompleteIdsStringFieldLikeValueAsListGet.');
+            throw new Error('Required parameter value was null or undefined when calling modellQuarkusResourcesSubModellAFksResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList.');
         }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
@@ -220,7 +452,7 @@ export class SubModellAFksResourceServiceService {
         }
 
         let localVarPath = `/subModellAFks/autocompleteIds/${this.configuration.encodeParam({name: "stringField", value: stringField, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/like/${this.configuration.encodeParam({name: "value", value: value, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/asList`;
-        return this.httpClient.request<Array<ModellAutocompleteIdsStringFieldLikeValueAsListGet200ResponseInner>>('get', `${this.configuration.basePath}${localVarPath}`,
+        return this.httpClient.request<Array<ModellQuarkusResourcesModellResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList200ResponseInner>>('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 params: localVarQueryParameters,
@@ -241,15 +473,15 @@ export class SubModellAFksResourceServiceService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public subModellAFksAutocompleteStringFieldLikeValueAsSortedSetGet(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<string>>;
-    public subModellAFksAutocompleteStringFieldLikeValueAsSortedSetGet(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<string>>>;
-    public subModellAFksAutocompleteStringFieldLikeValueAsSortedSetGet(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<string>>>;
-    public subModellAFksAutocompleteStringFieldLikeValueAsSortedSetGet(stringField: string, value: string, cut?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetAutocompleteStringFieldLikeValueAsSortedSet(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<string>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetAutocompleteStringFieldLikeValueAsSortedSet(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<string>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetAutocompleteStringFieldLikeValueAsSortedSet(stringField: string, value: string, cut?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<string>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetAutocompleteStringFieldLikeValueAsSortedSet(stringField: string, value: string, cut?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (stringField === null || stringField === undefined) {
-            throw new Error('Required parameter stringField was null or undefined when calling subModellAFksAutocompleteStringFieldLikeValueAsSortedSetGet.');
+            throw new Error('Required parameter stringField was null or undefined when calling modellQuarkusResourcesSubModellAFksResourceServiceGetAutocompleteStringFieldLikeValueAsSortedSet.');
         }
         if (value === null || value === undefined) {
-            throw new Error('Required parameter value was null or undefined when calling subModellAFksAutocompleteStringFieldLikeValueAsSortedSetGet.');
+            throw new Error('Required parameter value was null or undefined when calling modellQuarkusResourcesSubModellAFksResourceServiceGetAutocompleteStringFieldLikeValueAsSortedSet.');
         }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
@@ -308,14 +540,357 @@ export class SubModellAFksResourceServiceService {
     }
 
     /**
+     * @param ids 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetByIdsAsList(ids: Array<number>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetByIdsAsList(ids: Array<number>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetByIdsAsList(ids: Array<number>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetByIdsAsList(ids: Array<number>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (ids === null || ids === undefined) {
+            throw new Error('Required parameter ids was null or undefined when calling modellQuarkusResourcesSubModellAFksResourceServiceGetByIdsAsList.');
+        }
+
+        let localVarHeaders = this.defaultHeaders;
+
+        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+
+
+        let responseType_: 'text' | 'json' | 'blob' = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            } else {
+                responseType_ = 'blob';
+            }
+        }
+
+        let localVarPath = `/subModellAFks/byIds/${this.configuration.encodeParam({name: "ids", value: ids, in: "path", style: "simple", explode: false, dataType: "Array<number>", dataFormat: "int64"})}/asList`;
+        return this.httpClient.request<Array<SubModellAFks>>('get', `${this.configuration.basePath}${localVarPath}`,
+            {
+                context: localVarHttpContext,
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: localVarHeaders,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * @param stringField 
+     * @param value 
+     * @param firstResult 
+     * @param maxResults 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetFilterStringFieldEqualsValueAsList(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetFilterStringFieldEqualsValueAsList(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetFilterStringFieldEqualsValueAsList(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetFilterStringFieldEqualsValueAsList(stringField: string, value: string, firstResult?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (stringField === null || stringField === undefined) {
+            throw new Error('Required parameter stringField was null or undefined when calling modellQuarkusResourcesSubModellAFksResourceServiceGetFilterStringFieldEqualsValueAsList.');
+        }
+        if (value === null || value === undefined) {
+            throw new Error('Required parameter value was null or undefined when calling modellQuarkusResourcesSubModellAFksResourceServiceGetFilterStringFieldEqualsValueAsList.');
+        }
+
+        let localVarQueryParameters = new HttpParams({encoder: this.encoder});
+        if (firstResult !== undefined && firstResult !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>firstResult, 'firstResult');
+        }
+        if (maxResults !== undefined && maxResults !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>maxResults, 'maxResults');
+        }
+
+        let localVarHeaders = this.defaultHeaders;
+
+        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+
+
+        let responseType_: 'text' | 'json' | 'blob' = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            } else {
+                responseType_ = 'blob';
+            }
+        }
+
+        let localVarPath = `/subModellAFks/filter/${this.configuration.encodeParam({name: "stringField", value: stringField, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/equals/${this.configuration.encodeParam({name: "value", value: value, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/asList`;
+        return this.httpClient.request<Array<SubModellAFks>>('get', `${this.configuration.basePath}${localVarPath}`,
+            {
+                context: localVarHttpContext,
+                params: localVarQueryParameters,
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: localVarHeaders,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * @param stringField 
+     * @param values 
+     * @param firstResult 
+     * @param maxResults 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetFilterStringFieldInValuesAsList(stringField: string, values: Array<string>, firstResult?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetFilterStringFieldInValuesAsList(stringField: string, values: Array<string>, firstResult?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetFilterStringFieldInValuesAsList(stringField: string, values: Array<string>, firstResult?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetFilterStringFieldInValuesAsList(stringField: string, values: Array<string>, firstResult?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (stringField === null || stringField === undefined) {
+            throw new Error('Required parameter stringField was null or undefined when calling modellQuarkusResourcesSubModellAFksResourceServiceGetFilterStringFieldInValuesAsList.');
+        }
+        if (values === null || values === undefined) {
+            throw new Error('Required parameter values was null or undefined when calling modellQuarkusResourcesSubModellAFksResourceServiceGetFilterStringFieldInValuesAsList.');
+        }
+
+        let localVarQueryParameters = new HttpParams({encoder: this.encoder});
+        if (firstResult !== undefined && firstResult !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>firstResult, 'firstResult');
+        }
+        if (maxResults !== undefined && maxResults !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>maxResults, 'maxResults');
+        }
+
+        let localVarHeaders = this.defaultHeaders;
+
+        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+
+
+        let responseType_: 'text' | 'json' | 'blob' = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            } else {
+                responseType_ = 'blob';
+            }
+        }
+
+        let localVarPath = `/subModellAFks/filter/${this.configuration.encodeParam({name: "stringField", value: stringField, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/in/${this.configuration.encodeParam({name: "values", value: values, in: "path", style: "simple", explode: false, dataType: "Array<string>", dataFormat: undefined})}/asList`;
+        return this.httpClient.request<Array<SubModellAFks>>('get', `${this.configuration.basePath}${localVarPath}`,
+            {
+                context: localVarHttpContext,
+                params: localVarQueryParameters,
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: localVarHeaders,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * @param stringField 
+     * @param value 
+     * @param firstResult 
+     * @param maxResults 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetFilterStringFieldLikeValueAsList(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetFilterStringFieldLikeValueAsList(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetFilterStringFieldLikeValueAsList(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServiceGetFilterStringFieldLikeValueAsList(stringField: string, value: string, firstResult?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (stringField === null || stringField === undefined) {
+            throw new Error('Required parameter stringField was null or undefined when calling modellQuarkusResourcesSubModellAFksResourceServiceGetFilterStringFieldLikeValueAsList.');
+        }
+        if (value === null || value === undefined) {
+            throw new Error('Required parameter value was null or undefined when calling modellQuarkusResourcesSubModellAFksResourceServiceGetFilterStringFieldLikeValueAsList.');
+        }
+
+        let localVarQueryParameters = new HttpParams({encoder: this.encoder});
+        if (firstResult !== undefined && firstResult !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>firstResult, 'firstResult');
+        }
+        if (maxResults !== undefined && maxResults !== null) {
+          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
+            <any>maxResults, 'maxResults');
+        }
+
+        let localVarHeaders = this.defaultHeaders;
+
+        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+
+
+        let responseType_: 'text' | 'json' | 'blob' = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            } else {
+                responseType_ = 'blob';
+            }
+        }
+
+        let localVarPath = `/subModellAFks/filter/${this.configuration.encodeParam({name: "stringField", value: stringField, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/like/${this.configuration.encodeParam({name: "value", value: value, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/asList`;
+        return this.httpClient.request<Array<SubModellAFks>>('get', `${this.configuration.basePath}${localVarPath}`,
+            {
+                context: localVarHttpContext,
+                params: localVarQueryParameters,
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: localVarHeaders,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * @param subModellAFks 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public modellQuarkusResourcesSubModellAFksResourceServicePost(subModellAFks?: SubModellAFks, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<SubModellAFks>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePost(subModellAFks?: SubModellAFks, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<SubModellAFks>>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePost(subModellAFks?: SubModellAFks, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<SubModellAFks>>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePost(subModellAFks?: SubModellAFks, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+
+        let localVarHeaders = this.defaultHeaders;
+
+        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
+        }
+
+        let responseType_: 'text' | 'json' | 'blob' = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            } else {
+                responseType_ = 'blob';
+            }
+        }
+
+        let localVarPath = `/subModellAFks`;
+        return this.httpClient.request<SubModellAFks>('post', `${this.configuration.basePath}${localVarPath}`,
+            {
+                context: localVarHttpContext,
+                body: subModellAFks,
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: localVarHeaders,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
      * @param body 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public subModellAFksByIdPost(body?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<SubModellAFks>;
-    public subModellAFksByIdPost(body?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<SubModellAFks>>;
-    public subModellAFksByIdPost(body?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<SubModellAFks>>;
-    public subModellAFksByIdPost(body?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesSubModellAFksResourceServicePostById(body?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<SubModellAFks>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePostById(body?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<SubModellAFks>>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePostById(body?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<SubModellAFks>>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePostById(body?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -376,10 +951,10 @@ export class SubModellAFksResourceServiceService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public subModellAFksByIdsAsListPost(requestBody?: Array<number>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
-    public subModellAFksByIdsAsListPost(requestBody?: Array<number>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
-    public subModellAFksByIdsAsListPost(requestBody?: Array<number>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
-    public subModellAFksByIdsAsListPost(requestBody?: Array<number>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesSubModellAFksResourceServicePostByIdsAsList(requestBody?: Array<number>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePostByIdsAsList(requestBody?: Array<number>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePostByIdsAsList(requestBody?: Array<number>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePostByIdsAsList(requestBody?: Array<number>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -436,192 +1011,16 @@ export class SubModellAFksResourceServiceService {
     }
 
     /**
-     * @param requestBody 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public subModellAFksByIdsDelete(requestBody?: Array<number>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public subModellAFksByIdsDelete(requestBody?: Array<number>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public subModellAFksByIdsDelete(requestBody?: Array<number>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public subModellAFksByIdsDelete(requestBody?: Array<number>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
-
-        let localVarHeaders = this.defaultHeaders;
-
-        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            'application/json'
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
-        }
-
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
-        let localVarPath = `/subModellAFks/byIds`;
-        return this.httpClient.request<any>('delete', `${this.configuration.basePath}${localVarPath}`,
-            {
-                context: localVarHttpContext,
-                body: requestBody,
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: localVarHeaders,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * @param ids 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public subModellAFksByIdsIdsAsListGet(ids: Array<number>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
-    public subModellAFksByIdsIdsAsListGet(ids: Array<number>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
-    public subModellAFksByIdsIdsAsListGet(ids: Array<number>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
-    public subModellAFksByIdsIdsAsListGet(ids: Array<number>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (ids === null || ids === undefined) {
-            throw new Error('Required parameter ids was null or undefined when calling subModellAFksByIdsIdsAsListGet.');
-        }
-
-        let localVarHeaders = this.defaultHeaders;
-
-        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-
-
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
-        let localVarPath = `/subModellAFks/byIds/${this.configuration.encodeParam({name: "ids", value: ids, in: "path", style: "simple", explode: false, dataType: "Array<number>", dataFormat: "int64"})}/asList`;
-        return this.httpClient.request<Array<SubModellAFks>>('get', `${this.configuration.basePath}${localVarPath}`,
-            {
-                context: localVarHttpContext,
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: localVarHeaders,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * @param ids 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public subModellAFksByIdsIdsDelete(ids: Array<number>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public subModellAFksByIdsIdsDelete(ids: Array<number>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public subModellAFksByIdsIdsDelete(ids: Array<number>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public subModellAFksByIdsIdsDelete(ids: Array<number>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
-        if (ids === null || ids === undefined) {
-            throw new Error('Required parameter ids was null or undefined when calling subModellAFksByIdsIdsDelete.');
-        }
-
-        let localVarHeaders = this.defaultHeaders;
-
-        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-
-
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
-        let localVarPath = `/subModellAFks/byIds/${this.configuration.encodeParam({name: "ids", value: ids, in: "path", style: "simple", explode: false, dataType: "Array<number>", dataFormat: "int64"})}`;
-        return this.httpClient.request<any>('delete', `${this.configuration.basePath}${localVarPath}`,
-            {
-                context: localVarHttpContext,
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: localVarHeaders,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
      * @param firstResult 
      * @param maxResults 
      * @param subModellAFks 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public subModellAFksFilterContentEqualsValueAsListPost(firstResult?: number, maxResults?: number, subModellAFks?: SubModellAFks, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
-    public subModellAFksFilterContentEqualsValueAsListPost(firstResult?: number, maxResults?: number, subModellAFks?: SubModellAFks, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
-    public subModellAFksFilterContentEqualsValueAsListPost(firstResult?: number, maxResults?: number, subModellAFks?: SubModellAFks, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
-    public subModellAFksFilterContentEqualsValueAsListPost(firstResult?: number, maxResults?: number, subModellAFks?: SubModellAFks, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesSubModellAFksResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, subModellAFks?: SubModellAFks, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, subModellAFks?: SubModellAFks, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, subModellAFks?: SubModellAFks, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, subModellAFks?: SubModellAFks, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (firstResult !== undefined && firstResult !== null) {
@@ -695,10 +1094,10 @@ export class SubModellAFksResourceServiceService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public subModellAFksFilterContentInValuesAsListPost(firstResult?: number, maxResults?: number, subModellAFks?: Array<SubModellAFks>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
-    public subModellAFksFilterContentInValuesAsListPost(firstResult?: number, maxResults?: number, subModellAFks?: Array<SubModellAFks>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
-    public subModellAFksFilterContentInValuesAsListPost(firstResult?: number, maxResults?: number, subModellAFks?: Array<SubModellAFks>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
-    public subModellAFksFilterContentInValuesAsListPost(firstResult?: number, maxResults?: number, subModellAFks?: Array<SubModellAFks>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesSubModellAFksResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, subModellAFks?: Array<SubModellAFks>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, subModellAFks?: Array<SubModellAFks>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, subModellAFks?: Array<SubModellAFks>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, subModellAFks?: Array<SubModellAFks>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (firstResult !== undefined && firstResult !== null) {
@@ -766,349 +1165,14 @@ export class SubModellAFksResourceServiceService {
     }
 
     /**
-     * @param stringField 
-     * @param value 
-     * @param firstResult 
-     * @param maxResults 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public subModellAFksFilterStringFieldEqualsValueAsListGet(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
-    public subModellAFksFilterStringFieldEqualsValueAsListGet(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
-    public subModellAFksFilterStringFieldEqualsValueAsListGet(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
-    public subModellAFksFilterStringFieldEqualsValueAsListGet(stringField: string, value: string, firstResult?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (stringField === null || stringField === undefined) {
-            throw new Error('Required parameter stringField was null or undefined when calling subModellAFksFilterStringFieldEqualsValueAsListGet.');
-        }
-        if (value === null || value === undefined) {
-            throw new Error('Required parameter value was null or undefined when calling subModellAFksFilterStringFieldEqualsValueAsListGet.');
-        }
-
-        let localVarQueryParameters = new HttpParams({encoder: this.encoder});
-        if (firstResult !== undefined && firstResult !== null) {
-          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>firstResult, 'firstResult');
-        }
-        if (maxResults !== undefined && maxResults !== null) {
-          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>maxResults, 'maxResults');
-        }
-
-        let localVarHeaders = this.defaultHeaders;
-
-        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-
-
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
-        let localVarPath = `/subModellAFks/filter/${this.configuration.encodeParam({name: "stringField", value: stringField, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/equals/${this.configuration.encodeParam({name: "value", value: value, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/asList`;
-        return this.httpClient.request<Array<SubModellAFks>>('get', `${this.configuration.basePath}${localVarPath}`,
-            {
-                context: localVarHttpContext,
-                params: localVarQueryParameters,
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: localVarHeaders,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * @param stringField 
-     * @param values 
-     * @param firstResult 
-     * @param maxResults 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public subModellAFksFilterStringFieldInValuesAsListGet(stringField: string, values: Array<string>, firstResult?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
-    public subModellAFksFilterStringFieldInValuesAsListGet(stringField: string, values: Array<string>, firstResult?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
-    public subModellAFksFilterStringFieldInValuesAsListGet(stringField: string, values: Array<string>, firstResult?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
-    public subModellAFksFilterStringFieldInValuesAsListGet(stringField: string, values: Array<string>, firstResult?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (stringField === null || stringField === undefined) {
-            throw new Error('Required parameter stringField was null or undefined when calling subModellAFksFilterStringFieldInValuesAsListGet.');
-        }
-        if (values === null || values === undefined) {
-            throw new Error('Required parameter values was null or undefined when calling subModellAFksFilterStringFieldInValuesAsListGet.');
-        }
-
-        let localVarQueryParameters = new HttpParams({encoder: this.encoder});
-        if (firstResult !== undefined && firstResult !== null) {
-          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>firstResult, 'firstResult');
-        }
-        if (maxResults !== undefined && maxResults !== null) {
-          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>maxResults, 'maxResults');
-        }
-
-        let localVarHeaders = this.defaultHeaders;
-
-        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-
-
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
-        let localVarPath = `/subModellAFks/filter/${this.configuration.encodeParam({name: "stringField", value: stringField, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/in/${this.configuration.encodeParam({name: "values", value: values, in: "path", style: "simple", explode: false, dataType: "Array<string>", dataFormat: undefined})}/asList`;
-        return this.httpClient.request<Array<SubModellAFks>>('get', `${this.configuration.basePath}${localVarPath}`,
-            {
-                context: localVarHttpContext,
-                params: localVarQueryParameters,
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: localVarHeaders,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * @param stringField 
-     * @param value 
-     * @param firstResult 
-     * @param maxResults 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public subModellAFksFilterStringFieldLikeValueAsListGet(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
-    public subModellAFksFilterStringFieldLikeValueAsListGet(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
-    public subModellAFksFilterStringFieldLikeValueAsListGet(stringField: string, value: string, firstResult?: number, maxResults?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
-    public subModellAFksFilterStringFieldLikeValueAsListGet(stringField: string, value: string, firstResult?: number, maxResults?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (stringField === null || stringField === undefined) {
-            throw new Error('Required parameter stringField was null or undefined when calling subModellAFksFilterStringFieldLikeValueAsListGet.');
-        }
-        if (value === null || value === undefined) {
-            throw new Error('Required parameter value was null or undefined when calling subModellAFksFilterStringFieldLikeValueAsListGet.');
-        }
-
-        let localVarQueryParameters = new HttpParams({encoder: this.encoder});
-        if (firstResult !== undefined && firstResult !== null) {
-          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>firstResult, 'firstResult');
-        }
-        if (maxResults !== undefined && maxResults !== null) {
-          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>maxResults, 'maxResults');
-        }
-
-        let localVarHeaders = this.defaultHeaders;
-
-        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-
-
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
-        let localVarPath = `/subModellAFks/filter/${this.configuration.encodeParam({name: "stringField", value: stringField, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/like/${this.configuration.encodeParam({name: "value", value: value, in: "path", style: "simple", explode: false, dataType: "string", dataFormat: undefined})}/asList`;
-        return this.httpClient.request<Array<SubModellAFks>>('get', `${this.configuration.basePath}${localVarPath}`,
-            {
-                context: localVarHttpContext,
-                params: localVarQueryParameters,
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: localVarHeaders,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * @param id 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public subModellAFksIdDelete(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any>;
-    public subModellAFksIdDelete(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpResponse<any>>;
-    public subModellAFksIdDelete(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<HttpEvent<any>>;
-    public subModellAFksIdDelete(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined, context?: HttpContext}): Observable<any> {
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling subModellAFksIdDelete.');
-        }
-
-        let localVarHeaders = this.defaultHeaders;
-
-        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-
-
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
-        let localVarPath = `/subModellAFks/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
-        return this.httpClient.request<any>('delete', `${this.configuration.basePath}${localVarPath}`,
-            {
-                context: localVarHttpContext,
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: localVarHeaders,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * @param id 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public subModellAFksIdGet(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<SubModellAFks>;
-    public subModellAFksIdGet(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<SubModellAFks>>;
-    public subModellAFksIdGet(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<SubModellAFks>>;
-    public subModellAFksIdGet(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling subModellAFksIdGet.');
-        }
-
-        let localVarHeaders = this.defaultHeaders;
-
-        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-
-
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
-        let localVarPath = `/subModellAFks/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int64"})}`;
-        return this.httpClient.request<SubModellAFks>('get', `${this.configuration.basePath}${localVarPath}`,
-            {
-                context: localVarHttpContext,
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: localVarHeaders,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
      * @param subModellAFks 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public subModellAFksListAsListPost(subModellAFks?: Array<SubModellAFks>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
-    public subModellAFksListAsListPost(subModellAFks?: Array<SubModellAFks>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
-    public subModellAFksListAsListPost(subModellAFks?: Array<SubModellAFks>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
-    public subModellAFksListAsListPost(subModellAFks?: Array<SubModellAFks>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesSubModellAFksResourceServicePostListAsList(subModellAFks?: Array<SubModellAFks>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePostListAsList(subModellAFks?: Array<SubModellAFks>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePostListAsList(subModellAFks?: Array<SubModellAFks>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePostListAsList(subModellAFks?: Array<SubModellAFks>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -1169,138 +1233,10 @@ export class SubModellAFksResourceServiceService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public subModellAFksListAsListPut(subModellAFks?: Array<SubModellAFks>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
-    public subModellAFksListAsListPut(subModellAFks?: Array<SubModellAFks>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
-    public subModellAFksListAsListPut(subModellAFks?: Array<SubModellAFks>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
-    public subModellAFksListAsListPut(subModellAFks?: Array<SubModellAFks>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-
-        let localVarHeaders = this.defaultHeaders;
-
-        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            'application/json'
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
-        }
-
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
-        let localVarPath = `/subModellAFks/list/asList`;
-        return this.httpClient.request<Array<SubModellAFks>>('put', `${this.configuration.basePath}${localVarPath}`,
-            {
-                context: localVarHttpContext,
-                body: subModellAFks,
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: localVarHeaders,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * @param subModellAFks 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public subModellAFksPost(subModellAFks?: SubModellAFks, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<SubModellAFks>;
-    public subModellAFksPost(subModellAFks?: SubModellAFks, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<SubModellAFks>>;
-    public subModellAFksPost(subModellAFks?: SubModellAFks, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<SubModellAFks>>;
-    public subModellAFksPost(subModellAFks?: SubModellAFks, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-
-        let localVarHeaders = this.defaultHeaders;
-
-        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            'application/json'
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
-        }
-
-        let responseType_: 'text' | 'json' | 'blob' = 'json';
-        if (localVarHttpHeaderAcceptSelected) {
-            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
-                responseType_ = 'text';
-            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
-                responseType_ = 'json';
-            } else {
-                responseType_ = 'blob';
-            }
-        }
-
-        let localVarPath = `/subModellAFks`;
-        return this.httpClient.request<SubModellAFks>('post', `${this.configuration.basePath}${localVarPath}`,
-            {
-                context: localVarHttpContext,
-                body: subModellAFks,
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: localVarHeaders,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * @param subModellAFks 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public subModellAFksPut(subModellAFks?: SubModellAFks, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<SubModellAFks>;
-    public subModellAFksPut(subModellAFks?: SubModellAFks, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<SubModellAFks>>;
-    public subModellAFksPut(subModellAFks?: SubModellAFks, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<SubModellAFks>>;
-    public subModellAFksPut(subModellAFks?: SubModellAFks, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesSubModellAFksResourceServicePut(subModellAFks?: SubModellAFks, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<SubModellAFks>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePut(subModellAFks?: SubModellAFks, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<SubModellAFks>>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePut(subModellAFks?: SubModellAFks, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<SubModellAFks>>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePut(subModellAFks?: SubModellAFks, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -1344,6 +1280,70 @@ export class SubModellAFksResourceServiceService {
 
         let localVarPath = `/subModellAFks`;
         return this.httpClient.request<SubModellAFks>('put', `${this.configuration.basePath}${localVarPath}`,
+            {
+                context: localVarHttpContext,
+                body: subModellAFks,
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: localVarHeaders,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * @param subModellAFks 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public modellQuarkusResourcesSubModellAFksResourceServicePutListAsList(subModellAFks?: Array<SubModellAFks>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePutListAsList(subModellAFks?: Array<SubModellAFks>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePutListAsList(subModellAFks?: Array<SubModellAFks>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellAFksResourceServicePutListAsList(subModellAFks?: Array<SubModellAFks>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+
+        let localVarHeaders = this.defaultHeaders;
+
+        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
+        }
+
+        let responseType_: 'text' | 'json' | 'blob' = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            } else {
+                responseType_ = 'blob';
+            }
+        }
+
+        let localVarPath = `/subModellAFks/list/asList`;
+        return this.httpClient.request<Array<SubModellAFks>>('put', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 body: subModellAFks,

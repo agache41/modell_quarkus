@@ -42,7 +42,7 @@ public class EmbeddedIdModell extends BaseEntity implements PrimaryKey<EmbeddedK
     @EmbeddedId
     private EmbeddedKeys id;
 
-    //@OrderColumn(name = "orderId")
+    @OrderColumn(name = "orderId")
     @Fetch(FetchMode.SUBSELECT)
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumns({
@@ -52,12 +52,12 @@ public class EmbeddedIdModell extends BaseEntity implements PrimaryKey<EmbeddedK
     })
     private List<EmbeddedIdSubModell1> embeddedIdSubModells1;
 
-    //@OrderColumn(name = "orderId")
+    @OrderColumn(name = "orderId")
     @Fetch(FetchMode.SUBSELECT)
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<EmbeddedIdSubModell2> embeddedIdSubModells2;
 
-
+    @OrderColumn(name = "orderId")
     @Fetch(FetchMode.JOIN)
     @OneToOne(fetch = FetchType.EAGER, mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumns({

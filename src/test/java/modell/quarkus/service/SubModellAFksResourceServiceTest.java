@@ -21,6 +21,10 @@ public class SubModellAFksResourceServiceTest extends AbstractResourceServiceImp
     private static final List<SubModellAFks> insertData;
     private static final List<SubModellAFks> updateData;
 
+//    static {
+//        RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
+//    }
+
     static {
         producer = Producer.ofClass(SubModellAFks.class)
                            .withList(LinkedList::new)

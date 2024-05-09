@@ -30,6 +30,9 @@ export interface EmbeddedIdModell {
     keyA?: string;
     keyB?: string;
     keyC?: string;
+    notUpdatable?: string;
+    vStringVal?: string;
+    virtualStringVal?: string;
     bool?: boolean;
     id?: EmbeddedKeys;
     embeddedIdSubModells1?: Array<EmbeddedIdSubModell1>;

@@ -26,6 +26,9 @@ export interface SubModell {
     keyA?: string;
     keyB?: string;
     keyC?: string;
+    notUpdatable?: string;
+    vStringVal?: string;
+    virtualStringVal?: string;
     bool?: boolean;
     id?: number;
 }

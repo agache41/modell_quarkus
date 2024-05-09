@@ -9,12 +9,13 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { EmbeddedKeys } from './embeddedKeys';
 
 
-export interface EmbeddedIdModellAutocompleteIdsStringFieldLikeValueAsListGet200ResponseInner { 
-    id?: EmbeddedKeys;
-    value?: string;
-    count?: number;
+export interface Map2Entity { 
+    id?: number;
+    subName?: string;
+    subStreet?: string;
+    subNumber?: number;
+    subAge?: number;
 }
 

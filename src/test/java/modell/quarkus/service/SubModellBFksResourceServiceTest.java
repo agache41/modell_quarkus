@@ -17,10 +17,13 @@ public class SubModellBFksResourceServiceTest extends AbstractResourceServiceImp
 
     static final String path = "/subModellAFks";
     private static final String stringField = "subName";
-    private static final int collectionSize = 16;
     private static final Producer<SubModellBFks> producer;
     private static final List<SubModellBFks> insertData;
     private static final List<SubModellBFks> updateData;
+
+//    static {
+//        RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
+//    }
 
     static {
         producer = Producer.ofClass(SubModellBFks.class)

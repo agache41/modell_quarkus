@@ -9,8 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { Collection2Entity } from './collection2Entity';
+import { Map2Entity } from './map2Entity';
 import { CollectionEntity } from './collectionEntity';
 import { MapEntity } from './mapEntity';
+import { Value2EntityTO } from './value2EntityTO';
+import { Value2Entity } from './value2Entity';
 import { ValueEntity } from './valueEntity';
 import { SubModell } from './subModell';
 
@@ -30,6 +34,9 @@ export interface Modell {
     keyA?: string;
     keyB?: string;
     keyC?: string;
+    notUpdatable?: string;
+    vStringVal?: string;
+    virtualStringVal?: string;
     bool?: boolean;
     id?: number;
     subModell?: SubModell;
@@ -38,5 +45,15 @@ export interface Modell {
     valueEntity?: ValueEntity;
     collectionEntities?: Array<CollectionEntity>;
     mapEntities?: { [key: string]: MapEntity; };
+    vCollectionValues?: Array<string>;
+    vMapValues?: { [key: string]: string; };
+    vCollectionEntities?: Array<Collection2Entity>;
+    vMapEntities?: { [key: string]: Map2Entity; };
+    vValue2Entity?: Value2Entity;
+    virtualCollectionValues?: Array<string>;
+    virtualMapValues?: { [key: string]: string; };
+    virtualCollectionEntities?: Array<Collection2Entity>;
+    virtualMapEntities?: { [key: string]: Map2Entity; };
+    value2EntityTO?: Value2EntityTO;
 }
 

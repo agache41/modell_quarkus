@@ -27,6 +27,10 @@ public class ModellFksResourceServiceTest extends AbstractResourceServiceImplTes
     private static final List<ModellFks> insertData;
     private static final List<ModellFks> updateData;
 
+//    static {
+//        RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
+//    }
+
     static {
         producer = Producer.ofClass(ModellFks.class)
                            .withList(LinkedList::new)

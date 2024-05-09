@@ -138,12 +138,14 @@ paths:
                 items:
                   type: object
                   properties:
+                    key:
+                      type: string
                     id:
                       $ref: '#/components/schemas/EmbeddedKeys'
                     value:
                       type: string
                     count:
-                      format: int64
+                      format: int32
                       type: integer
   /embeddedIdModell/byId:
     post:
@@ -628,13 +630,15 @@ paths:
                 items:
                   type: object
                   properties:
+                    key:
+                      type: string
                     id:
                       format: int64
                       type: integer
                     value:
                       type: string
                     count:
-                      format: int64
+                      format: int32
                       type: integer
   /modell/byId:
     post:
@@ -1143,12 +1147,14 @@ paths:
                 items:
                   type: object
                   properties:
+                    key:
+                      type: string
                     id:
                       type: string
                     value:
                       type: string
                     count:
-                      format: int64
+                      format: int32
                       type: integer
   /modell2/byId:
     post:
@@ -1633,13 +1639,15 @@ paths:
                 items:
                   type: object
                   properties:
+                    key:
+                      type: string
                     id:
                       format: int64
                       type: integer
                     value:
                       type: string
                     count:
-                      format: int64
+                      format: int32
                       type: integer
   /modellFks/byId:
     post:
@@ -2134,13 +2142,15 @@ paths:
                 items:
                   type: object
                   properties:
+                    key:
+                      type: string
                     id:
                       format: int64
                       type: integer
                     value:
                       type: string
                     count:
-                      format: int64
+                      format: int32
                       type: integer
   /subModellAFks/byId:
     post:
@@ -2635,13 +2645,15 @@ paths:
                 items:
                   type: object
                   properties:
+                    key:
+                      type: string
                     id:
                       format: int64
                       type: integer
                     value:
                       type: string
                     count:
-                      format: int64
+                      format: int32
                       type: integer
   /subModellBFks/byId:
     post:
@@ -3009,6 +3021,22 @@ paths:
         type: integer
 components:
   schemas:
+    Collection2Entity:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        subName:
+          type: string
+        subStreet:
+          type: string
+        subNumber:
+          format: int32
+          type: integer
+        subAge:
+          format: int64
+          type: integer
     CollectionEntity:
       type: object
       properties:
@@ -3060,6 +3088,12 @@ components:
           type: string
         keyC:
           type: string
+        notUpdatable:
+          type: string
+        vStringVal:
+          type: string
+        virtualStringVal:
+          type: string
         bool:
           type: boolean
         id:
@@ -3109,6 +3143,12 @@ components:
           type: string
         keyC:
           type: string
+        notUpdatable:
+          type: string
+        vStringVal:
+          type: string
+        virtualStringVal:
+          type: string
         bool:
           type: boolean
         id:
@@ -3155,6 +3195,12 @@ components:
           type: string
         keyC:
           type: string
+        notUpdatable:
+          type: string
+        vStringVal:
+          type: string
+        virtualStringVal:
+          type: string
         bool:
           type: boolean
         id:
@@ -3194,6 +3240,12 @@ components:
           type: string
         keyC:
           type: string
+        notUpdatable:
+          type: string
+        vStringVal:
+          type: string
+        virtualStringVal:
+          type: string
         bool:
           type: boolean
         id:
@@ -3218,6 +3270,22 @@ components:
           type: string
         key4:
           type: string
+    Map2Entity:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        subName:
+          type: string
+        subStreet:
+          type: string
+        subNumber:
+          format: int32
+          type: integer
+        subAge:
+          format: int64
+          type: integer
     MapEntity:
       type: object
       properties:
@@ -3269,6 +3337,12 @@ components:
           type: string
         keyC:
           type: string
+        notUpdatable:
+          type: string
+        vStringVal:
+          type: string
+        virtualStringVal:
+          type: string
         bool:
           type: boolean
         id:
@@ -3295,6 +3369,42 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/MapEntity'
+        vCollectionValues:
+          type: array
+          items:
+            type: string
+        vMapValues:
+          type: object
+          additionalProperties:
+            type: string
+        vCollectionEntities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Collection2Entity'
+        vMapEntities:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Map2Entity'
+        vValue2Entity:
+          $ref: '#/components/schemas/Value2Entity'
+        virtualCollectionValues:
+          type: array
+          items:
+            type: string
+        virtualMapValues:
+          type: object
+          additionalProperties:
+            type: string
+        virtualCollectionEntities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Collection2Entity'
+        virtualMapEntities:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Map2Entity'
+        value2EntityTO:
+          $ref: '#/components/schemas/Value2EntityTO'
     Modell2:
       type: object
       properties:
@@ -3375,6 +3485,12 @@ components:
           type: string
         keyC:
           type: string
+        notUpdatable:
+          type: string
+        vStringVal:
+          type: string
+        virtualStringVal:
+          type: string
         bool:
           type: boolean
         id:
@@ -3428,6 +3544,35 @@ components:
           format: int32
           type: integer
         age:
+          format: int64
+          type: integer
+    Value2Entity:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        subName:
+          type: string
+        subStreet:
+          type: string
+        subNumber:
+          format: int32
+          type: integer
+        subAge:
+          format: int64
+          type: integer
+    Value2EntityTO:
+      type: object
+      properties:
+        subName:
+          type: string
+        subStreet:
+          type: string
+        subNumber:
+          format: int32
+          type: integer
+        subAge:
           format: int64
           type: integer
     ValueEntity:

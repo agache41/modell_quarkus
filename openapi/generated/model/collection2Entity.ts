@@ -11,9 +11,11 @@
  */
 
 
-export interface ModellAutocompleteIdsStringFieldLikeValueAsListGet200ResponseInner { 
+export interface Collection2Entity { 
     id?: number;
-    value?: string;
-    count?: number;
+    subName?: string;
+    subStreet?: string;
+    subNumber?: number;
+    subAge?: number;
 }
 

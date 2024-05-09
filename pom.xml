@@ -19,7 +19,7 @@
         <version.swagger-codegen-maven-plugin>3.0.0-rc1</version.swagger-codegen-maven-plugin>
         <quarkus.analytics.disabled>true</quarkus.analytics.disabled>
         <!-- version of the tested library -->
-        <generic-rest-jpa.version>0.2.5</generic-rest-jpa.version>
+        <generic-rest-jpa.version>0.2.6</generic-rest-jpa.version>
     </properties>
 
     <dependencyManagement>
@@ -238,7 +238,7 @@
                                         <sourceFolder>src/gen/java/main</sourceFolder>
                                     </configOptions>
                                     <output>${project.basedir}/openapi/generated</output>
-                                    <verbose>true</verbose>
+                                    <verbose>false</verbose>
                                     <cleanupOutput>true</cleanupOutput>
                                 </configuration>
                             </execution>

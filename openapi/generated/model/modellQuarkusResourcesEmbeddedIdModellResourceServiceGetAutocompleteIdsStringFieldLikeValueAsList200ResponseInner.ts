@@ -9,10 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { EmbeddedKeys } from './embeddedKeys';
 
 
-export interface Modell2AutocompleteIdsStringFieldLikeValueAsListGet200ResponseInner { 
-    id?: string;
+export interface ModellQuarkusResourcesEmbeddedIdModellResourceServiceGetAutocompleteIdsStringFieldLikeValueAsList200ResponseInner { 
+    key?: string;
+    id?: EmbeddedKeys;
     value?: string;
     count?: number;
 }

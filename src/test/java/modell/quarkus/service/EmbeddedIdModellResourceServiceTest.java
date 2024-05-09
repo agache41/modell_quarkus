@@ -21,6 +21,10 @@ public class EmbeddedIdModellResourceServiceTest extends AbstractResourceService
     private static final List<EmbeddedIdModell> insertData;
     private static final List<EmbeddedIdModell> updateData;
 
+//    static {
+//        RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
+//    }
+
     static {
         producer = Producer.ofClass(EmbeddedIdModell.class)
                            .withList(LinkedList::new)

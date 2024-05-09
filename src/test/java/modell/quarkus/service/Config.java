@@ -18,9 +18,16 @@
 package modell.quarkus.service;
 
 import io.github.agache41.generic.rest.jpa.filler.Producer;
+import io.restassured.RestAssured;
+import io.restassured.filter.log.RequestLoggingFilter;
+import io.restassured.filter.log.ResponseLoggingFilter;
 
 public class Config {
     public static final int collectionSize = 16;
+
+    static {
+        RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
+    }
 
     static {
         Producer.setDefaultSize(collectionSize);

@@ -20,6 +20,10 @@ public class ModellResourceServiceTest extends AbstractResourceServiceImplTest<M
     private static final List<Modell> insertData;
     private static final List<Modell> updateData;
 
+//    static {
+//        RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
+//    }
+
     static {
         producer = Producer.ofClass(Modell.class)
                            .withList(LinkedList::new)
