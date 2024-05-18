@@ -42,6 +42,21 @@ public class EmbeddedIdModell extends BaseEntity implements PrimaryKey<EmbeddedK
     @EmbeddedId
     private EmbeddedKeys id;
 
+    @Update.excluded
+    @EqualsAndHashCode.Exclude
+    @Column(name = "key1", insertable = false, updatable = false)
+    private String key1;
+
+    @Update.excluded
+    @EqualsAndHashCode.Exclude
+    @Column(name = "key2", insertable = false, updatable = false)
+    private String key2;
+
+    @Update.excluded
+    @EqualsAndHashCode.Exclude
+    @Column(name = "key3", insertable = false, updatable = false)
+    private String key3;
+
     @OrderColumn(name = "orderId")
     @Fetch(FetchMode.SUBSELECT)
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)

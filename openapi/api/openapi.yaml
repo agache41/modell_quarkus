@@ -3098,6 +3098,12 @@ components:
           type: boolean
         id:
           $ref: '#/components/schemas/EmbeddedKeys'
+        key1:
+          type: string
+        key2:
+          type: string
+        key3:
+          type: string
         embeddedIdSubModells1:
           type: array
           items:
