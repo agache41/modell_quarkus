@@ -17,7 +17,7 @@
 
 package modell.quarkus.service;
 
-import io.github.agache41.generic.rest.jpa.filler.Producer;
+import io.github.agache41.generic.rest.jpa.producer.Producer;
 import io.restassured.RestAssured;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;

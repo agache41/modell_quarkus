@@ -18,8 +18,8 @@
 package modell.quarkus.entities;
 
 import io.github.agache41.generic.rest.jpa.dataAccess.PrimaryKey;
+import io.github.agache41.generic.rest.jpa.update.Updatable;
 import io.github.agache41.generic.rest.jpa.update.Update;
-import io.github.agache41.generic.rest.jpa.update.Updateable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -33,7 +33,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Collection2Entity implements PrimaryKey<Long>, Updateable<Collection2Entity>/*, Comparable<CollectionEntity>*/ {
+public class Collection2Entity implements PrimaryKey<Long>, Updatable<Collection2Entity>/*, Comparable<CollectionEntity>*/ {
     @Id
     @EqualsAndHashCode.Exclude
     @GeneratedValue(strategy = GenerationType.IDENTITY)

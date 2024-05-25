@@ -1013,14 +1013,14 @@ export class ModellFksResourceServiceService {
     /**
      * @param firstResult 
      * @param maxResults 
-     * @param modellFks 
+     * @param requestBody 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public modellQuarkusResourcesModellFksResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, modellFks?: ModellFks, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<ModellFks>>;
-    public modellQuarkusResourcesModellFksResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, modellFks?: ModellFks, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<ModellFks>>>;
-    public modellQuarkusResourcesModellFksResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, modellFks?: ModellFks, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<ModellFks>>>;
-    public modellQuarkusResourcesModellFksResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, modellFks?: ModellFks, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesModellFksResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: any; }, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<ModellFks>>;
+    public modellQuarkusResourcesModellFksResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: any; }, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<ModellFks>>>;
+    public modellQuarkusResourcesModellFksResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: any; }, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<ModellFks>>>;
+    public modellQuarkusResourcesModellFksResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: any; }, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (firstResult !== undefined && firstResult !== null) {
@@ -1076,7 +1076,7 @@ export class ModellFksResourceServiceService {
         return this.httpClient.request<Array<ModellFks>>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                body: modellFks,
+                body: requestBody,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -1090,14 +1090,14 @@ export class ModellFksResourceServiceService {
     /**
      * @param firstResult 
      * @param maxResults 
-     * @param modellFks 
+     * @param requestBody 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public modellQuarkusResourcesModellFksResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, modellFks?: Array<ModellFks>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<ModellFks>>;
-    public modellQuarkusResourcesModellFksResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, modellFks?: Array<ModellFks>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<ModellFks>>>;
-    public modellQuarkusResourcesModellFksResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, modellFks?: Array<ModellFks>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<ModellFks>>>;
-    public modellQuarkusResourcesModellFksResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, modellFks?: Array<ModellFks>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesModellFksResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: Array<any>; }, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<ModellFks>>;
+    public modellQuarkusResourcesModellFksResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: Array<any>; }, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<ModellFks>>>;
+    public modellQuarkusResourcesModellFksResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: Array<any>; }, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<ModellFks>>>;
+    public modellQuarkusResourcesModellFksResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: Array<any>; }, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (firstResult !== undefined && firstResult !== null) {
@@ -1153,7 +1153,7 @@ export class ModellFksResourceServiceService {
         return this.httpClient.request<Array<ModellFks>>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                body: modellFks,
+                body: requestBody,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,

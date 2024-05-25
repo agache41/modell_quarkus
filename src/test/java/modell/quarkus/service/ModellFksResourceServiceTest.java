@@ -1,6 +1,6 @@
 package modell.quarkus.service;
 
-import io.github.agache41.generic.rest.jpa.filler.Producer;
+import io.github.agache41.generic.rest.jpa.producer.Producer;
 import io.github.agache41.generic.rest.jpa.resourceService.AbstractResourceServiceImplTest;
 import io.github.agache41.generic.rest.jpa.resourceService.ResourceService;
 import io.github.agache41.generic.rest.jpa.resourceService.ResourceServiceTestClient;
@@ -57,7 +57,7 @@ public class ModellFksResourceServiceTest extends AbstractResourceServiceImplTes
         ResourceService subModellFksResourceService = new ResourceServiceTestClient(SubModellAFks.class, "/subModellAFks");
         final List<SubModellAFks> subModellFksList = subModellFksResourceService.getAllAsList(subModellFksResourceService.getConfig()
                                                                                                                          .getFirstResult(), subModellFksResourceService.getConfig()
-                                                                                                                                                                       .getMaxResults());
+                                                                                                                                                                       .getMaxResults(), null);
         assertEquals(0, subModellFksList.size());
     }
 }

@@ -1013,14 +1013,14 @@ export class SubModellBFksResourceServiceService {
     /**
      * @param firstResult 
      * @param maxResults 
-     * @param subModellAFks 
+     * @param requestBody 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public modellQuarkusResourcesSubModellBFksResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, subModellAFks?: SubModellAFks, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
-    public modellQuarkusResourcesSubModellBFksResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, subModellAFks?: SubModellAFks, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
-    public modellQuarkusResourcesSubModellBFksResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, subModellAFks?: SubModellAFks, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
-    public modellQuarkusResourcesSubModellBFksResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, subModellAFks?: SubModellAFks, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesSubModellBFksResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: any; }, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
+    public modellQuarkusResourcesSubModellBFksResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: any; }, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellBFksResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: any; }, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellBFksResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: any; }, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (firstResult !== undefined && firstResult !== null) {
@@ -1076,7 +1076,7 @@ export class SubModellBFksResourceServiceService {
         return this.httpClient.request<Array<SubModellAFks>>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                body: subModellAFks,
+                body: requestBody,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -1090,14 +1090,14 @@ export class SubModellBFksResourceServiceService {
     /**
      * @param firstResult 
      * @param maxResults 
-     * @param subModellAFks 
+     * @param requestBody 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public modellQuarkusResourcesSubModellBFksResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, subModellAFks?: Array<SubModellAFks>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
-    public modellQuarkusResourcesSubModellBFksResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, subModellAFks?: Array<SubModellAFks>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
-    public modellQuarkusResourcesSubModellBFksResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, subModellAFks?: Array<SubModellAFks>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
-    public modellQuarkusResourcesSubModellBFksResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, subModellAFks?: Array<SubModellAFks>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesSubModellBFksResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: Array<any>; }, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<SubModellAFks>>;
+    public modellQuarkusResourcesSubModellBFksResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: Array<any>; }, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellBFksResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: Array<any>; }, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<SubModellAFks>>>;
+    public modellQuarkusResourcesSubModellBFksResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: Array<any>; }, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (firstResult !== undefined && firstResult !== null) {
@@ -1153,7 +1153,7 @@ export class SubModellBFksResourceServiceService {
         return this.httpClient.request<Array<SubModellAFks>>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                body: subModellAFks,
+                body: requestBody,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,

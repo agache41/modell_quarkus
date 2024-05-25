@@ -1015,14 +1015,14 @@ export class EmbeddedIdModellResourceServiceService {
     /**
      * @param firstResult 
      * @param maxResults 
-     * @param embeddedIdModell 
+     * @param requestBody 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, embeddedIdModell?: EmbeddedIdModell, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
-    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, embeddedIdModell?: EmbeddedIdModell, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
-    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, embeddedIdModell?: EmbeddedIdModell, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
-    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, embeddedIdModell?: EmbeddedIdModell, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: any; }, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: any; }, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: any; }, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentEqualsAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: any; }, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (firstResult !== undefined && firstResult !== null) {
@@ -1078,7 +1078,7 @@ export class EmbeddedIdModellResourceServiceService {
         return this.httpClient.request<Array<EmbeddedIdModell>>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                body: embeddedIdModell,
+                body: requestBody,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -1092,14 +1092,14 @@ export class EmbeddedIdModellResourceServiceService {
     /**
      * @param firstResult 
      * @param maxResults 
-     * @param embeddedIdModell 
+     * @param requestBody 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, embeddedIdModell?: Array<EmbeddedIdModell>, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
-    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, embeddedIdModell?: Array<EmbeddedIdModell>, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
-    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, embeddedIdModell?: Array<EmbeddedIdModell>, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
-    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, embeddedIdModell?: Array<EmbeddedIdModell>, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: Array<any>; }, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Array<EmbeddedIdModell>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: Array<any>; }, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: Array<any>; }, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Array<EmbeddedIdModell>>>;
+    public modellQuarkusResourcesEmbeddedIdModellResourceServicePostFilterContentInAsList(firstResult?: number, maxResults?: number, requestBody?: { [key: string]: Array<any>; }, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (firstResult !== undefined && firstResult !== null) {
@@ -1155,7 +1155,7 @@ export class EmbeddedIdModellResourceServiceService {
         return this.httpClient.request<Array<EmbeddedIdModell>>('post', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
-                body: embeddedIdModell,
+                body: requestBody,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,

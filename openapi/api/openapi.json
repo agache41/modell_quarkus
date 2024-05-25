@@ -397,7 +397,8 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/EmbeddedIdModell"
+                "type" : "object",
+                "additionalProperties" : { }
               }
             }
           }
@@ -442,9 +443,10 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "array",
-                "items" : {
-                  "$ref" : "#/components/schemas/EmbeddedIdModell"
+                "type" : "object",
+                "additionalProperties" : {
+                  "type" : "array",
+                  "items" : { }
                 }
               }
             }
@@ -1128,7 +1130,8 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/Modell"
+                "type" : "object",
+                "additionalProperties" : { }
               }
             }
           }
@@ -1173,9 +1176,10 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "array",
-                "items" : {
-                  "$ref" : "#/components/schemas/Modell"
+                "type" : "object",
+                "additionalProperties" : {
+                  "type" : "array",
+                  "items" : { }
                 }
               }
             }
@@ -1875,7 +1879,8 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/Modell2"
+                "type" : "object",
+                "additionalProperties" : { }
               }
             }
           }
@@ -1920,9 +1925,10 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "array",
-                "items" : {
-                  "$ref" : "#/components/schemas/Modell2"
+                "type" : "object",
+                "additionalProperties" : {
+                  "type" : "array",
+                  "items" : { }
                 }
               }
             }
@@ -2606,7 +2612,8 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/ModellFks"
+                "type" : "object",
+                "additionalProperties" : { }
               }
             }
           }
@@ -2651,9 +2658,10 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "array",
-                "items" : {
-                  "$ref" : "#/components/schemas/ModellFks"
+                "type" : "object",
+                "additionalProperties" : {
+                  "type" : "array",
+                  "items" : { }
                 }
               }
             }
@@ -3340,7 +3348,8 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/SubModellAFks"
+                "type" : "object",
+                "additionalProperties" : { }
               }
             }
           }
@@ -3385,9 +3394,10 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "array",
-                "items" : {
-                  "$ref" : "#/components/schemas/SubModellAFks"
+                "type" : "object",
+                "additionalProperties" : {
+                  "type" : "array",
+                  "items" : { }
                 }
               }
             }
@@ -4074,7 +4084,8 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/SubModellAFks"
+                "type" : "object",
+                "additionalProperties" : { }
               }
             }
           }
@@ -4119,9 +4130,10 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "array",
-                "items" : {
-                  "$ref" : "#/components/schemas/SubModellAFks"
+                "type" : "object",
+                "additionalProperties" : {
+                  "type" : "array",
+                  "items" : { }
                 }
               }
             }

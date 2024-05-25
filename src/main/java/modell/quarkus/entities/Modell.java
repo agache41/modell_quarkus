@@ -18,8 +18,8 @@
 package modell.quarkus.entities;
 
 import io.github.agache41.generic.rest.jpa.dataAccess.PrimaryKey;
+import io.github.agache41.generic.rest.jpa.update.Updatable;
 import io.github.agache41.generic.rest.jpa.update.Update;
-import io.github.agache41.generic.rest.jpa.update.Updateable;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Fetch;
@@ -38,7 +38,7 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Update
 @Entity
-public class Modell extends BaseEntity implements PrimaryKey<Long>, Updateable<Modell> {
+public class Modell extends BaseEntity implements PrimaryKey<Long>, Updatable<Modell> {
 
     private static final long serialVersionUID = 4981653210124872352L;
 
@@ -113,6 +113,7 @@ public class Modell extends BaseEntity implements PrimaryKey<Long>, Updateable<M
     @EqualsAndHashCode.Exclude
     private Map<Long, Map2Entity> vMapEntities = new HashMap<>();
 
+
     @Update.excluded
     @Fetch(FetchMode.JOIN)
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
@@ -145,14 +146,14 @@ public class Modell extends BaseEntity implements PrimaryKey<Long>, Updateable<M
         this.vMapValues.putAll(virtualMapValues);
     }
 
-    @Update
+    @Update(length = 2)
     public List<Collection2Entity> getVirtualCollectionEntities() {
         final List<Collection2Entity> virtualCollectionEntities = new LinkedList<>();
         virtualCollectionEntities.addAll(this.vCollectionEntities);
         return virtualCollectionEntities;
     }
 
-    @Update
+    @Update(length = 2, notNull = false)
     public void setVirtualCollectionEntities(final List<Collection2Entity> virtualCollectionEntities) {
         this.vCollectionEntities.clear();
         this.vCollectionEntities.addAll(virtualCollectionEntities);
