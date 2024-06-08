@@ -40,6 +40,7 @@ public class EmbeddedIdModell extends BaseEntity implements PrimaryKey<EmbeddedK
     private static final long serialVersionUID = 4981653210124872352L;
 
     @EmbeddedId
+    @Update(updatable = false, nullable = false)
     private EmbeddedKeys id;
 
     @Update.excluded
