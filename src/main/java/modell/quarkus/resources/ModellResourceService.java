@@ -2,8 +2,8 @@ package modell.quarkus.resources;
 
 
 import io.github.agache41.generic.rest.jpa.resourceService.AbstractResourceServiceImpl;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.transaction.Transactional;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
@@ -16,8 +16,8 @@ import java.util.List;
 
 
 @Getter
+@ApplicationScoped
 @Path("/modell")
-@Transactional
 public class ModellResourceService extends AbstractResourceServiceImpl<Modell, Long> {
 
     @Inject

@@ -48,9 +48,10 @@ public class EmbeddedKeys implements Updatable<EmbeddedKeys> {
         if (input == null) {
             return;
         }
-        final String[] inputs = input.split("#");
+        final String[] inputs = input.split("\\.");
         if (inputs == null || inputs.length < 3) {
-            return;
+            throw new IllegalArgumentException("Cannot parse " + this.getClass()
+                                                                     .getSimpleName() + " from " + input);
         }
         this.key1 = inputs[0];
         this.key2 = inputs[1];
@@ -59,6 +60,6 @@ public class EmbeddedKeys implements Updatable<EmbeddedKeys> {
 
     @Override
     public String toString() {
-        return this.key1 + '#' + this.key2 + '#' + this.key3;
+        return this.key1 + '.' + this.key2 + '.' + this.key3;
     }
 }
