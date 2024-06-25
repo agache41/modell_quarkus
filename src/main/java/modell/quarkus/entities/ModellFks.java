@@ -25,6 +25,8 @@ import lombok.*;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 @Data
@@ -47,18 +49,18 @@ public class ModellFks implements PrimaryKey<Long>, Updatable<ModellFks> {
 
     @Update
     @Basic
-    @Column(name = "keyA", length = 4, updatable = false)
+    @Column(name = "keyA", length = 4, nullable = false, updatable = false)
     private String keyA;
 
     @Update
     @Basic
-    @Column(name = "keyB", length = 4, updatable = false)
+    @Column(name = "keyB", length = 4, nullable = false, updatable = false)
     private String keyB;
 
 
     @Update
     @Basic
-    @Column(name = "keyC", length = 4, updatable = false)
+    @Column(name = "keyC", length = 4, nullable = false, updatable = false)
     private String keyC;
 
 
@@ -77,27 +79,29 @@ public class ModellFks implements PrimaryKey<Long>, Updatable<ModellFks> {
     private Long age;
 
     @Update
+    @Builder.Default
     @Fetch(FetchMode.JOIN)
     // add this to prevent Hibernate from using PersistentBag and defaulting equals to Object
-    @OrderColumn(name = "index")
+    //@OrderColumn(name = "index")
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumns({
             @JoinColumn(name = "keyA", referencedColumnName = "keyA"),
             @JoinColumn(name = "keyB", referencedColumnName = "keyB"),
             @JoinColumn(name = "keyC", referencedColumnName = "keyC")
     })
-    private List<SubModellAFks> subModellAFks;
+    private List<SubModellAFks> subModellAFks = new ArrayList<>();
 
 
     @Update
+    @Builder.Default
     @Fetch(FetchMode.JOIN)
     // add this to prevent Hibernate from using PersistentBag and defaulting equals to Object
-    @OrderColumn(name = "index")
+    //@OrderColumn(name = "index")
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumns({
             @JoinColumn(name = "keyA", referencedColumnName = "keyA"),
             @JoinColumn(name = "keyB", referencedColumnName = "keyB"),
             @JoinColumn(name = "keyC", referencedColumnName = "keyC")
     })
-    private List<SubModellBFks> subModellBFks;
+    private List<SubModellBFks> subModellBFks = new LinkedList<>();
 }

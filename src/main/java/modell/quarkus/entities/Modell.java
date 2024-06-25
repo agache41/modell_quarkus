@@ -17,6 +17,7 @@
 
 package modell.quarkus.entities;
 
+import io.github.agache41.generic.rest.jpa.dataAccess.DataAccess;
 import io.github.agache41.generic.rest.jpa.dataAccess.PrimaryKey;
 import io.github.agache41.generic.rest.jpa.update.Updatable;
 import io.github.agache41.generic.rest.jpa.update.Update;
@@ -25,10 +26,7 @@ import lombok.*;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Data
 @Builder
@@ -38,6 +36,7 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Update
 @Entity
+@NamedQuery(name = DataAccess.findById, query = "SELECT modell from Modell modell where modell.id = :id")
 public class Modell extends BaseEntity implements PrimaryKey<Long>, Updatable<Modell> {
 
     private static final long serialVersionUID = 4981653210124872352L;
@@ -74,14 +73,14 @@ public class Modell extends BaseEntity implements PrimaryKey<Long>, Updatable<Mo
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     // add this to prevent Hibernate from using PersistentBag
     @OrderColumn(name = "id")
-    private List<CollectionEntity> collectionEntities;
+    private List<CollectionEntity> collectionEntities = new ArrayList<>();
 
     @Fetch(FetchMode.SELECT)
     @MapKey(name = "id")
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     //add this to prevent failure at post when inserting new keys in the map, keys that will be overwritten.
     @EqualsAndHashCode.Exclude
-    private Map<Long, MapEntity> mapEntities;
+    private Map<Long, MapEntity> mapEntities = new HashMap<>();
 
     @Update.excluded
     @Fetch(FetchMode.SELECT)

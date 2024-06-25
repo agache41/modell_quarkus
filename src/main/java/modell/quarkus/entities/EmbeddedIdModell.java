@@ -25,6 +25,7 @@ import lombok.*;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -66,12 +67,12 @@ public class EmbeddedIdModell extends BaseEntity implements PrimaryKey<EmbeddedK
             @JoinColumn(name = "key2", referencedColumnName = "key2"),
             @JoinColumn(name = "key3", referencedColumnName = "key3")
     })
-    private List<EmbeddedIdSubModell1> embeddedIdSubModells1;
+    private List<EmbeddedIdSubModell1> embeddedIdSubModells1 = new ArrayList<>();
 
     @OrderColumn(name = "orderId")
     @Fetch(FetchMode.SUBSELECT)
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<EmbeddedIdSubModell2> embeddedIdSubModells2;
+    private List<EmbeddedIdSubModell2> embeddedIdSubModells2 = new ArrayList<>();
 
     @Fetch(FetchMode.JOIN)
     @OneToOne(fetch = FetchType.EAGER, mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
