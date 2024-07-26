@@ -34,15 +34,19 @@ public class BaseEntity {
     private static final long serialVersionUID = 7578664415534706949L;
 
     @Basic
-    @Update
+    @Update(order = 2)
     private String stringVal;
 
     @Basic
-    @Update(dynamic = false)
+    @Update(order = 3, length = 1)
+    private String smallStringVal;
+
+    @Basic
+    @Update(order = 4, dynamic = false)
     private String stringValNotNull;
 
     @Basic
-    @Update
+    @Update(order = 5)
     private Boolean booleanVal;
 
     @Basic
