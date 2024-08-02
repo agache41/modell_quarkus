@@ -4482,6 +4482,9 @@
           "stringVal" : {
             "type" : "string"
           },
+          "smallStringVal" : {
+            "type" : "string"
+          },
           "stringValNotNull" : {
             "type" : "string"
           },
@@ -4572,6 +4575,9 @@
           "stringVal" : {
             "type" : "string"
           },
+          "smallStringVal" : {
+            "type" : "string"
+          },
           "stringValNotNull" : {
             "type" : "string"
           },
@@ -4648,6 +4654,9 @@
           "stringVal" : {
             "type" : "string"
           },
+          "smallStringVal" : {
+            "type" : "string"
+          },
           "stringValNotNull" : {
             "type" : "string"
           },
@@ -4712,6 +4721,9 @@
         "type" : "object",
         "properties" : {
           "stringVal" : {
+            "type" : "string"
+          },
+          "smallStringVal" : {
             "type" : "string"
           },
           "stringValNotNull" : {
@@ -4855,6 +4867,9 @@
         "type" : "object",
         "properties" : {
           "stringVal" : {
+            "type" : "string"
+          },
+          "smallStringVal" : {
             "type" : "string"
           },
           "stringValNotNull" : {
@@ -5073,6 +5088,9 @@
         "type" : "object",
         "properties" : {
           "stringVal" : {
+            "type" : "string"
+          },
+          "smallStringVal" : {
             "type" : "string"
           },
           "stringValNotNull" : {

@@ -3070,6 +3070,8 @@ components:
       properties:
         stringVal:
           type: string
+        smallStringVal:
+          type: string
         stringValNotNull:
           type: string
         booleanVal:
@@ -3131,6 +3133,8 @@ components:
       properties:
         stringVal:
           type: string
+        smallStringVal:
+          type: string
         stringValNotNull:
           type: string
         booleanVal:
@@ -3183,6 +3187,8 @@ components:
       properties:
         stringVal:
           type: string
+        smallStringVal:
+          type: string
         stringValNotNull:
           type: string
         booleanVal:
@@ -3227,6 +3233,8 @@ components:
       type: object
       properties:
         stringVal:
+          type: string
+        smallStringVal:
           type: string
         stringValNotNull:
           type: string
@@ -3324,6 +3332,8 @@ components:
       type: object
       properties:
         stringVal:
+          type: string
+        smallStringVal:
           type: string
         stringValNotNull:
           type: string
@@ -3472,6 +3482,8 @@ components:
       type: object
       properties:
         stringVal:
+          type: string
+        smallStringVal:
           type: string
         stringValNotNull:
           type: string

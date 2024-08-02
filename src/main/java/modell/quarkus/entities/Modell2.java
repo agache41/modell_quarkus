@@ -46,6 +46,7 @@ public class Modell2 implements PrimaryKey<String>, Updatable<Modell2> {
 
     private Integer number;
 
+    @Update(dynamic = false)
     private long age;
 
 }
