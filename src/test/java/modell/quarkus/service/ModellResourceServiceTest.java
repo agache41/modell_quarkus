@@ -37,7 +37,8 @@ public class ModellResourceServiceTest extends AbstractResourceServiceImplTest<M
         super(Modell.class, //
               path, //
               insertData, //
-              updateData,
-              stringField); //
+              updateData, //
+              stringField,//
+              producer); //
     }
 }

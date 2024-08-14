@@ -71,7 +71,9 @@ public class EmbeddedIdModellResourceServiceTest extends AbstractResourceService
         super(EmbeddedIdModell.class, //
               path, //
               insertData, //
-              updateData, stringField); //
+              updateData, //
+              stringField, //
+              producer); //
     }
 
     private static void setPK(final List<EmbeddedIdModell> data) {

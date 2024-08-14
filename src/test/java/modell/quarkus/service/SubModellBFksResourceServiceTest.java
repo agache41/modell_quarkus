@@ -38,7 +38,8 @@ public class SubModellBFksResourceServiceTest extends AbstractResourceServiceImp
         super(SubModellBFks.class, //
               path, //
               insertData, //
-              updateData,
-              stringField); //
+              updateData, //
+              stringField, //
+              producer); //
     }
 }
