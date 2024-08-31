@@ -18,7 +18,7 @@
 package modell.quarkus.entities;
 
 import io.github.agache41.generic.rest.jpa.dataAccess.PrimaryKey;
-import io.github.agache41.generic.rest.jpa.update.Updatable;
+import io.github.agache41.generic.rest.jpa.update.SelfTransferObject;
 import io.github.agache41.generic.rest.jpa.update.Update;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,7 +31,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Map2Entity implements PrimaryKey<Long>, Updatable<Map2Entity> {
+public class Map2Entity implements PrimaryKey<Long>, SelfTransferObject<Map2Entity> {
     @Id
     @EqualsAndHashCode.Exclude
     @GeneratedValue(strategy = GenerationType.IDENTITY)

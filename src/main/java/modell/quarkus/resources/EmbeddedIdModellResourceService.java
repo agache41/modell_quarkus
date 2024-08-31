@@ -12,6 +12,6 @@ import modell.quarkus.entities.EmbeddedKeys;
 @Getter
 @ApplicationScoped
 @Path("/embeddedIdModell")
-public class EmbeddedIdModellResourceService extends AbstractResourceServiceImpl<EmbeddedIdModell, EmbeddedKeys> {
+public class EmbeddedIdModellResourceService extends AbstractResourceServiceImpl<EmbeddedIdModell, EmbeddedIdModell, EmbeddedKeys> {
 
 }

@@ -18,7 +18,7 @@ import java.util.List;
 @Getter
 @ApplicationScoped
 @Path("/modell")
-public class ModellResourceService extends AbstractResourceServiceImpl<Modell, Long> {
+public class ModellResourceService extends AbstractResourceServiceImpl<Modell, Modell, Long> {
 
     @Inject
     ModellDataAccess dataAccess;

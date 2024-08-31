@@ -11,5 +11,5 @@ import modell.quarkus.entities.Modell2;
 @Getter
 @ApplicationScoped
 @Path("/modell2")
-public class Modell2ResourceService extends AbstractResourceServiceImpl<Modell2, String> {
+public class Modell2ResourceService extends AbstractResourceServiceImpl<Modell2, Modell2, String> {
 }

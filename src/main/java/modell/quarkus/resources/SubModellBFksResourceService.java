@@ -9,7 +9,7 @@ import modell.quarkus.entities.SubModellAFks;
 
 @ApplicationScoped
 @Path("/subModellBFks")
-public class SubModellBFksResourceService extends AbstractResourceServiceImpl<SubModellAFks, Long> {
+public class SubModellBFksResourceService extends AbstractResourceServiceImpl<SubModellAFks, SubModellAFks, Long> {
 
 
 }
