@@ -17,7 +17,7 @@
 
 package modell.quarkus.entities;
 
-import io.github.agache41.generic.rest.jpa.update.Update;
+import io.github.agache41.rest.contract.update.Update;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;

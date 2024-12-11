@@ -1,9 +1,9 @@
 package modell.quarkus.service;
 
-import io.github.agache41.generic.rest.jpa.producer.Producer;
-import io.github.agache41.generic.rest.jpa.resourceService.AbstractResourceServiceImplTest;
-import io.github.agache41.generic.rest.jpa.resourceService.ResourceService;
-import io.github.agache41.generic.rest.jpa.resourceService.ResourceServiceTestClient;
+import io.github.agache41.rest.contract.producer.Producer;
+import io.github.agache41.rest.contract.resourceService.AbstractResourceServiceImplTest;
+import io.github.agache41.rest.contract.resourceService.ResourceService;
+import io.github.agache41.rest.contract.resourceService.ResourceServiceTestClient;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.transaction.Transactional;
 import modell.quarkus.entities.ModellFks;

@@ -89,9 +89,18 @@
         <!-- the baby -->
         <dependency>
             <groupId>io.github.agache41</groupId>
-            <artifactId>generic-rest-jpa</artifactId>
-            <version>${generic-rest-jpa.version}</version>
+            <artifactId>quarkus-rest-contract</artifactId>
+            <version>1.0.0</version>
         </dependency>
+
+
+        <dependency>
+            <groupId>io.github.agache41</groupId>
+            <artifactId>annotator</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+
+
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-junit5</artifactId>
@@ -110,8 +119,8 @@
         </dependency>
         <dependency>
             <groupId>io.github.agache41</groupId>
-            <artifactId>generic-rest-jpa</artifactId>
-            <version>${generic-rest-jpa.version}</version>
+            <artifactId>quarkus-rest-contract</artifactId>
+            <version>1.0.0</version>
             <classifier>tests</classifier>
             <type>test-jar</type>
             <scope>test</scope>

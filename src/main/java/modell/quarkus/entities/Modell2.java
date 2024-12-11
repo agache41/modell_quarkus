@@ -17,9 +17,9 @@
 
 package modell.quarkus.entities;
 
-import io.github.agache41.generic.rest.jpa.dataAccess.PrimaryKey;
-import io.github.agache41.generic.rest.jpa.update.SelfTransferObject;
-import io.github.agache41.generic.rest.jpa.update.Update;
+import io.github.agache41.rest.contract.dataAccessBase.PrimaryKey;
+import io.github.agache41.rest.contract.update.SelfTransferObject;
+import io.github.agache41.rest.contract.update.Update;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;

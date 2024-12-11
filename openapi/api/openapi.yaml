@@ -9,6 +9,31 @@ servers:
 - url: http://0.0.0.0:8080
   description: Auto generated value
 paths:
+  /customer/ag-grid/header:
+    get:
+      operationId: modell.quarkus.contract.resource.AgGridCustomerResource_header
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    colId:
+                      type: string
+                    headerName:
+                      type: string
+                    field:
+                      type: string
+                    aggFunc:
+                      type: string
+                    sortable:
+                      type: boolean
+                    filter:
+                      type: string
   /embeddedIdModell:
     put:
       tags:
@@ -216,14 +241,6 @@ paths:
       responses:
         "204":
           description: No Content
-    parameters:
-    - name: ids
-      in: path
-      required: true
-      schema:
-        type: array
-        items:
-          $ref: '#/components/schemas/EmbeddedKeys'
   /embeddedIdModell/byIds/{ids}/asList:
     get:
       tags:
@@ -246,14 +263,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/EmbeddedIdModell'
-    parameters:
-    - name: ids
-      in: path
-      required: true
-      schema:
-        type: array
-        items:
-          $ref: '#/components/schemas/EmbeddedKeys'
   /embeddedIdModell/filter/content/equals/value/asList:
     post:
       tags:
@@ -497,12 +506,6 @@ paths:
       responses:
         "204":
           description: No Content
-    parameters:
-    - name: id
-      in: path
-      required: true
-      schema:
-        $ref: '#/components/schemas/EmbeddedKeys'
   /modell:
     put:
       tags:
@@ -715,15 +718,6 @@ paths:
       responses:
         "204":
           description: No Content
-    parameters:
-    - name: ids
-      in: path
-      required: true
-      schema:
-        type: array
-        items:
-          format: int64
-          type: integer
   /modell/byIds/{ids}/asList:
     get:
       tags:
@@ -747,15 +741,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Modell'
-    parameters:
-    - name: ids
-      in: path
-      required: true
-      schema:
-        type: array
-        items:
-          format: int64
-          type: integer
   /modell/filter/content/equals/value/asList:
     post:
       tags:
@@ -1015,13 +1000,6 @@ paths:
       responses:
         "204":
           description: No Content
-    parameters:
-    - name: id
-      in: path
-      required: true
-      schema:
-        format: int64
-        type: integer
   /modell2:
     put:
       tags:
@@ -1229,14 +1207,6 @@ paths:
       responses:
         "204":
           description: No Content
-    parameters:
-    - name: ids
-      in: path
-      required: true
-      schema:
-        type: array
-        items:
-          type: string
   /modell2/byIds/{ids}/asList:
     get:
       tags:
@@ -1259,14 +1229,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Modell2'
-    parameters:
-    - name: ids
-      in: path
-      required: true
-      schema:
-        type: array
-        items:
-          type: string
   /modell2/filter/content/equals/value/asList:
     post:
       tags:
@@ -1510,12 +1472,6 @@ paths:
       responses:
         "204":
           description: No Content
-    parameters:
-    - name: id
-      in: path
-      required: true
-      schema:
-        type: string
   /modellFks:
     put:
       tags:
@@ -1728,15 +1684,6 @@ paths:
       responses:
         "204":
           description: No Content
-    parameters:
-    - name: ids
-      in: path
-      required: true
-      schema:
-        type: array
-        items:
-          format: int64
-          type: integer
   /modellFks/byIds/{ids}/asList:
     get:
       tags:
@@ -1760,15 +1707,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ModellFks'
-    parameters:
-    - name: ids
-      in: path
-      required: true
-      schema:
-        type: array
-        items:
-          format: int64
-          type: integer
   /modellFks/filter/content/equals/value/asList:
     post:
       tags:
@@ -2014,13 +1952,6 @@ paths:
       responses:
         "204":
           description: No Content
-    parameters:
-    - name: id
-      in: path
-      required: true
-      schema:
-        format: int64
-        type: integer
   /subModellAFks:
     put:
       tags:
@@ -2233,15 +2164,6 @@ paths:
       responses:
         "204":
           description: No Content
-    parameters:
-    - name: ids
-      in: path
-      required: true
-      schema:
-        type: array
-        items:
-          format: int64
-          type: integer
   /subModellAFks/byIds/{ids}/asList:
     get:
       tags:
@@ -2265,15 +2187,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SubModellAFks'
-    parameters:
-    - name: ids
-      in: path
-      required: true
-      schema:
-        type: array
-        items:
-          format: int64
-          type: integer
   /subModellAFks/filter/content/equals/value/asList:
     post:
       tags:
@@ -2519,13 +2432,6 @@ paths:
       responses:
         "204":
           description: No Content
-    parameters:
-    - name: id
-      in: path
-      required: true
-      schema:
-        format: int64
-        type: integer
   /subModellBFks:
     put:
       tags:
@@ -2738,15 +2644,6 @@ paths:
       responses:
         "204":
           description: No Content
-    parameters:
-    - name: ids
-      in: path
-      required: true
-      schema:
-        type: array
-        items:
-          format: int64
-          type: integer
   /subModellBFks/byIds/{ids}/asList:
     get:
       tags:
@@ -2770,15 +2667,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SubModellAFks'
-    parameters:
-    - name: ids
-      in: path
-      required: true
-      schema:
-        type: array
-        items:
-          format: int64
-          type: integer
   /subModellBFks/filter/content/equals/value/asList:
     post:
       tags:
@@ -3024,13 +2912,6 @@ paths:
       responses:
         "204":
           description: No Content
-    parameters:
-    - name: id
-      in: path
-      required: true
-      schema:
-        format: int64
-        type: integer
 components:
   schemas:
     Collection2Entity:

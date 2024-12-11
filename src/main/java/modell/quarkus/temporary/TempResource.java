@@ -1,8 +1,8 @@
 package modell.quarkus.temporary;
 
-import io.github.agache41.generic.rest.jpa.dataAccess.DataAccess;
-import io.github.agache41.generic.rest.jpa.dataAccess.PrimaryKey;
-import io.github.agache41.generic.rest.jpa.update.SelfTransferObject;
+import io.github.agache41.rest.contract.dataAccess.DataAccess;
+import io.github.agache41.rest.contract.dataAccessBase.PrimaryKey;
+import io.github.agache41.rest.contract.update.SelfTransferObject;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 

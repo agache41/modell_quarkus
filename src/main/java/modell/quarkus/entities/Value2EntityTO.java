@@ -17,8 +17,8 @@
 
 package modell.quarkus.entities;
 
-import io.github.agache41.generic.rest.jpa.update.SelfTransferObject;
-import io.github.agache41.generic.rest.jpa.update.Update;
+import io.github.agache41.rest.contract.update.SelfTransferObject;
+import io.github.agache41.rest.contract.update.Update;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

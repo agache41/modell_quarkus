@@ -1,7 +1,7 @@
 package modell.quarkus.resources;
 
 
-import io.github.agache41.generic.rest.jpa.resourceService.AbstractResourceServiceImpl;
+import io.github.agache41.rest.contract.resourceService.AbstractResourceServiceImpl;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
