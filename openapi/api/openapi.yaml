@@ -9,8 +9,27 @@ servers:
 - url: http://0.0.0.0:8080
   description: Auto generated value
 paths:
+  /customer/ag-grid/data:
+    post:
+      tags:
+      - Ag Grid Customer Resource
+      operationId: modell.quarkus.contract.resource.AgGridCustomerResource_data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ServerSideGetRowsRequest'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnterpriseGetRowsResponse'
   /customer/ag-grid/header:
     get:
+      tags:
+      - Ag Grid Customer Resource
       operationId: modell.quarkus.contract.resource.AgGridCustomerResource_header
       responses:
         "200":
@@ -2946,6 +2965,17 @@ components:
         subAge:
           format: int64
           type: integer
+    ColumnVO:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        field:
+          type: string
+        aggFunc:
+          type: string
     EmbeddedIdModell:
       type: object
       properties:
@@ -3177,6 +3207,51 @@ components:
           type: string
         key4:
           type: string
+    EnterpriseGetRowsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items: {}
+        lastRow:
+          format: int64
+          type: integer
+        secondaryColumnFields:
+          type: array
+          items:
+            type: string
+        secondaryColumns:
+          type: array
+          items:
+            type: string
+    IFilterModel:
+      type: object
+      properties:
+        colId:
+          type: string
+        filterType:
+          type: string
+        type:
+          type: string
+        filter:
+          type: string
+        filterTo:
+          type: string
+        values:
+          type: array
+          items:
+            type: string
+        dateFrom:
+          type: string
+        dateTo:
+          type: string
+    ISortModelItem:
+      type: object
+      properties:
+        colId:
+          type: string
+        sort:
+          type: string
     Map2Entity:
       type: object
       properties:
@@ -3359,6 +3434,41 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SubModellBFks'
+    ServerSideGetRowsRequest:
+      type: object
+      properties:
+        startRow:
+          format: int32
+          type: integer
+        endRow:
+          format: int32
+          type: integer
+        rowGroupCols:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnVO'
+        valueCols:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnVO'
+        pivotCols:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnVO'
+        pivotMode:
+          type: boolean
+        groupKeys:
+          type: array
+          items:
+            type: string
+        filterModel:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/IFilterModel'
+        sortModel:
+          type: array
+          items:
+            $ref: '#/components/schemas/ISortModelItem'
     SubModell:
       type: object
       properties:

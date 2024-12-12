@@ -15,7 +15,7 @@ import static java.util.Collections.emptyMap;
 
 public class ServerSideGetRowsRequest implements IServerSideGetRowsRequest {
 
-    private Long startRow, endRow;
+    private Integer startRow, endRow;
 
     // row group columns
     private List<ColumnVO> rowGroupCols;
@@ -48,22 +48,22 @@ public class ServerSideGetRowsRequest implements IServerSideGetRowsRequest {
     }
 
     @Override
-    public Long getStartRow() {
+    public Integer getStartRow() {
         return startRow;
     }
 
     @Override
-    public void setStartRow(Long startRow) {
+    public void setStartRow(Integer startRow) {
         this.startRow = startRow;
     }
 
     @Override
-    public Long getEndRow() {
+    public Integer getEndRow() {
         return endRow;
     }
 
     @Override
-    public void setEndRow(Long endRow) {
+    public void setEndRow(Integer endRow) {
         this.endRow = endRow;
     }
 

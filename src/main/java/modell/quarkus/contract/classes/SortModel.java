@@ -1,8 +1,10 @@
 package modell.quarkus.contract.classes;
 
+import modell.quarkus.contract.interfaces.ISortModelItem;
+
 import java.util.Objects;
 
-public class SortModel {
+public class SortModel  implements ISortModelItem {
   private String colId;
   private String sort;
   public SortModel() {

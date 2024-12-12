@@ -5,13 +5,13 @@ import java.util.List;
 import java.util.Map;
 
 public interface IServerSideGetRowsRequest extends Serializable {
-    Long getStartRow();
+    Integer getStartRow();
 
-    void setStartRow(Long startRow);
+    void setStartRow(Integer startRow);
 
-    Long getEndRow();
+    Integer getEndRow();
 
-    void setEndRow(Long endRow);
+    void setEndRow(Integer endRow);
 
     List<ColumnVO> getRowGroupCols();
 
