@@ -9,6 +9,13 @@ import modell.quarkus.contract.interfaces.HeaderInfo;
 
 import java.math.BigDecimal;
 
+import static modell.quarkus.contract.interfaces.Filter.*;
+
+@HeaderInfo(
+        flex = 1,
+        cellClass = "cell-wrap-text",
+        autoHeight = true,
+        filter = TEXT)
 @Data
 @NoArgsConstructor
 @Entity
@@ -23,32 +30,34 @@ public class Customer {
     private Long id;
 
     @Position(0)
-    @HeaderInfo(name = "Company Name", sortable = true)
+    @HeaderInfo(headerName = "Company Name", filter = NONE)
     @Column(name = "name")
     private String name;
 
     @Position(1)
-    @HeaderInfo(name = "Company Domain", sortable = true)
+    @HeaderInfo(headerName = "Company Domain", sortable = false, filter = TEXT)
     @Column(name = "type")
     private String type;
 
     @Position(20)
-    @HeaderInfo(name = "Adress", sortable = true)
+    @HeaderInfo(headerName = "Adress", filter = MULTI)
     @Column(name = "address")
     private String address;
 
     @Position(3)
-    @HeaderInfo(name = "Telephone", sortable = true)
+    @HeaderInfo(headerName = "Telephone", filter = SET)
     @Column(name = "telNumber")
     private String telNumber;
 
     @Position(4)
-    @HeaderInfo(name = "Registration Number", sortable = true)
+    @HeaderInfo(headerName = "Registration Number", filter = NUMBER)
     @Column(name = "regNumber")
     private Long regNumber;
 
     @Position(5)
-    @HeaderInfo(name = "Yearly Revenue", sortable = true)
+    @HeaderInfo(headerName = "Yearly Revenue")
     @Column(name = "yearRev")
     private BigDecimal yearRev;
+
+
 }

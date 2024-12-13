@@ -3,9 +3,7 @@ package modell.quarkus.contract.classes;
 
 
 import modell.quarkus.contract.interfaces.ColumnVO;
-import modell.quarkus.contract.interfaces.IFilterModel;
 import modell.quarkus.contract.interfaces.IServerSideGetRowsRequest;
-import modell.quarkus.contract.interfaces.ISortModelItem;
 
 import java.util.List;
 import java.util.Map;
@@ -33,10 +31,10 @@ public class ServerSideGetRowsRequest implements IServerSideGetRowsRequest {
     private List<String> groupKeys;
 
     // if filtering, what the filter model is
-    private Map<String, IFilterModel> filterModel;
+    private Map<String, CombinedSimpleModel> filterModel;
 
     // if sorting, what the sort model is
-    private List<ISortModelItem> sortModel;
+    private List<SortModel> sortModel;
 
     public ServerSideGetRowsRequest() {
         this.rowGroupCols = emptyList();
@@ -118,22 +116,22 @@ public class ServerSideGetRowsRequest implements IServerSideGetRowsRequest {
     }
 
     @Override
-    public Map<String, IFilterModel> getFilterModel() {
+    public Map<String, CombinedSimpleModel> getFilterModel() {
         return filterModel;
     }
 
     @Override
-    public void setFilterModel(Map<String, IFilterModel> filterModel) {
+    public void setFilterModel(Map<String, CombinedSimpleModel> filterModel) {
         this.filterModel = filterModel;
     }
 
     @Override
-    public List<ISortModelItem> getSortModel() {
+    public List<SortModel> getSortModel() {
         return sortModel;
     }
 
     @Override
-    public void setSortModel(List<ISortModelItem> sortModel) {
+    public void setSortModel(List<SortModel> sortModel) {
         this.sortModel = sortModel;
     }
 }

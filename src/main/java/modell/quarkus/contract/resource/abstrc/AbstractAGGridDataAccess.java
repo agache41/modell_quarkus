@@ -9,8 +9,6 @@ import jakarta.persistence.criteria.*;
 import jakarta.transaction.Transactional;
 import modell.quarkus.contract.classes.*;
 import modell.quarkus.contract.interfaces.HeaderInfo;
-import modell.quarkus.contract.interfaces.IFilterModel;
-import modell.quarkus.contract.interfaces.ISortModelItem;
 
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
@@ -48,6 +46,7 @@ public abstract class AbstractAGGridDataAccess<ENTITY> {
 
     public AbstractAGGridDataAccess(Class<ENTITY> entityClass) {
         this.entityClass = entityClass;
+        final HeaderInfo entityClassAnnotation = entityClass.getAnnotation(HeaderInfo.class);
         this.header = Annotator
                 .of(this.entityClass)
                 .getAccessorsThat(HaveAnnotation.ofType(HeaderInfo.class))
@@ -77,8 +76,8 @@ public abstract class AbstractAGGridDataAccess<ENTITY> {
     public List<ENTITY> find(
             int firstResult,
             int maxResults,
-            List<ISortModelItem> sortModels,
-            Map<String, IFilterModel> filterModel,
+            List<SortModel> sortModels,
+            Map<String, CombinedSimpleModel> filterModel,
             Object... parameters) {
         CriteriaBuilder cb = em().getCriteriaBuilder();
         CriteriaQuery<ENTITY> query = cb.createQuery(entityClass);
@@ -95,7 +94,7 @@ public abstract class AbstractAGGridDataAccess<ENTITY> {
     }
 
 
-    public Long count(Map<String, IFilterModel> filterModel, Object... parameters) {
+    public Long count(Map<String, CombinedSimpleModel> filterModel, Object... parameters) {
         CriteriaBuilder cb = em().getCriteriaBuilder();
         CriteriaQuery<Long> query = cb.createQuery(Long.class);
         Root<ENTITY> root = query.from(entityClass);
@@ -105,7 +104,7 @@ public abstract class AbstractAGGridDataAccess<ENTITY> {
                    .getSingleResult();
     }
 
-    protected Order getOrder(CriteriaBuilder cb, Root<ENTITY> root, ISortModelItem sortModel, Object[] parameters) {
+    protected Order getOrder(CriteriaBuilder cb, Root<ENTITY> root, SortModel sortModel, Object[] parameters) {
         if (ASCENDING.contains(sortModel.getSort())) {
             return cb.asc(root.get(sortModel.getColId()));
         }
@@ -127,7 +126,7 @@ public abstract class AbstractAGGridDataAccess<ENTITY> {
     private final Order[] getOrders(
             final CriteriaBuilder cb,
             final Root<ENTITY> root,
-            List<ISortModelItem> sortModels,
+            List<SortModel> sortModels,
             Object[] parameters) {
 
         // todo: clarify and implement
@@ -143,7 +142,7 @@ public abstract class AbstractAGGridDataAccess<ENTITY> {
     private final Predicate[] getPredicates(
             CriteriaBuilder cb,
             Root<ENTITY> root,
-            Map<String, IFilterModel> filterModel,
+            Map<String, CombinedSimpleModel> filterModel,
             Object[] parameters) {
         return filterModel.entrySet()
                           .stream()
@@ -157,7 +156,7 @@ public abstract class AbstractAGGridDataAccess<ENTITY> {
             CriteriaBuilder cb,
             Root<ENTITY> root,
             String field,
-            IFilterModel columnfilter,
+            CombinedSimpleModel columnfilter,
             Object[] parameters) {
 
         //todo: optimize mit enum based

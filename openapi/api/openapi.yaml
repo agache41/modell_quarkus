@@ -43,15 +43,47 @@ paths:
                   properties:
                     colId:
                       type: string
-                    headerName:
-                      type: string
                     field:
                       type: string
-                    aggFunc:
+                    type:
+                      type: array
+                      items:
+                        type: string
+                    cellDataType:
+                      type: string
+                    headerName:
                       type: string
                     sortable:
                       type: boolean
                     filter:
+                      type: string
+                    editable:
+                      type: boolean
+                    width:
+                      format: int32
+                      type: integer
+                    initialWidth:
+                      format: int32
+                      type: integer
+                    minWidth:
+                      format: int32
+                      type: integer
+                    maxWidth:
+                      format: int32
+                      type: integer
+                    flex:
+                      format: int32
+                      type: integer
+                    initialFlex:
+                      format: int32
+                      type: integer
+                    resizable:
+                      type: boolean
+                    suppressSizeToFit:
+                      type: boolean
+                    suppressAutoSize:
+                      type: boolean
+                    aggFunc:
                       type: string
   /embeddedIdModell:
     put:
@@ -2976,6 +3008,27 @@ components:
           type: string
         aggFunc:
           type: string
+    CombinedSimpleModel:
+      type: object
+      properties:
+        colId:
+          type: string
+        filterType:
+          type: string
+        type:
+          type: string
+        filter:
+          type: string
+        filterTo:
+          type: string
+        dateFrom:
+          type: string
+        dateTo:
+          type: string
+        values:
+          type: array
+          items:
+            type: string
     EmbeddedIdModell:
       type: object
       properties:
@@ -3224,34 +3277,6 @@ components:
           type: array
           items:
             type: string
-    IFilterModel:
-      type: object
-      properties:
-        colId:
-          type: string
-        filterType:
-          type: string
-        type:
-          type: string
-        filter:
-          type: string
-        filterTo:
-          type: string
-        values:
-          type: array
-          items:
-            type: string
-        dateFrom:
-          type: string
-        dateTo:
-          type: string
-    ISortModelItem:
-      type: object
-      properties:
-        colId:
-          type: string
-        sort:
-          type: string
     Map2Entity:
       type: object
       properties:
@@ -3464,11 +3489,18 @@ components:
         filterModel:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/IFilterModel'
+            $ref: '#/components/schemas/CombinedSimpleModel'
         sortModel:
           type: array
           items:
-            $ref: '#/components/schemas/ISortModelItem'
+            $ref: '#/components/schemas/SortModel'
+    SortModel:
+      type: object
+      properties:
+        colId:
+          type: string
+        sort:
+          type: string
     SubModell:
       type: object
       properties:

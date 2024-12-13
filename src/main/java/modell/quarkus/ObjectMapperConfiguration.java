@@ -25,7 +25,7 @@ public class ObjectMapperConfiguration {
         hibernate6Module.configure(Hibernate6Module.Feature.REQUIRE_EXPLICIT_LAZY_LOADING_MARKER, true);
 
         objectMapper.registerModule(hibernate6Module);
-        objectMapper.setSerializationInclusion(JsonInclude.Include.ALWAYS);
+        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.NONE);
         objectMapper.setVisibility(PropertyAccessor.GETTER, JsonAutoDetect.Visibility.ANY);
         objectMapper.setVisibility(PropertyAccessor.SETTER, JsonAutoDetect.Visibility.ANY);

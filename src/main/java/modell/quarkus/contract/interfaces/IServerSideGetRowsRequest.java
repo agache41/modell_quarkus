@@ -1,5 +1,8 @@
 package modell.quarkus.contract.interfaces;
 
+import modell.quarkus.contract.classes.CombinedSimpleModel;
+import modell.quarkus.contract.classes.SortModel;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
@@ -33,11 +36,11 @@ public interface IServerSideGetRowsRequest extends Serializable {
 
     void setGroupKeys(List<String> groupKeys);
 
-    Map<String, IFilterModel> getFilterModel();
+    Map<String, CombinedSimpleModel> getFilterModel();
 
-    void setFilterModel(Map<String, IFilterModel> filterModel);
+    void setFilterModel(Map<String, CombinedSimpleModel> filterModel);
 
-    List<ISortModelItem> getSortModel();
+    List<SortModel> getSortModel();
 
-    void setSortModel(List<ISortModelItem> sortModel);
+    void setSortModel(List<SortModel> sortModel);
 }
