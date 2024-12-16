@@ -51,13 +51,117 @@ paths:
                         type: string
                     cellDataType:
                       type: string
-                    headerName:
+                    hide:
+                      type: boolean
+                    initialHide:
+                      type: boolean
+                    lockVisible:
+                      type: boolean
+                    lockPosition:
                       type: string
-                    sortable:
+                    suppressMovable:
+                      type: boolean
+                    useValueFormatterForExport:
+                      type: boolean
+                    editable:
+                      type: boolean
+                    cellEditorPopup:
+                      type: boolean
+                    cellEditorPopupPosition:
+                      type: string
+                    singleClickEdit:
+                      type: boolean
+                    useValueParserForImport:
                       type: boolean
                     filter:
                       type: string
-                    editable:
+                    floatingFilter:
+                      type: boolean
+                    filterParams:
+                      $ref: '#/components/schemas/FilterParams'
+                    headerName:
+                      type: string
+                    headerTooltip:
+                      type: string
+                    wrapHeaderText:
+                      type: boolean
+                    autoHeaderHeight:
+                      type: boolean
+                    suppressHeaderMenuButton:
+                      type: boolean
+                    suppressHeaderFilterButton:
+                      type: boolean
+                    suppressHeaderContextMenu:
+                      type: boolean
+                    suppressHeaderKeyboardEvent:
+                      type: boolean
+                    suppressFloatingFilterButton:
+                      type: boolean
+                    chartDataType:
+                      type: string
+                    pinned:
+                      type: string
+                    initialPinned:
+                      type: string
+                    lockPinned:
+                      type: boolean
+                    pivot:
+                      type: boolean
+                    initialPivot:
+                      type: boolean
+                    pivotIndex:
+                      format: int32
+                      type: integer
+                    initialPivotIndex:
+                      format: int32
+                      type: integer
+                    enablePivot:
+                      type: boolean
+                    pivotComparator:
+                      type: string
+                    cellStyle:
+                      type: string
+                    cellClass:
+                      type: string
+                    autoHeight:
+                      type: boolean
+                    wrapText:
+                      type: boolean
+                    enableCellChangeFlash:
+                      type: boolean
+                    rowDrag:
+                      type: boolean
+                    rowGroup:
+                      type: boolean
+                    initialRowGroup:
+                      type: boolean
+                    rowGroupIndex:
+                      format: int32
+                      type: integer
+                    initialRowGroupIndex:
+                      format: int32
+                      type: integer
+                    enableRowGroup:
+                      type: boolean
+                    showRowGroup:
+                      type: boolean
+                    sortable:
+                      type: boolean
+                    sort:
+                      type: string
+                    sortIndex:
+                      format: int32
+                      type: integer
+                    initialSortIndex:
+                      format: int32
+                      type: integer
+                    sortingOrder:
+                      type: array
+                      items:
+                        type: string
+                    comparator:
+                      type: string
+                    unSortIcon:
                       type: boolean
                     width:
                       format: int32
@@ -83,8 +187,23 @@ paths:
                       type: boolean
                     suppressAutoSize:
                       type: boolean
-                    aggFunc:
-                      type: string
+  /customer/ag-grid/serverData:
+    post:
+      tags:
+      - Ag Grid Customer Resource
+      operationId: modell.quarkus.contract.resource.AgGridCustomerResource_serverData
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ServerSideGetRowsRequest'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnterpriseGetRowsResponse'
   /embeddedIdModell:
     put:
       tags:
@@ -3011,10 +3130,14 @@ components:
     CombinedSimpleModel:
       type: object
       properties:
-        colId:
-          type: string
         filterType:
-          type: string
+          $ref: '#/components/schemas/FilterType'
+        operator:
+          $ref: '#/components/schemas/Operator'
+        conditions:
+          type: array
+          items:
+            $ref: '#/components/schemas/CombinedSimpleModel'
         type:
           type: string
         filter:
@@ -3277,6 +3400,23 @@ components:
           type: array
           items:
             type: string
+    FilterParams:
+      type: object
+      properties:
+        applyMiniFilterWhileTyping:
+          type: boolean
+        filterValues:
+          type: array
+          items:
+            type: string
+        caseSensitive:
+          type: boolean
+    FilterType:
+      enum:
+      - text
+      - number
+      - date
+      type: string
     Map2Entity:
       type: object
       properties:
@@ -3459,6 +3599,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SubModellBFks'
+    Operator:
+      enum:
+      - AND
+      - OR
+      type: string
     ServerSideGetRowsRequest:
       type: object
       properties:

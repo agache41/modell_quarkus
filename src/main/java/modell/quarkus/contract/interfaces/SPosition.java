@@ -1,7 +1,7 @@
 package modell.quarkus.contract.interfaces;
 
 public enum SPosition {
-    NONE(""),
+    NONE(null),
     OVER("over"),
     UNDER("under");
 

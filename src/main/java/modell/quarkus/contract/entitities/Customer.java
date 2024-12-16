@@ -40,7 +40,7 @@ public class Customer {
     private String type;
 
     @Position(20)
-    @HeaderInfo(headerName = "Adress", filter = MULTI)
+    @HeaderInfo(headerName = "Adress")
     @Column(name = "address")
     private String address;
 

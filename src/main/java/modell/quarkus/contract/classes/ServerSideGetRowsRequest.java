@@ -5,6 +5,7 @@ package modell.quarkus.contract.classes;
 import modell.quarkus.contract.interfaces.ColumnVO;
 import modell.quarkus.contract.interfaces.IServerSideGetRowsRequest;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -31,7 +32,7 @@ public class ServerSideGetRowsRequest implements IServerSideGetRowsRequest {
     private List<String> groupKeys;
 
     // if filtering, what the filter model is
-    private Map<String, CombinedSimpleModel> filterModel;
+    private Map<String, CombinedSimpleModel> filterModel = new HashMap<>();
 
     // if sorting, what the sort model is
     private List<SortModel> sortModel;

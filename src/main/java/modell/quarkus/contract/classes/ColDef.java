@@ -33,6 +33,10 @@ public class ColDef<T, R> {
     //Columns:Filter
     private String filter;
     private Boolean floatingFilter;
+
+    private FilterParams filterParams = new FilterParams();
+
+
     //Columns: Header
     private String headerName;
     private String headerTooltip;
@@ -99,6 +103,8 @@ public class ColDef<T, R> {
     private Boolean suppressSizeToFit;
     private Boolean suppressAutoSize;
 
+    //
+
     public ColDef(String fieldName, HeaderInfo classHeaderInfo, HeaderInfo fieldHeaderInfo) {
         // take the field name
         this.colId = fieldName;
@@ -114,95 +120,100 @@ public class ColDef<T, R> {
         this.cellDataType = headerInfo.cellDataType()
                                       .toString();
         //Columns:Display
-        this.hide = noFalse(headerInfo.hide());
-        this.initialHide = noFalse(headerInfo.initialHide());
-        this.lockVisible = noFalse(headerInfo.lockVisible());
-        this.lockPosition = headerInfo.lockPosition()
-                                      .toString();
-        this.suppressMovable = noFalse(headerInfo.suppressMovable());
-        this.useValueFormatterForExport = noTrue(headerInfo.useValueFormatterForExport());
+        this.hide = setNoNull(this.hide, noFalse(headerInfo.hide()));
+        this.initialHide = setNoNull(this.initialHide, noFalse(headerInfo.initialHide()));
+        this.lockVisible = setNoNull(this.lockVisible, noFalse(headerInfo.lockVisible()));
+        this.lockPosition = setNoNull(this.lockPosition, headerInfo.lockPosition()
+                                                                   .toString());
+        this.suppressMovable = setNoNull(this.suppressMovable, noFalse(headerInfo.suppressMovable()));
+        this.useValueFormatterForExport = setNoNull(this.useValueFormatterForExport, noTrue(headerInfo.useValueFormatterForExport()));
 
         //Columns:Editing
-        this.editable = noFalse(headerInfo.editable());
-        this.cellEditorPopup = noFalse(headerInfo.cellEditorPopup());
-        this.cellEditorPopupPosition = headerInfo.cellEditorPopupPosition()
-                                                 .toString();
-        this.singleClickEdit = noFalse(headerInfo.singleClickEdit());
-        this.useValueParserForImport = noTrue(headerInfo.useValueParserForImport());
+        this.editable = setNoNull(this.editable, noFalse(headerInfo.editable()));
+        this.cellEditorPopup = setNoNull(this.cellEditorPopup, noFalse(headerInfo.cellEditorPopup()));
+        this.cellEditorPopupPosition = setNoNull(this.cellEditorPopupPosition, headerInfo.cellEditorPopupPosition()
+                                                                                         .toString());
+        this.singleClickEdit = setNoNull(this.singleClickEdit, noFalse(headerInfo.singleClickEdit()));
+        this.useValueParserForImport = setNoNull(this.useValueParserForImport, noTrue(headerInfo.useValueParserForImport()));
 
         //Columns:Filter
-        this.filter = headerInfo.filter()
-                                .toString();
-        this.floatingFilter = noFalse(headerInfo.floatingFilter());
+        this.filter = setNoNull(this.filter, headerInfo.filter()
+                                                       .toString());
+        this.floatingFilter = setNoNull(this.floatingFilter, noFalse(headerInfo.floatingFilter()));
 
         //Columns: Header
-        this.headerName = noBlank(headerInfo.headerName());
-        this.headerTooltip = noBlank(headerInfo.headerTooltip());
-        this.wrapHeaderText = noFalse(headerInfo.wrapHeaderText());
-        this.autoHeaderHeight = noFalse(headerInfo.autoHeaderHeight());
-        this.suppressHeaderMenuButton = noFalse(headerInfo.suppressHeaderMenuButton());
-        this.suppressHeaderFilterButton = noFalse(headerInfo.suppressHeaderFilterButton());
-        this.suppressHeaderContextMenu = noFalse(headerInfo.suppressHeaderContextMenu());
-        this.suppressHeaderKeyboardEvent = noFalse(headerInfo.suppressHeaderKeyboardEvent());
-        this.suppressFloatingFilterButton = noFalse(headerInfo.suppressFloatingFilterButton());
+        this.headerName = setNoNull(this.headerName, noBlank(headerInfo.headerName()));
+        this.headerTooltip = setNoNull(this.headerTooltip, noBlank(headerInfo.headerTooltip()));
+        this.wrapHeaderText = setNoNull(this.wrapHeaderText, noFalse(headerInfo.wrapHeaderText()));
+        this.autoHeaderHeight = setNoNull(this.autoHeaderHeight, noFalse(headerInfo.autoHeaderHeight()));
+        this.suppressHeaderMenuButton = setNoNull(this.suppressHeaderMenuButton, noFalse(headerInfo.suppressHeaderMenuButton()));
+        this.suppressHeaderFilterButton = setNoNull(this.suppressHeaderFilterButton, noFalse(headerInfo.suppressHeaderFilterButton()));
+        this.suppressHeaderContextMenu = setNoNull(this.suppressHeaderContextMenu, noFalse(headerInfo.suppressHeaderContextMenu()));
+        this.suppressHeaderKeyboardEvent = setNoNull(this.suppressHeaderKeyboardEvent, noFalse(headerInfo.suppressHeaderKeyboardEvent()));
+        this.suppressFloatingFilterButton = setNoNull(this.suppressFloatingFilterButton, noFalse(headerInfo.suppressFloatingFilterButton()));
 
         //Columns: Integrated Charts
-        this.chartDataType = headerInfo.chartDataType()
-                                       .toString();
+        this.chartDataType = setNoNull(this.chartDataType, headerInfo.chartDataType()
+                                                                     .toString());
 
         //Columns: Pinned
-        this.pinned = headerInfo.pinned()
-                                .toString();
-        this.initialPinned = headerInfo.initialPinned()
-                                       .toString();
-        this.lockPinned = noFalse(headerInfo.lockPinned());
+        this.pinned = setNoNull(this.pinned, headerInfo.pinned()
+                                                       .toString());
+        this.initialPinned = setNoNull(this.initialPinned, headerInfo.initialPinned()
+                                                                     .toString());
+        this.lockPinned = setNoNull(this.lockPinned, noFalse(headerInfo.lockPinned()));
 
         //Columns: Pivoting
-        this.pivot = noFalse(headerInfo.pivot());
-        this.initialPivot = noFalse(headerInfo.initialPivot());
-        this.pivotIndex = noMinus(headerInfo.pivotIndex());
-        this.initialPivotIndex = noMinus(headerInfo.initialPivotIndex());
-        this.enablePivot = noFalse(headerInfo.enablePivot());
-        this.pivotComparator = noBlank(headerInfo.pivotComparator());
+        this.pivot = setNoNull(this.pivot, noFalse(headerInfo.pivot()));
+        this.initialPivot = setNoNull(this.initialPivot, noFalse(headerInfo.initialPivot()));
+        this.pivotIndex = setNoNull(this.pivotIndex, noMinus(headerInfo.pivotIndex()));
+        this.initialPivotIndex = setNoNull(this.initialPivotIndex, noMinus(headerInfo.initialPivotIndex()));
+        this.enablePivot = setNoNull(this.enablePivot, noFalse(headerInfo.enablePivot()));
+        this.pivotComparator = setNoNull(this.pivotComparator, noBlank(headerInfo.pivotComparator()));
 
         //Columns: Rendering and Styling
-        this.cellStyle = noBlank(headerInfo.cellStyle());
-        this.cellClass = noBlank(headerInfo.cellClass());
-        this.autoHeight = noFalse(headerInfo.autoHeight());
-        this.wrapText = noFalse(headerInfo.wrapText());
-        this.enableCellChangeFlash = noFalse(headerInfo.enableCellChangeFlash());
+        this.cellStyle = setNoNull(this.cellStyle, noBlank(headerInfo.cellStyle()));
+        this.cellClass = setNoNull(this.cellClass, noBlank(headerInfo.cellClass()));
+        this.autoHeight = setNoNull(this.autoHeight, noFalse(headerInfo.autoHeight()));
+        this.wrapText = setNoNull(this.wrapText, noFalse(headerInfo.wrapText()));
+        this.enableCellChangeFlash = setNoNull(this.enableCellChangeFlash, noFalse(headerInfo.enableCellChangeFlash()));
 
         //Columns: Row Dragging
-        this.rowDrag = noFalse(headerInfo.rowDrag());
+        this.rowDrag = setNoNull(this.rowDrag, noFalse(headerInfo.rowDrag()));
 
         //Columns: Row Grouping
-        this.rowGroup = noFalse(headerInfo.rowGroup());
-        this.initialRowGroup = noFalse(headerInfo.initialRowGroup());
-        this.rowGroupIndex = noMinus(headerInfo.rowGroupIndex());
-        this.initialRowGroupIndex = noMinus(headerInfo.initialRowGroupIndex());
-        this.enableRowGroup = noFalse(headerInfo.enableRowGroup());
-        this.showRowGroup = noFalse(headerInfo.showRowGroup());
+        this.rowGroup = setNoNull(this.rowGroup, noFalse(headerInfo.rowGroup()));
+        this.initialRowGroup = setNoNull(this.initialRowGroup, noFalse(headerInfo.initialRowGroup()));
+        this.rowGroupIndex = setNoNull(this.rowGroupIndex, noMinus(headerInfo.rowGroupIndex()));
+        this.initialRowGroupIndex = setNoNull(this.initialRowGroupIndex, noMinus(headerInfo.initialRowGroupIndex()));
+        this.enableRowGroup = setNoNull(this.enableRowGroup, noFalse(headerInfo.enableRowGroup()));
+        this.showRowGroup = setNoNull(this.showRowGroup, noFalse(headerInfo.showRowGroup()));
 
         //Columns: Sort
-        this.sortable = noTrue(headerInfo.sortable());
-        this.sort = headerInfo.sort()
-                              .toString();
-        this.sortIndex = noMinus(headerInfo.sortIndex());
-        this.initialSortIndex = noMinus(headerInfo.initialSortIndex());
-        this.sortingOrder = this.sortable == null ? null : noEmpty(headerInfo.sortingOrder());
-        this.comparator = noBlank(headerInfo.comparator());
-        this.unSortIcon = noFalse(headerInfo.unSortIcon());
+        this.sortable = setNoNull(this.sortable, noTrue(headerInfo.sortable()));
+        this.sort = setNoNull(this.sort, headerInfo.sort()
+                                                   .toString());
+        this.sortIndex = setNoNull(this.sortIndex, noMinus(headerInfo.sortIndex()));
+        this.initialSortIndex = setNoNull(this.initialSortIndex, noMinus(headerInfo.initialSortIndex()));
+        this.sortingOrder = setNoNull(this.sortingOrder, this.sortable == null ? null : noEmpty(headerInfo.sortingOrder()));
+        this.comparator = setNoNull(this.comparator, noBlank(headerInfo.comparator()));
+        this.unSortIcon = setNoNull(this.unSortIcon, noFalse(headerInfo.unSortIcon()));
 
         //Columns:width
-        this.width = noMinus(headerInfo.width());
-        this.initialWidth = noMinus(headerInfo.initialWidth());
-        this.minWidth = noMinus(headerInfo.minWidth());
-        this.maxWidth = noMinus(headerInfo.maxWidth());
-        this.flex = noMinus(headerInfo.flex());
-        this.initialFlex = noMinus(headerInfo.initialFlex());
-        this.resizable = noTrue(headerInfo.resizable());
-        this.suppressSizeToFit = noFalse(headerInfo.suppresSizeToFit());
-        this.suppressAutoSize = noFalse((headerInfo.suppressAutoSize()));
+        this.width = setNoNull(this.width, noMinus(headerInfo.width()));
+        this.initialWidth = setNoNull(this.initialWidth, noMinus(headerInfo.initialWidth()));
+        this.minWidth = setNoNull(this.minWidth, noMinus(headerInfo.minWidth()));
+        this.maxWidth = setNoNull(this.maxWidth, noMinus(headerInfo.maxWidth()));
+        this.flex = setNoNull(this.flex, noMinus(headerInfo.flex()));
+        this.initialFlex = setNoNull(this.initialFlex, noMinus(headerInfo.initialFlex()));
+        this.resizable = setNoNull(this.resizable, noTrue(headerInfo.resizable()));
+        this.suppressSizeToFit = setNoNull(this.suppressSizeToFit, noFalse(headerInfo.suppresSizeToFit()));
+        this.suppressAutoSize = setNoNull(this.suppressAutoSize, noFalse(headerInfo.suppressAutoSize()));
+    }
+
+    private <V> V setNoNull(V previous, V actual) {
+        if (actual != null) return actual;
+        return previous;
     }
 
 

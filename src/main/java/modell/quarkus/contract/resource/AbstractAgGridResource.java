@@ -34,4 +34,12 @@ public abstract class AbstractAgGridResource<ENTITY> {
     public EnterpriseGetRowsResponse data(ServerSideGetRowsRequest request) {
         return this.dao().data(request);
     }
+
+    @POST
+    @Produces({"application/json"})
+    @Consumes({"application/json"})
+    @Path("/serverData")
+    public EnterpriseGetRowsResponse serverData(ServerSideGetRowsRequest request) {
+        return this.dao().data(request);
+    }
 }

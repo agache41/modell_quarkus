@@ -1,14 +1,13 @@
 package modell.quarkus.contract.interfaces;
 
-import com.fasterxml.jackson.annotation.JsonValue;
-
 public enum Filter {
-    NONE(""),
-    TEXT("true"),
+    NONE(null),
+    TEXT("agTextColumnFilter"),
     NUMBER("agNumberColumnFilter"),
     DATE("agDateColumnFilter"),
-    SET("agSetColumnFilter"),
-    MULTI("agMultiColumnFilter");
+    SET("agSetColumnFilter");
+    // not available
+    // MULTI("agMultiColumnFilter")
 
     private final String name;
 

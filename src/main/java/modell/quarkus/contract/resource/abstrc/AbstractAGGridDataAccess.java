@@ -9,6 +9,7 @@ import jakarta.persistence.criteria.*;
 import jakarta.transaction.Transactional;
 import modell.quarkus.contract.classes.*;
 import modell.quarkus.contract.interfaces.HeaderInfo;
+import modell.quarkus.contract.interfaces.Operator;
 
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
@@ -40,6 +41,7 @@ public abstract class AbstractAGGridDataAccess<ENTITY> {
     protected static final String GREATER_THAN = "greaterThan";
     protected static final String LESS_THAN = "lessThan";
     protected static final String IN_RANGE = "inRange";
+    protected static final Predicate[] NO_FILTER = new Predicate[0];
 
     protected final Class<ENTITY> entityClass;
     protected final List<ColDef<ENTITY, ?>> header;
@@ -51,7 +53,7 @@ public abstract class AbstractAGGridDataAccess<ENTITY> {
                 .of(this.entityClass)
                 .getAccessorsThat(HaveAnnotation.ofType(HeaderInfo.class))
                 .sorted(new PositionComparator())
-                .map(accessor -> new ColDef<ENTITY, Object>(accessor.getName(), accessor.getAnnotation(HeaderInfo.class, true)))
+                .map(accessor -> new ColDef<ENTITY, Object>(accessor.getName(), entityClassAnnotation, accessor.getAnnotation(HeaderInfo.class, true)))
                 .collect(Collectors.toList());
     }
 
@@ -144,6 +146,8 @@ public abstract class AbstractAGGridDataAccess<ENTITY> {
             Root<ENTITY> root,
             Map<String, CombinedSimpleModel> filterModel,
             Object[] parameters) {
+        if (filterModel == null || filterModel.isEmpty())
+            return NO_FILTER;
         return filterModel.entrySet()
                           .stream()
                           .map(entry -> getPredicate(cb, root, entry.getKey(), entry.getValue(), parameters))
@@ -153,6 +157,31 @@ public abstract class AbstractAGGridDataAccess<ENTITY> {
 
     // to implement the various cases for fe filters
     private Predicate getPredicate(
+            CriteriaBuilder cb,
+            Root<ENTITY> root,
+            String field,
+            CombinedSimpleModel columnfilter,
+            Object[] parameters) {
+        Operator operator = columnfilter.getOperator();
+        List<CombinedSimpleModel> conditions = columnfilter.getConditions();
+        if (operator == null || conditions == null || conditions.isEmpty()) // simple case
+            return columnfilter.getFilterType()
+                               .criteriaFilter()
+                               .predicate(cb, root, field, columnfilter, parameters);
+        else {
+            //extract each predicate
+            Predicate[] predicates = conditions.stream()
+                                               .map(combinedSimpleModel -> combinedSimpleModel.getFilterType()
+                                                                                              .criteriaFilter()
+                                                                                              .predicate(cb, root, field, combinedSimpleModel, parameters))
+                                               .toArray(Predicate[]::new);
+            return operator.function()
+                           .apply(cb, predicates);
+        }
+    }
+
+    // to implement the various cases for fe filters
+    private Predicate getSimplePredicate(
             CriteriaBuilder cb,
             Root<ENTITY> root,
             String field,
@@ -168,6 +197,8 @@ public abstract class AbstractAGGridDataAccess<ENTITY> {
                     .toLowerCase(Locale.ROOT);
             final String filterLike = filter
                     .replaceAll("\\s+", "%");
+
+
             if (CONTAINS.equals(columnfilter.getType())) {
                 return cb.like(value, "%" + filterLike + "%");
             }

@@ -22,8 +22,8 @@ public class AgGridCustomerResource extends AbstractAgGridResource<Customer> {
     void init() {
         Producer<Customer> customerProducer = Producer.ofClass(Customer.class);
         AGGridDataAccess em = this.dao();
-        logger.info("Begin .... adding 100k Customers");
-        for (int i = 0; i < 100000; i++) {
+        logger.info("Begin .... adding 20k Customers");
+        for (int i = 0; i < 20000; i++) {
             em.persist(customerProducer.produce());
         }
         logger.info("Added 100k Customers");
