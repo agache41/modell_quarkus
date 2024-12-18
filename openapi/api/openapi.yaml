@@ -13,24 +13,24 @@ paths:
     post:
       tags:
       - Ag Grid Customer Resource
-      operationId: modell.quarkus.contract.resource.AgGridCustomerResource_data
+      operationId: modell.quarkus.grid.contract.resource.AgGridCustomerResource_data
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ServerSideGetRowsRequest'
+              $ref: '#/components/schemas/GetRowsParam'
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EnterpriseGetRowsResponse'
+                $ref: '#/components/schemas/Rows'
   /customer/ag-grid/header:
     get:
       tags:
       - Ag Grid Customer Resource
-      operationId: modell.quarkus.contract.resource.AgGridCustomerResource_header
+      operationId: modell.quarkus.grid.contract.resource.AgGridCustomerResource_header
       responses:
         "200":
           description: OK
@@ -187,23 +187,6 @@ paths:
                       type: boolean
                     suppressAutoSize:
                       type: boolean
-  /customer/ag-grid/serverData:
-    post:
-      tags:
-      - Ag Grid Customer Resource
-      operationId: modell.quarkus.contract.resource.AgGridCustomerResource_serverData
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ServerSideGetRowsRequest'
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EnterpriseGetRowsResponse'
   /embeddedIdModell:
     put:
       tags:
@@ -3383,23 +3366,6 @@ components:
           type: string
         key4:
           type: string
-    EnterpriseGetRowsResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items: {}
-        lastRow:
-          format: int64
-          type: integer
-        secondaryColumnFields:
-          type: array
-          items:
-            type: string
-        secondaryColumns:
-          type: array
-          items:
-            type: string
     FilterParams:
       type: object
       properties:
@@ -3417,6 +3383,41 @@ components:
       - number
       - date
       type: string
+    GetRowsParam:
+      type: object
+      properties:
+        startRow:
+          format: int32
+          type: integer
+        endRow:
+          format: int32
+          type: integer
+        rowGroupCols:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnVO'
+        valueCols:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnVO'
+        pivotCols:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnVO'
+        pivotMode:
+          type: boolean
+        groupKeys:
+          type: array
+          items:
+            type: string
+        filterModel:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/CombinedSimpleModel'
+        sortModel:
+          type: array
+          items:
+            $ref: '#/components/schemas/SortModel'
     Map2Entity:
       type: object
       properties:
@@ -3604,48 +3605,35 @@ components:
       - AND
       - OR
       type: string
-    ServerSideGetRowsRequest:
+    Rows:
       type: object
       properties:
-        startRow:
+        data:
+          type: array
+          items: {}
+        lastRow:
           format: int32
           type: integer
-        endRow:
-          format: int32
-          type: integer
-        rowGroupCols:
-          type: array
-          items:
-            $ref: '#/components/schemas/ColumnVO'
-        valueCols:
-          type: array
-          items:
-            $ref: '#/components/schemas/ColumnVO'
-        pivotCols:
-          type: array
-          items:
-            $ref: '#/components/schemas/ColumnVO'
-        pivotMode:
-          type: boolean
-        groupKeys:
+        secondaryColumnFields:
           type: array
           items:
             type: string
-        filterModel:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/CombinedSimpleModel'
-        sortModel:
+        secondaryColumns:
           type: array
           items:
-            $ref: '#/components/schemas/SortModel'
+            type: string
+    Sort:
+      enum:
+      - asc
+      - desc
+      type: string
     SortModel:
       type: object
       properties:
         colId:
           type: string
         sort:
-          type: string
+          $ref: '#/components/schemas/Sort'
     SubModell:
       type: object
       properties:
